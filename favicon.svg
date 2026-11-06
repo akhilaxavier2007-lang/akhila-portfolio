@@ -1,28 +1,31 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100">
   <defs>
-    <linearGradient id="cosmic-grad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#9d4edd" />
-      <stop offset="50%" stop-color="#00f0ff" />
-      <stop offset="100%" stop-color="#ff007a" />
+    <linearGradient id="coral-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FF6B6B" />
+      <stop offset="100%" stop-color="#FF5E7E" />
     </linearGradient>
-    <radialGradient id="glow-grad" cx="50%" cy="50%" r="50%">
-      <stop offset="0%" stop-color="#00f0ff" stop-opacity="0.8"/>
-      <stop offset="100%" stop-color="#070714" stop-opacity="0"/>
-    </radialGradient>
+    <linearGradient id="purple-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#9B5DE5" />
+      <stop offset="100%" stop-color="#845EC2" />
+    </linearGradient>
   </defs>
-  <!-- Background -->
-  <rect width="100" height="100" rx="24" fill="#070714" />
-  <circle cx="50" cy="50" r="38" fill="url(#glow-grad)" opacity="0.4" />
   
-  <!-- Outer Orbit Ellipse -->
-  <ellipse cx="50" cy="50" rx="36" ry="14" fill="none" stroke="url(#cosmic-grad)" stroke-width="2.5" transform="rotate(-30 50 50)" />
-  <ellipse cx="50" cy="50" rx="36" ry="14" fill="none" stroke="url(#cosmic-grad)" stroke-width="2.5" transform="rotate(30 50 50)" opacity="0.7" />
-
-  <!-- Center Celestial Core -->
-  <circle cx="50" cy="50" r="10" fill="url(#cosmic-grad)" />
+  <!-- Warm Cream Rounded Background -->
+  <rect width="100" height="100" rx="28" fill="#FAF7F2" />
   
-  <!-- Orbiting Satellites -->
-  <circle cx="76" cy="35" r="3.5" fill="#00f0ff" />
-  <circle cx="24" cy="65" r="3" fill="#ff007a" />
+  <!-- Overlapping Playful Geometric Shapes -->
+  <!-- Sunshine Yellow Pill -->
+  <rect x="18" y="18" width="30" height="30" rx="15" fill="#FFD166" />
+  
+  <!-- Turquoise Blue Blob Shape -->
+  <circle cx="70" cy="35" r="16" fill="#00F5D4" />
+  
+  <!-- Coral Pink Large Circle -->
+  <circle cx="40" cy="62" r="22" fill="url(#coral-grad)" />
+  
+  <!-- Lavender Purple Starburst / Diamond -->
+  <rect x="60" y="55" width="24" height="24" rx="8" transform="rotate(45 72 67)" fill="url(#purple-grad)" />
+  
+  <!-- Central Stylized 'AX' Monogram in Deep Charcoal -->
+  <text x="50" y="61" font-family="'Space Grotesk', -apple-system, sans-serif" font-weight="800" font-size="28" fill="#1E2029" text-anchor="middle">AX</text>
 </svg>
-

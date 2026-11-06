@@ -3,20 +3,21 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Akhila Xavier — My Digital Universe</title>
-  <meta name="description" content="Welcome to the digital universe of Akhila Xavier — B.Tech Computer Science student at SCTCE (9.8 CGPA). Hackathon Shortlisted Innovator. Exploring technology, creating possibilities.">
+  <title>Akhila Xavier — A Little World of Big Ideas</title>
+  <meta name="description" content="Welcome to the creative playground of Akhila Xavier — B.Tech Computer Science student at SCTCE (9.8 CGPA). Hackathon Shortlisted Innovator. Exploring technology, crafting playful software, and turning curiosity into real possibilities.">
   <meta name="author" content="Akhila Xavier">
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
 
-  <!-- Open Graph Meta for Social Sharing & Challenge Judges -->
-  <meta property="og:title" content="Akhila Xavier — My Digital Universe">
-  <meta property="og:description" content="B.Tech Computer Science (9.8 CGPA) at SCTCE Trivandrum. Hackathon Shortlisted Innovator. Explore my interactive digital universe, solar system, and software projects.">
+  <!-- Open Graph Meta -->
+  <meta property="og:title" content="Akhila Xavier — A Little World of Big Ideas">
+  <meta property="og:description" content="B.Tech Computer Science (9.8 CGPA) at SCTCE Trivandrum. Hackathon Shortlisted Innovator. Explore my interactive creative playground, technical superpowers, and software projects.">
   <meta property="og:type" content="website">
+  <meta name="theme-color" content="#FAF7F2">
 
-  <!-- Google Fonts: Space Grotesk, Outfit & JetBrains Mono -->
+  <!-- Google Fonts: Space Grotesk (Bold geometric headings), Outfit (Warm approachable body), JetBrains Mono (Tech tags) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,500;0,700;1,400&family=Outfit:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Outfit:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700;800&display=swap" rel="stylesheet">
 
   <!-- FontAwesome Icons 6.5 -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -24,14 +25,14 @@
   <!-- Main Stylesheet -->
   <link rel="stylesheet" href="style.css">
 </head>
-<body data-theme="nebula">
+<body>
 
-  <!-- Ambient Dynamic Cosmic Canvas (Starfield & Constellations) -->
-  <canvas id="universe-canvas" aria-hidden="true"></canvas>
+  <!-- Ambient Dynamic Canvas: Floating Organic Blobs & Geometric Shapes -->
+  <canvas id="playground-canvas" aria-hidden="true"></canvas>
 
-  <!-- Custom Cosmic Cursor & Follower -->
-  <div class="custom-cursor" id="cursor" aria-hidden="true"></div>
-  <div class="custom-cursor-follower" id="cursor-follower" aria-hidden="true"></div>
+  <!-- Playful Cursor & Follower -->
+  <div class="playground-cursor" id="cursor" aria-hidden="true"></div>
+  <div class="playground-cursor-follower" id="cursor-follower" aria-hidden="true"></div>
 
   <!-- Toast Notification Hub -->
   <div class="toast-container" id="toast-container" aria-live="polite"></div>
@@ -39,12 +40,12 @@
   <!-- Skip Link for Accessibility -->
   <a href="#main-content" class="skip-link">Skip to main content</a>
 
-  <!-- Top Real-Time Mission Status Bar -->
-  <div class="mission-status-bar" id="mission-status">
-    <div class="status-ping"></div>
-    <span class="status-text">
-      <strong>Orbital Coordinates:</strong> B.Tech CSE @ SCTCE Trivandrum &bull; <strong>9.8 CGPA</strong> &bull; Hackathon Shortlisted Innovator &bull; <span class="status-badge-open">Open for Collaborations</span>
-    </span>
+  <!-- Top Announcement Bar -->
+  <div class="announcement-bar" id="announcement-bar">
+    <div class="announcement-pill">
+      <span class="live-sparkle"><i class="fa-solid fa-sparkles"></i></span>
+      <span><strong>Creative Coordinates:</strong> B.Tech CSE @ SCTCE Trivandrum &bull; <strong>9.8 CGPA</strong> &bull; Hackathon Shortlisted Innovator &bull; <span class="badge-status-open">Open to New Ideas</span></span>
+    </div>
   </div>
 
   <!-- Header & Navigation -->
@@ -53,10 +54,13 @@
       
       <!-- Brand Logo -->
       <a href="#home" class="nav-brand" aria-label="Akhila Xavier Homepage">
-        <span class="brand-orbit-icon"><i class="fa-solid fa-atom"></i></span>
-        <div class="brand-titles">
-          <span class="brand-name">Akhila <span class="brand-accent">Xavier</span></span>
-          <span class="brand-sub">Digital Universe</span>
+        <div class="brand-badge-box">
+          <span class="brand-monogram">AX</span>
+          <div class="brand-badge-dot"></div>
+        </div>
+        <div class="brand-text-group">
+          <span class="brand-name">Akhila <span class="brand-coral">Xavier</span></span>
+          <span class="brand-tag">Creative Playground</span>
         </div>
       </a>
 
@@ -64,31 +68,31 @@
       <nav class="desktop-nav" aria-label="Primary Navigation">
         <ul class="nav-links">
           <li><a href="#home" class="nav-item active"><i class="fa-solid fa-house"></i> Home</a></li>
-          <li><a href="#universe-section" class="nav-item"><i class="fa-solid fa-planet-ringed"></i> Universe</a></li>
-          <li><a href="#about" class="nav-item"><i class="fa-solid fa-user-astronaut"></i> About</a></li>
-          <li><a href="#skills" class="nav-item"><i class="fa-solid fa-dna"></i> Skills</a></li>
-          <li><a href="#projects" class="nav-item"><i class="fa-solid fa-meteor"></i> Projects</a></li>
+          <li><a href="#playground" class="nav-item"><i class="fa-solid fa-shapes"></i> Playground</a></li>
+          <li><a href="#about" class="nav-item"><i class="fa-solid fa-user"></i> About</a></li>
+          <li><a href="#skills" class="nav-item"><i class="fa-solid fa-wand-magic-sparkles"></i> Superpowers</a></li>
+          <li><a href="#projects" class="nav-item"><i class="fa-solid fa-layer-group"></i> Projects</a></li>
           <li><a href="#terminal" class="nav-item"><i class="fa-solid fa-terminal"></i> Console</a></li>
-          <li><a href="#contact" class="nav-item"><i class="fa-solid fa-satellite-dish"></i> Contact</a></li>
+          <li><a href="#contact" class="nav-item"><i class="fa-solid fa-paper-plane"></i> Connect</a></li>
         </ul>
       </nav>
 
-      <!-- Nav Controls: Theme, Audio & CTA -->
+      <!-- Nav Actions: Theme Color & Sound FX & CTA -->
       <div class="nav-actions">
-        <!-- Cosmic Theme Switcher -->
-        <button class="icon-tool-btn" id="theme-btn" title="Cycle Cosmic Theme (Nebula / Andromeda / Supernova)" aria-label="Cycle Cosmic Theme">
+        <!-- Palette Mood Switcher -->
+        <button class="nav-tool-btn" id="theme-btn" title="Cycle Playground Color Moods" aria-label="Cycle Color Mood">
           <i class="fa-solid fa-palette"></i>
         </button>
 
-        <!-- Web Audio API Synthesizer SFX Toggle -->
-        <button class="icon-tool-btn" id="audio-btn" title="Toggle Cosmic Synthesizer SFX" aria-label="Toggle Cosmic Synthesizer Sound FX">
+        <!-- Sound Toggle -->
+        <button class="nav-tool-btn" id="audio-btn" title="Toggle Playful Audio Feedback" aria-label="Toggle Audio Feedback">
           <i class="fa-solid fa-volume-xmark" id="audio-icon"></i>
         </button>
 
-        <!-- Signal Me CTA -->
-        <a href="#contact" class="btn-pill btn-nav-cta">
-          <span>Signal Me</span>
-          <i class="fa-solid fa-paper-plane"></i>
+        <!-- Say Hello CTA -->
+        <a href="#contact" class="btn-playground-pill btn-nav-cta">
+          <span>Say Hello!</span>
+          <i class="fa-solid fa-arrow-right"></i>
         </a>
 
         <!-- Mobile Drawer Toggle -->
@@ -104,15 +108,15 @@
     <div class="mobile-drawer" id="mobile-menu" aria-hidden="true">
       <ul class="mobile-links">
         <li><a href="#home" class="mobile-nav-item"><i class="fa-solid fa-house"></i> Home</a></li>
-        <li><a href="#universe-section" class="mobile-nav-item"><i class="fa-solid fa-planet-ringed"></i> Interactive Universe</a></li>
-        <li><a href="#about" class="mobile-nav-item"><i class="fa-solid fa-user-astronaut"></i> About &amp; Education</a></li>
-        <li><a href="#skills" class="mobile-nav-item"><i class="fa-solid fa-dna"></i> Tech Superpowers</a></li>
-        <li><a href="#projects" class="mobile-nav-item"><i class="fa-solid fa-meteor"></i> Projects &amp; Hackathons</a></li>
-        <li><a href="#terminal" class="mobile-nav-item"><i class="fa-solid fa-terminal"></i> Deep Space Console</a></li>
-        <li><a href="#contact" class="mobile-nav-item"><i class="fa-solid fa-satellite-dish"></i> Contact &amp; Connect</a></li>
+        <li><a href="#playground" class="mobile-nav-item"><i class="fa-solid fa-shapes"></i> Creative Playground</a></li>
+        <li><a href="#about" class="mobile-nav-item"><i class="fa-solid fa-user"></i> About Me &amp; 9.8 CGPA</a></li>
+        <li><a href="#skills" class="mobile-nav-item"><i class="fa-solid fa-wand-magic-sparkles"></i> Tech Superpowers</a></li>
+        <li><a href="#projects" class="mobile-nav-item"><i class="fa-solid fa-layer-group"></i> Projects &amp; Hackathons</a></li>
+        <li><a href="#terminal" class="mobile-nav-item"><i class="fa-solid fa-terminal"></i> Developer Console</a></li>
+        <li><a href="#contact" class="mobile-nav-item"><i class="fa-solid fa-paper-plane"></i> Contact &amp; Connect</a></li>
       </ul>
       <div class="mobile-drawer-footer">
-        <p class="drawer-quote">"Exploring technology. Creating possibilities."</p>
+        <p class="drawer-quote">"A Little World of Big Ideas."</p>
         <div class="drawer-socials">
           <a href="mailto:akhilaxavier2007@gmail.com" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
           <a href="https://www.linkedin.com/in/akhila-xavier-68671237b" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
@@ -128,299 +132,335 @@
          HOMEPAGE HERO SECTION
          ==================================================================== -->
     <section class="hero-section" id="home">
-      <div class="hero-glow-orb orb-1"></div>
-      <div class="hero-glow-orb orb-2"></div>
+      <!-- Decorative Floating Organic Blobs & Doodles in Background -->
+      <div class="blob-element blob-coral" aria-hidden="true"></div>
+      <div class="blob-element blob-turquoise" aria-hidden="true"></div>
+      <div class="blob-element blob-yellow" aria-hidden="true"></div>
+      <div class="blob-element blob-lavender" aria-hidden="true"></div>
 
       <div class="container hero-container">
         
         <!-- Left Hero Content -->
         <div class="hero-content">
-          <div class="hero-eyebrow">
-            <span class="eyebrow-ping"></span>
-            <span class="eyebrow-text">SCTCE TRIVANDRUM &bull; B.TECH CSE (9.8 CGPA)</span>
+          
+          <div class="hero-pill-badge">
+            <span class="badge-dot"></span>
+            <span class="badge-text">SCTCE TRIVANDRUM &bull; B.TECH CSE &bull; 9.8 CGPA</span>
           </div>
 
-          <h1 class="hero-title">
-            AKHILA <span class="gradient-text cosmic-name">XAVIER</span>
+          <h1 class="hero-main-title">
+            AKHILA <span class="highlight-coral">XAVIER</span>
           </h1>
 
+          <div class="hero-tagline-wrapper">
+            <span class="tagline-quote">"A Little World of Big Ideas."</span>
+          </div>
+
           <!-- Typewriter Role Showcase -->
-          <div class="hero-role-wrapper">
-            <span class="role-lead">Pursuing</span>
-            <span class="typing-text" id="typing-text">Computer Science &amp; Engineering</span>
+          <div class="hero-role-row">
+            <span class="role-prefix">Currently</span>
+            <span class="typing-text" id="typing-text">Building Playful Software</span>
             <span class="typing-cursor">|</span>
           </div>
 
-          <p class="hero-tagline">
-            "Exploring technology. Creating possibilities."
+          <p class="hero-intro-text">
+            Welcome to my creative playground — where curiosity meets computer science, playful experimentation becomes real software, and every new idea opens up endless possibilities.
           </p>
 
-          <p class="hero-intro">
-            Welcome to my digital universe — a space where curiosity meets technology, ideas become projects, and every new experience opens another possibility.
-          </p>
-
-          <!-- Call to Action Buttons -->
-          <div class="hero-actions">
-            <a href="#universe-section" class="btn-primary">
-              <i class="fa-solid fa-atom"></i>
-              <span>Explore The Universe</span>
+          <!-- Prominent Action Buttons -->
+          <div class="hero-actions-row">
+            <a href="#playground" class="btn-playground-primary">
+              <i class="fa-solid fa-shapes"></i>
+              <span>Explore Playground</span>
             </a>
-            <a href="#projects" class="btn-secondary">
-              <i class="fa-solid fa-meteor"></i>
+            <a href="#projects" class="btn-playground-secondary">
+              <i class="fa-solid fa-layer-group"></i>
               <span>View Flagship Projects</span>
             </a>
-            <a href="#terminal" class="btn-secondary btn-console-cta">
-              <i class="fa-solid fa-terminal"></i>
-              <span>Terminal CLI</span>
+            <a href="#about" class="btn-playground-tertiary">
+              <span>My Journey</span>
+              <i class="fa-solid fa-arrow-down"></i>
             </a>
           </div>
 
           <!-- Academic & Hackathon Honors Metric Row -->
-          <div class="hero-metrics-strip">
-            <div class="metric-block">
-              <div class="metric-num">9.8</div>
-              <div class="metric-cap">B.Tech First Year CGPA</div>
+          <div class="hero-metrics-grid">
+            <div class="metric-card metric-lavender">
+              <span class="metric-value">9.8</span>
+              <span class="metric-label">B.Tech First Year CGPA</span>
             </div>
-            <div class="metric-sep"></div>
-            <div class="metric-block">
-              <div class="metric-num">CBSE Topper</div>
-              <div class="metric-cap">Informatics Practices</div>
+            <div class="metric-card metric-coral">
+              <span class="metric-value">Shortlisted</span>
+              <span class="metric-label">Hackathon Finalist</span>
             </div>
-            <div class="metric-sep"></div>
-            <div class="metric-block">
-              <div class="metric-num">Shortlisted</div>
-              <div class="metric-cap">Hackathon by Sponsor Co.</div>
+            <div class="metric-card metric-yellow">
+              <span class="metric-value">CBSE Topper</span>
+              <span class="metric-label">Informatics Practices</span>
             </div>
-            <div class="metric-sep"></div>
-            <div class="metric-block">
-              <div class="metric-num">Java Topper</div>
-              <div class="metric-cap">Secondary School Coding</div>
+            <div class="metric-card metric-turquoise">
+              <span class="metric-value">Java Topper</span>
+              <span class="metric-label">Secondary School</span>
             </div>
           </div>
+
         </div>
 
-        <!-- Right Celestial 3D Visual Core -->
-        <div class="hero-visual" data-tilt aria-hidden="true">
-          <div class="celestial-core-display">
-            <div class="core-glow-aura"></div>
-            <div class="core-ring-orbital ring-1"></div>
-            <div class="core-ring-orbital ring-2"></div>
+        <!-- Right Hero Visual Showcase (Creative Bento Canvas) -->
+        <div class="hero-visual-card" data-tilt aria-hidden="true">
+          <div class="visual-card-inner">
             
-            <div class="central-monogram-sphere">
-              <span class="monogram-text">AX</span>
-              <div class="micro-sparkle sp-1"></div>
-              <div class="micro-sparkle sp-2"></div>
-              <div class="micro-sparkle sp-3"></div>
+            <!-- Floating Doodles & Badges -->
+            <div class="doodle-shape doodle-star"><i class="fa-solid fa-star"></i></div>
+            <div class="doodle-shape doodle-code"><i class="fa-solid fa-code"></i></div>
+            <div class="doodle-shape doodle-heart"><i class="fa-solid fa-heart"></i></div>
+
+            <!-- Central Portrait / Monogram Artboard -->
+            <div class="center-artboard">
+              <div class="artboard-avatar">
+                <span class="avatar-monogram">AX</span>
+                <span class="avatar-sparkle">✨</span>
+              </div>
+              <div class="artboard-details">
+                <span class="artboard-name">Akhila Xavier</span>
+                <span class="artboard-degree">CS Undergrad &bull; SCTCE</span>
+              </div>
             </div>
 
-            <!-- Orbiting Skill Badges -->
-            <div class="satellite-pill sat-python" title="Proficient in Python">
+            <!-- Playful Floating Pills -->
+            <div class="floating-tech-pill pill-python">
               <i class="fa-brands fa-python"></i>
-              <span>Python</span>
+              <span>Python Proficient</span>
             </div>
-            <div class="satellite-pill sat-java" title="Java OOP & Swing">
+            <div class="floating-tech-pill pill-java">
               <i class="fa-brands fa-java"></i>
-              <span>Java</span>
+              <span>Java Topper</span>
             </div>
-            <div class="satellite-pill sat-c" title="C & Systems Logic">
-              <i class="fa-solid fa-code"></i>
-              <span>C / Shell</span>
+            <div class="floating-tech-pill pill-ai">
+              <i class="fa-solid fa-brain"></i>
+              <span>Local AI &bull; PRISM</span>
             </div>
-            <div class="satellite-pill sat-aws" title="AWS Cloud & Local AI">
+            <div class="floating-tech-pill pill-aws">
               <i class="fa-brands fa-aws"></i>
               <span>AWS Cloud</span>
             </div>
+
           </div>
         </div>
 
       </div>
 
-      <!-- Exploration Scroll Indicator -->
-      <a href="#universe-section" class="scroll-indicator" aria-label="Scroll to Interactive Solar System">
-        <span class="scroll-track"><span class="scroll-ball"></span></span>
-        <span class="scroll-caption">Descent Into Orbit</span>
+      <!-- Scroll Indicator -->
+      <a href="#playground" class="scroll-down-btn" aria-label="Scroll to Creative Playground">
+        <span class="mouse-roller"><span class="roller-dot"></span></span>
+        <span class="roller-text">Explore The Playground</span>
       </a>
     </section>
 
 
     <!-- ====================================================================
-         SIGNATURE FEATURE: INTERACTIVE DIGITAL UNIVERSE
+         SIGNATURE FEATURE: INTERACTIVE CREATIVE PLAYGROUND
          ==================================================================== -->
-    <section class="universe-section" id="universe-section">
+    <section class="playground-section" id="playground">
       <div class="container">
         
         <div class="section-heading text-center">
-          <span class="section-tag"><i class="fa-solid fa-atom"></i> Signature Creative Experience</span>
-          <h2 class="section-title">The <span class="gradient-text">Digital Universe</span></h2>
-          <p class="section-subtitle">
-            An original interactive cosmos representing my journey through technology, continuous learning, and creative curiosity.
+          <span class="section-tag-pill tag-coral"><i class="fa-solid fa-shapes"></i> Interactive Playground</span>
+          <h2 class="section-main-title">A Creative <span class="highlight-coral">Playground</span> of Four Worlds</h2>
+          <p class="section-sub-text">
+            Click into any of the four interactive zones below to explore my academic foundation, technical superpowers, flagship projects, and personal passions.
           </p>
-          <div class="interaction-hint">
-            <i class="fa-solid fa-hand-pointer"></i>
-            <span><strong>Click any orbiting planet</strong> to reveal its cosmic dossier, or explore the personal constellation below.</span>
-          </div>
         </div>
 
-        <!-- The Orbital Solar System Canvas & Interactive Planets -->
-        <div class="solar-system-wrapper" id="solar-system">
+        <!-- The 4-Zone Interactive Playground Grid -->
+        <div class="playground-zones-grid">
           
-          <!-- Central Star: Akhila Xavier -->
-          <div class="central-star" id="central-star" tabindex="0" role="button" aria-label="Central Star: Akhila Xavier (AX)">
-            <div class="star-corona"></div>
-            <div class="star-core">
-              <span class="star-label">AX</span>
+          <!-- ZONE 1: ABOUT ME (Lavender Purple) -->
+          <div class="playground-zone-card zone-lavender" id="zone-about-card" role="button" tabindex="0" aria-label="Open About Me details" aria-haspopup="dialog">
+            <div class="zone-illustration">
+              <div class="shape-icon-wrap"><i class="fa-solid fa-user-astronaut"></i></div>
+              <span class="zone-tag-mini">Zone 01</span>
             </div>
-            <span class="star-caption">Akhila Xavier<br><small>Gravitational Core</small></span>
-          </div>
-
-          <!-- Orbital Track 1: About Me -->
-          <div class="orbit-path orbit-path-1"></div>
-          <div class="planet-anchor" id="planet-anchor-1">
-            <button class="planet planet-about" id="planet-about-btn" aria-label="Open About Me Planet Dossier" aria-haspopup="dialog">
-              <div class="planet-sphere sphere-lavender">
-                <i class="fa-solid fa-user-astronaut"></i>
-              </div>
-              <span class="planet-badge">Planet I &bull; About Me &amp; 9.8 CGPA</span>
-            </button>
-          </div>
-
-          <!-- Orbital Track 2: Tech Superpowers -->
-          <div class="orbit-path orbit-path-2"></div>
-          <div class="planet-anchor" id="planet-anchor-2">
-            <button class="planet planet-skills" id="planet-skills-btn" aria-label="Open Tech Superpowers Planet Dossier" aria-haspopup="dialog">
-              <div class="planet-sphere sphere-cyan">
-                <i class="fa-solid fa-microchip"></i>
-              </div>
-              <span class="planet-badge">Planet II &bull; Tech Superpowers</span>
-            </button>
-          </div>
-
-          <!-- Orbital Track 3: Projects & Hackathons -->
-          <div class="orbit-path orbit-path-3"></div>
-          <div class="planet-anchor" id="planet-anchor-3">
-            <button class="planet planet-projects" id="planet-projects-btn" aria-label="Open Projects Planet Dossier" aria-haspopup="dialog">
-              <div class="planet-sphere sphere-violet">
-                <i class="fa-solid fa-meteor"></i>
-              </div>
-              <span class="planet-badge">Planet III &bull; Projects &amp; Hackathon</span>
-            </button>
-          </div>
-
-          <!-- Accessibility Orbit Motion Control -->
-          <div class="orbit-accessibility-control">
-            <button class="orbit-toggle-btn" id="orbit-motion-toggle" aria-label="Pause or play planetary orbit animation">
-              <i class="fa-solid fa-pause" id="motion-icon"></i>
-              <span id="motion-label">Pause Orbit</span>
-            </button>
-          </div>
-        </div>
-
-        <!-- Planet Information Modal / Dossier Overlay -->
-        <div class="planet-modal" id="planet-modal" role="dialog" aria-modal="true" aria-hidden="true">
-          <div class="planet-modal-backdrop" id="modal-backdrop"></div>
-          <div class="planet-modal-card glass-card">
-            
-            <div class="modal-card-header">
-              <div class="modal-badge-wrapper">
-                <span class="modal-planet-icon" id="modal-planet-icon"><i class="fa-solid fa-planet-ringed"></i></span>
-                <div>
-                  <span class="modal-eyebrow" id="modal-eyebrow">PLANET EXPLORATION</span>
-                  <h3 class="modal-title" id="modal-title">Planet Dossier</h3>
-                </div>
-              </div>
-              <button class="modal-close-btn" id="modal-close-btn" aria-label="Close information panel">
-                <i class="fa-solid fa-xmark"></i>
-              </button>
+            <h3 class="zone-title">About Me</h3>
+            <p class="zone-desc">
+              B.Tech Computer Science student at SCTCE Trivandrum with a <strong>9.8 CGPA</strong>. Driven by curiosity, structured problem-solving, and continuous learning.
+            </p>
+            <div class="zone-chips">
+              <span>SCTCE Trivandrum</span>
+              <span>9.8 CGPA</span>
+              <span>Curiosity First</span>
             </div>
-
-            <div class="modal-card-body" id="modal-body-content">
-              <!-- Dynamically populated via JavaScript -->
+            <div class="zone-action-row">
+              <span class="zone-btn-text">Open Dossier</span>
+              <span class="zone-btn-icon"><i class="fa-solid fa-arrow-right"></i></span>
             </div>
-
-            <div class="modal-card-footer">
-              <button class="btn-secondary btn-sm" id="modal-dismiss-btn">Close Panel</button>
-              <a href="#about" class="btn-primary btn-sm" id="modal-deep-link">Jump to Full Section</a>
-            </div>
-
           </div>
+
+          <!-- ZONE 2: TECH SUPERPOWERS (Turquoise Blue) -->
+          <div class="playground-zone-card zone-turquoise" id="zone-skills-card" role="button" tabindex="0" aria-label="Open Tech Superpowers details" aria-haspopup="dialog">
+            <div class="zone-illustration">
+              <div class="shape-icon-wrap"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+              <span class="zone-tag-mini">Zone 02</span>
+            </div>
+            <h3 class="zone-title">Tech Superpowers</h3>
+            <p class="zone-desc">
+              Strong competencies in Python, Java, C, and DBMS. Active explorations in AWS Cloud Hosting, Local AI Privacy, and Cyber Security.
+            </p>
+            <div class="zone-chips">
+              <span>Python &bull; C &bull; Java</span>
+              <span>DBMS &bull; MySQL</span>
+              <span>AWS &bull; AI</span>
+            </div>
+            <div class="zone-action-row">
+              <span class="zone-btn-text">Inspect Superpowers</span>
+              <span class="zone-btn-icon"><i class="fa-solid fa-arrow-right"></i></span>
+            </div>
+          </div>
+
+          <!-- ZONE 3: PROJECTS (Coral Pink) -->
+          <div class="playground-zone-card zone-coral" id="zone-projects-card" role="button" tabindex="0" aria-label="Open Projects details" aria-haspopup="dialog">
+            <div class="zone-illustration">
+              <div class="shape-icon-wrap"><i class="fa-solid fa-trophy"></i></div>
+              <span class="zone-tag-mini">Zone 03</span>
+            </div>
+            <h3 class="zone-title">Projects</h3>
+            <p class="zone-desc">
+              Featuring <strong>PRISM</strong> (Hackathon Shortlisted by sponsoring company!), Smart Healthcare Companion in Java/MySQL, and this Creative Playground.
+            </p>
+            <div class="zone-chips">
+              <span>PRISM AI Copilot</span>
+              <span>Healthcare Companion</span>
+              <span>AWS Portfolio</span>
+            </div>
+            <div class="zone-action-row">
+              <span class="zone-btn-text">View Flagships</span>
+              <span class="zone-btn-icon"><i class="fa-solid fa-arrow-right"></i></span>
+            </div>
+          </div>
+
+          <!-- ZONE 4: LITTLE THINGS ABOUT ME (Sunshine Yellow) -->
+          <div class="playground-zone-card zone-yellow" id="zone-interests-card" role="button" tabindex="0" aria-label="Open Little Things About Me details" aria-haspopup="dialog">
+            <div class="zone-illustration">
+              <div class="shape-icon-wrap"><i class="fa-solid fa-shapes"></i></div>
+              <span class="zone-tag-mini">Zone 04</span>
+            </div>
+            <h3 class="zone-title">Little Things About Me</h3>
+            <p class="zone-desc">
+              The human side behind the terminal: music for sonic focus, reading books for broad mental models, swimming for flow, dancing, and relentless curiosity.
+            </p>
+            <div class="zone-chips">
+              <span>Music</span>
+              <span>Books</span>
+              <span>Swimming</span>
+              <span>Dancing</span>
+            </div>
+            <div class="zone-action-row">
+              <span class="zone-btn-text">Discover Passions</span>
+              <span class="zone-btn-icon"><i class="fa-solid fa-arrow-right"></i></span>
+            </div>
+          </div>
+
         </div>
 
         <!-- ================================================================
-             CONSTELLATION: "THE LITTLE THINGS THAT MAKE ME ME"
+             SPECIAL INTERACTIVE DISCOVERY: "LITTLE THINGS ABOUT ME" SHAPES
              ================================================================ -->
-        <div class="constellation-showcase">
-          <div class="constellation-header">
-            <span class="constellation-pill"><i class="fa-solid fa-wand-magic-sparkles"></i> Optional Discovery</span>
-            <h3 class="constellation-title">The Little Things That Make Me Me</h3>
-            <p class="constellation-desc">
-              Behind the code lies human curiosity and balance. Tap individual stars to discover the personal pursuits, hobbies, and quiet passions that shape my mindset.
+        <div class="shapes-discovery-board">
+          <div class="discovery-header">
+            <span class="section-tag-pill tag-yellow"><i class="fa-solid fa-heart"></i> Interactive Discovery</span>
+            <h3 class="discovery-title">Click a Shape to Reveal an Interest</h3>
+            <p class="discovery-subtitle">
+              Every colourful shape below represents a personal passion outside of engineering. Click any shape to discover its story.
             </p>
           </div>
 
-          <div class="constellation-map" id="constellation-map" role="region" aria-label="Personal Interest Constellation">
-            <!-- SVG Constellation Connecting Lines -->
-            <svg class="constellation-lines" viewBox="0 0 850 320" preserveAspectRatio="none" aria-hidden="true">
-              <polyline points="80,160 210,70 380,140 540,60 700,160 810,90" class="star-connector" />
-              <polyline points="210,70 380,240 700,160" class="star-connector-branch" />
-            </svg>
-
-            <!-- Star 1: Problem Solving & Coding -->
-            <button class="constellation-star star-1" data-interest="coding" aria-label="Star 1: Problem Solving &amp; Coding">
-              <span class="star-glow"></span>
-              <span class="star-point"><i class="fa-solid fa-terminal"></i></span>
-              <span class="star-title">Problem Solving</span>
+          <!-- Interactive Clickable Shapes Board -->
+          <div class="interactive-shapes-row" role="region" aria-label="Interactive Interests Shapes">
+            
+            <!-- Shape 1: Music -->
+            <button class="interactive-shape-btn shape-coral" data-interest="music" aria-label="Discover Music">
+              <div class="shape-icon-bubble"><i class="fa-solid fa-music"></i></div>
+              <span class="shape-caption">Music</span>
             </button>
 
-            <!-- Star 2: Listening to Music -->
-            <button class="constellation-star star-2" data-interest="music" aria-label="Star 2: Music">
-              <span class="star-glow"></span>
-              <span class="star-point"><i class="fa-solid fa-music"></i></span>
-              <span class="star-title">Music</span>
+            <!-- Shape 2: Books -->
+            <button class="interactive-shape-btn shape-lavender" data-interest="books" aria-label="Discover Books">
+              <div class="shape-icon-bubble"><i class="fa-solid fa-book-open"></i></div>
+              <span class="shape-caption">Books</span>
             </button>
 
-            <!-- Star 3: Reading Books -->
-            <button class="constellation-star star-3" data-interest="books" aria-label="Star 3: Books">
-              <span class="star-glow"></span>
-              <span class="star-point"><i class="fa-solid fa-book-open"></i></span>
-              <span class="star-title">Books</span>
+            <!-- Shape 3: Swimming -->
+            <button class="interactive-shape-btn shape-turquoise" data-interest="swimming" aria-label="Discover Swimming">
+              <div class="shape-icon-bubble"><i class="fa-solid fa-person-swimming"></i></div>
+              <span class="shape-caption">Swimming</span>
             </button>
 
-            <!-- Star 4: Dancing -->
-            <button class="constellation-star star-4" data-interest="dancing" aria-label="Star 4: Dancing">
-              <span class="star-glow"></span>
-              <span class="star-point"><i class="fa-solid fa-person-dots-from-line"></i></span>
-              <span class="star-title">Dancing</span>
+            <!-- Shape 4: Curiosity -->
+            <button class="interactive-shape-btn shape-yellow" data-interest="curiosity" aria-label="Discover Curiosity">
+              <div class="shape-icon-bubble"><i class="fa-solid fa-compass"></i></div>
+              <span class="shape-caption">Curiosity</span>
             </button>
 
-            <!-- Star 5: Swimming -->
-            <button class="constellation-star star-5" data-interest="swimming" aria-label="Star 5: Swimming">
-              <span class="star-glow"></span>
-              <span class="star-point"><i class="fa-solid fa-person-swimming"></i></span>
-              <span class="star-title">Swimming</span>
+            <!-- Shape 5: Learning -->
+            <button class="interactive-shape-btn shape-cobalt" data-interest="learning" aria-label="Discover Continuous Learning">
+              <div class="shape-icon-bubble"><i class="fa-solid fa-lightbulb"></i></div>
+              <span class="shape-caption">Learning</span>
             </button>
 
-            <!-- Star 6: Continuous Curiosity -->
-            <button class="constellation-star star-6" data-interest="curiosity" aria-label="Star 6: Curiosity &amp; Tech">
-              <span class="star-glow"></span>
-              <span class="star-point"><i class="fa-solid fa-lightbulb"></i></span>
-              <span class="star-title">Curiosity</span>
+            <!-- Shape 6: Dancing -->
+            <button class="interactive-shape-btn shape-rose" data-interest="dancing" aria-label="Discover Dancing">
+              <div class="shape-icon-bubble"><i class="fa-solid fa-person-dots-from-line"></i></div>
+              <span class="shape-caption">Dancing</span>
             </button>
+
           </div>
 
-          <!-- Constellation Detail Card Reveal -->
-          <div class="constellation-reveal-card glass-card" id="constellation-reveal" aria-live="polite">
-            <div class="reveal-content-wrap">
-              <div class="reveal-icon" id="reveal-icon"><i class="fa-solid fa-star"></i></div>
-              <div class="reveal-text">
-                <h4 class="reveal-title" id="reveal-title">Select a star to discover</h4>
-                <p class="reveal-body" id="reveal-body">
-                  Click on any star in the constellation map above to explore how problem solving, music, reading, dancing, swimming, and curiosity inspire my software journey.
+          <!-- Dynamic Reveal Card -->
+          <div class="shape-reveal-panel" id="shape-reveal-panel" aria-live="polite">
+            <div class="panel-content-flex">
+              <div class="panel-shape-icon" id="panel-shape-icon">
+                <i class="fa-solid fa-shapes"></i>
+              </div>
+              <div class="panel-text-block">
+                <h4 class="panel-reveal-title" id="panel-reveal-title">Select a shape above</h4>
+                <p class="panel-reveal-body" id="panel-reveal-body">
+                  Click on music, books, swimming, curiosity, learning, or dancing to see how creative balance enriches my software engineering mindset.
                 </p>
               </div>
             </div>
           </div>
+
         </div>
 
+      </div>
+
+      <!-- Playground Modal / Information Dossier Dialog -->
+      <div class="playground-modal" id="playground-modal" role="dialog" aria-modal="true" aria-hidden="true">
+        <div class="playground-modal-backdrop" id="modal-backdrop"></div>
+        <div class="playground-modal-card">
+          
+          <div class="modal-card-top">
+            <div class="modal-badge-group">
+              <div class="modal-icon-badge" id="modal-icon-badge"><i class="fa-solid fa-shapes"></i></div>
+              <div>
+                <span class="modal-kicker" id="modal-kicker">ZONE EXPLORATION</span>
+                <h3 class="modal-card-title" id="modal-card-title">Zone Dossier</h3>
+              </div>
+            </div>
+            <button class="modal-close-trigger" id="modal-close-btn" aria-label="Close information dialog">
+              <i class="fa-solid fa-xmark"></i>
+            </button>
+          </div>
+
+          <div class="modal-card-body" id="modal-body-content">
+            <!-- Populated via script.js -->
+          </div>
+
+          <div class="modal-card-footer">
+            <button class="btn-playground-secondary btn-sm" id="modal-dismiss-btn">Close Panel</button>
+            <a href="#about" class="btn-playground-primary btn-sm" id="modal-jump-link">Jump to Section</a>
+          </div>
+
+        </div>
       </div>
     </section>
 
@@ -432,19 +472,19 @@
       <div class="container">
         
         <div class="section-heading">
-          <span class="section-tag"><i class="fa-solid fa-compass"></i> Section A</span>
-          <h2 class="section-title">More than just a <span class="gradient-text">collection of code.</span></h2>
-          <p class="section-subtitle">
+          <span class="section-tag-pill tag-lavender"><i class="fa-solid fa-user"></i> Section A</span>
+          <h2 class="section-main-title">More than just a <span class="highlight-lavender">collection of code.</span></h2>
+          <p class="section-sub-text">
             An introduction to my background as an engineering undergraduate at SCTCE, what drives my curiosity, and how I approach problem solving.
           </p>
         </div>
 
-        <div class="about-grid">
+        <div class="about-cards-grid">
           
           <!-- Narrative Column -->
-          <div class="about-narrative glass-card" data-tilt>
-            <h3 class="narrative-heading">
-              Hello, I am Akhila Xavier — a creative thinker and Computer Science undergraduate driven by the desire to understand how systems work from the inside out.
+          <div class="narrative-card">
+            <h3 class="narrative-title">
+              Hello! I am Akhila Xavier — a creative thinker and Computer Science undergraduate driven by the urge to understand how software systems work from the ground up.
             </h3>
 
             <p>
@@ -452,64 +492,62 @@
             </p>
 
             <p>
-              My passion for programming took root early: I was recognized as the <strong>CBSE Class 12 Topper in Informatics Practices (Python programming &amp; DBMS)</strong> at Stratford Public School, and the <strong>School Topper in Java programming</strong> at Holy Trinity Anglo Indian School.
+              My passion for computing began early: I was awarded the <strong>CBSE Class 12 Topper in Informatics Practices (Python programming &amp; DBMS)</strong> at Stratford Public School, and the <strong>School Topper in Java programming</strong> at Holy Trinity Anglo Indian School.
             </p>
 
             <p>
-              To me, programming is not just about memorizing syntax; it is an art of analytical thinking. Whether developing structured algorithms in C and Python, architecting desktop applications in Java, or engineering client-side privacy intermediaries in hackathons, I approach engineering with discipline, curiosity, and attention to detail.
+              To me, programming is an expressive creative medium. Whether building structured algorithms in C and Python, engineering desktop applications in Java, or designing privacy-preserving client proxies at hackathons, I approach software with discipline, analytical rigor, and an open mind.
             </p>
 
-            <!-- Philosophy Box -->
-            <div class="learning-approach-box">
-              <div class="approach-icon"><i class="fa-solid fa-seedling"></i></div>
+            <div class="philosophy-highlight-box">
+              <div class="philo-icon"><i class="fa-solid fa-seedling"></i></div>
               <div>
-                <h4 class="approach-title">My Philosophy: Building Through Truth &amp; Verified Fundamentals</h4>
-                <p class="approach-text">
-                  I believe authentic engineering comes from listening carefully, breaking down complex abstractions, and verifying every concept through hands-on building. No shortcuts, no invented achievements — only continuous, disciplined progress.
+                <h4 class="philo-title">My Philosophy: Continuous Learning</h4>
+                <p class="philo-desc">
+                  I don't believe in superficial shortcuts or artificial metrics. Instead, I focus on mastering core computer science fundamentals, building real software, and listening closely to feedback to refine my craft every single day.
                 </p>
               </div>
             </div>
           </div>
 
           <!-- Academic & Overview Telemetry Column -->
-          <div class="about-telemetry">
+          <div class="telemetry-column">
             
-            <!-- Academic Coordinates Card -->
-            <div class="telemetry-card glass-card">
-              <h4 class="card-mini-title"><i class="fa-solid fa-graduation-cap"></i> Academic Trajectory</h4>
-              
-              <ul class="telemetry-list">
+            <!-- Academic Credentials Card -->
+            <div class="telemetry-info-card card-lavender">
+              <h4 class="mini-card-title"><i class="fa-solid fa-graduation-cap"></i> Academic Trajectory</h4>
+              <ul class="trajectory-list">
                 <li>
-                  <div class="traj-item">
-                    <span class="traj-year">2025 – 2029</span>
+                  <div class="traj-entry">
+                    <span class="traj-years">2025 – 2029</span>
                     <strong>B.Tech in Computer Science &amp; Engineering</strong>
-                    <span class="traj-inst">Sree Chithra Thirunal College of Engineering (SCTCE), Trivandrum</span>
-                    <span class="traj-badge highlight-gold"><i class="fa-solid fa-star"></i> Completed First Year with 9.8 CGPA</span>
+                    <span class="traj-school">Sree Chithra Thirunal College of Engineering (SCTCE), Trivandrum</span>
+                    <span class="traj-pill-badge badge-gold"><i class="fa-solid fa-star"></i> Completed First Year with 9.8 CGPA</span>
                   </div>
                 </li>
                 <li>
-                  <div class="traj-item">
-                    <span class="traj-year">2023 – 2025</span>
+                  <div class="traj-entry">
+                    <span class="traj-years">2023 – 2025</span>
                     <strong>Higher Secondary Education</strong>
-                    <span class="traj-inst">Stratford Public School, Kollam</span>
-                    <span class="traj-badge"><i class="fa-solid fa-award"></i> CBSE Class 12 Topper in Informatics Practices (Python &amp; DBMS)</span>
+                    <span class="traj-school">Stratford Public School, Kollam</span>
+                    <span class="traj-pill-badge badge-coral"><i class="fa-solid fa-award"></i> CBSE Class 12 Topper in Informatics Practices (Python &amp; DBMS)</span>
                   </div>
                 </li>
                 <li>
-                  <div class="traj-item">
-                    <span class="traj-year">2022 – 2023</span>
+                  <div class="traj-entry">
+                    <span class="traj-years">2022 – 2023</span>
                     <strong>Secondary School Education</strong>
-                    <span class="traj-inst">Holy Trinity Anglo Indian School, Kollam</span>
-                    <span class="traj-badge"><i class="fa-solid fa-award"></i> School Topper in Java Programming</span>
+                    <span class="traj-school">Holy Trinity Anglo Indian School, Kollam</span>
+                    <span class="traj-pill-badge badge-turquoise"><i class="fa-solid fa-award"></i> School Topper in Java Programming</span>
                   </div>
                 </li>
               </ul>
             </div>
 
-            <!-- Certifications & Workshops Card -->
-            <div class="certifications-card glass-card">
-              <h4 class="card-mini-title"><i class="fa-solid fa-certificate"></i> Specialized Workshops &amp; Training</h4>
-              <ul class="cert-list">
+            <!-- Certifications Card -->
+            <div class="telemetry-info-card card-turquoise">
+              <h4 class="mini-card-title"><i class="fa-solid fa-certificate"></i> Specialized Training &amp; Workshops</h4>
+              <ul class="cert-item-list">
                 <li>
                   <i class="fa-solid fa-robot"></i>
                   <div>
@@ -528,24 +566,23 @@
                   <i class="fa-solid fa-shield-halved"></i>
                   <div>
                     <strong>Cyber Security Specialization</strong>
-                    <span class="text-accent">6-Month Intensive Training Program (In Progress)</span>
+                    <span class="cert-status-live">6-Month Intensive Training (In Progress)</span>
                   </div>
                 </li>
               </ul>
             </div>
 
             <!-- Languages & Faculty Mentors Card -->
-            <div class="meta-card glass-card">
-              <h4 class="card-mini-title"><i class="fa-solid fa-language"></i> Languages &amp; Faculty References</h4>
-              <div class="lang-chips">
-                <span class="chip-lang">Malayalam <small>(Native)</small></span>
-                <span class="chip-lang">English <small>(Fluent)</small></span>
-                <span class="chip-lang">Tamil</span>
-                <span class="chip-lang">Hindi</span>
+            <div class="telemetry-info-card card-yellow">
+              <h4 class="mini-card-title"><i class="fa-solid fa-language"></i> Languages &amp; Faculty References</h4>
+              <div class="language-pill-row">
+                <span class="lang-pill">Malayalam <small>(Native)</small></span>
+                <span class="lang-pill">English <small>(Fluent)</small></span>
+                <span class="lang-pill">Tamil</span>
+                <span class="lang-pill">Hindi</span>
               </div>
-              
-              <div class="faculty-refs">
-                <div class="ref-person">
+              <div class="faculty-reference-block">
+                <div class="prof-row">
                   <i class="fa-solid fa-chalkboard-user"></i>
                   <div>
                     <strong>Dr. Soniya B</strong>
@@ -553,7 +590,7 @@
                     <code>soniya@sctce.ac.in</code>
                   </div>
                 </div>
-                <div class="ref-person">
+                <div class="prof-row">
                   <i class="fa-solid fa-chalkboard-user"></i>
                   <div>
                     <strong>Prof. Binu Rajan</strong>
@@ -579,9 +616,9 @@
       <div class="container">
         
         <div class="section-heading text-center">
-          <span class="section-tag"><i class="fa-solid fa-microchip"></i> Section B</span>
-          <h2 class="section-title">Tools I use to turn <span class="gradient-text">ideas into reality.</span></h2>
-          <p class="section-subtitle">
+          <span class="section-tag-pill tag-turquoise"><i class="fa-solid fa-wand-magic-sparkles"></i> Section B</span>
+          <h2 class="section-main-title">Tools I use to turn <span class="highlight-turquoise">ideas into reality.</span></h2>
+          <p class="section-sub-text">
             An honest overview of my programming proficiency, computer science foundations, and emerging technologies currently being explored.
           </p>
         </div>
@@ -589,190 +626,190 @@
         <div class="skills-categories-grid">
           
           <!-- Category 1: Programming Languages -->
-          <div class="skill-category-card glass-card" data-tilt>
-            <div class="category-header">
-              <div class="cat-icon cat-prog"><i class="fa-brands fa-python"></i></div>
+          <div class="superpower-card card-coral" data-tilt>
+            <div class="sp-header">
+              <div class="sp-icon icon-coral"><i class="fa-brands fa-python"></i></div>
               <div>
-                <span class="cat-pill">Core Arsenal</span>
-                <h3 class="cat-title">Programming Languages</h3>
+                <span class="sp-category-tag">Core Languages</span>
+                <h3 class="sp-title">Programming</h3>
               </div>
             </div>
-            <p class="cat-desc">Proficient in modern Python, object-oriented Java, structured C, and shell programming.</p>
+            <p class="sp-desc">Proficient in modern Python, object-oriented Java, structured C, and shell programming.</p>
             
-            <div class="skill-items">
-              <div class="skill-item">
-                <div class="skill-info">
-                  <span class="skill-name"><i class="fa-brands fa-python"></i> Python Programming</span>
-                  <span class="skill-status-tag tag-primary">Proficient &amp; Topper</span>
+            <div class="sp-items-list">
+              <div class="sp-item">
+                <div class="sp-item-head">
+                  <span class="sp-name"><i class="fa-brands fa-python"></i> Python Programming</span>
+                  <span class="sp-tag tag-coral-soft">Proficient &bull; Topper</span>
                 </div>
-                <p class="skill-sub">CBSE Class 12 Topper. Data structures, scripting, file operations, algorithms, AI integration.</p>
+                <p class="sp-sub">CBSE Class 12 Topper. Data structures, scripting, file systems, algorithms, AI integration.</p>
               </div>
 
-              <div class="skill-item">
-                <div class="skill-info">
-                  <span class="skill-name"><i class="fa-brands fa-java"></i> Java Programming</span>
-                  <span class="skill-status-tag tag-primary">School Topper</span>
+              <div class="sp-item">
+                <div class="sp-item-head">
+                  <span class="sp-name"><i class="fa-brands fa-java"></i> Java Programming</span>
+                  <span class="sp-tag tag-coral-soft">School Topper</span>
                 </div>
-                <p class="skill-sub">School Topper. Robust OOP architecture, Java Swing GUI, AWT, JDBC database pipelines.</p>
+                <p class="sp-sub">School Topper. Robust OOP architecture, Java Swing GUI, AWT, JDBC database pipelines.</p>
               </div>
 
-              <div class="skill-item">
-                <div class="skill-info">
-                  <span class="skill-name"><i class="fa-solid fa-code"></i> C &amp; Shell Programming</span>
-                  <span class="skill-status-tag">Systems Logic</span>
+              <div class="sp-item">
+                <div class="sp-item-head">
+                  <span class="sp-name"><i class="fa-solid fa-code"></i> C &amp; Shell Programming</span>
+                  <span class="sp-tag">Systems Logic</span>
                 </div>
-                <p class="skill-sub">Pointers, dynamic memory management, structured systems programming, bash workflows.</p>
+                <p class="sp-sub">Pointers, memory management, structured systems programming, bash workflows.</p>
               </div>
             </div>
           </div>
 
           <!-- Category 2: Computer Science & DBMS -->
-          <div class="skill-category-card glass-card" data-tilt>
-            <div class="category-header">
-              <div class="cat-icon cat-cs"><i class="fa-solid fa-database"></i></div>
+          <div class="superpower-card card-lavender" data-tilt>
+            <div class="sp-header">
+              <div class="sp-icon icon-lavender"><i class="fa-solid fa-database"></i></div>
               <div>
-                <span class="cat-pill">Theoretical Core</span>
-                <h3 class="cat-title">Computer Science &amp; Databases</h3>
+                <span class="sp-category-tag">Theoretical Core</span>
+                <h3 class="sp-title">CS &amp; Databases</h3>
               </div>
             </div>
-            <p class="cat-desc">Theoretical foundations essential for writing high-performance, maintainable software.</p>
+            <p class="sp-desc">Theoretical foundations essential for writing high-performance, maintainable software.</p>
             
-            <div class="skill-items">
-              <div class="skill-item">
-                <div class="skill-info">
-                  <span class="skill-name"><i class="fa-solid fa-database"></i> Database Management (DBMS)</span>
-                  <span class="skill-status-tag tag-primary">Class 12 Topper</span>
+            <div class="sp-items-list">
+              <div class="sp-item">
+                <div class="sp-item-head">
+                  <span class="sp-name"><i class="fa-solid fa-database"></i> Database Management (DBMS)</span>
+                  <span class="sp-tag tag-lavender-soft">Class 12 Topper</span>
                 </div>
-                <p class="skill-sub">Relational schema design, normalization (1NF-3NF), SQL queries, indexing, MySQL integration.</p>
+                <p class="sp-sub">Relational schema design, normalization (1NF-3NF), SQL queries, indexing, MySQL integration.</p>
               </div>
 
-              <div class="skill-item">
-                <div class="skill-info">
-                  <span class="skill-name"><i class="fa-solid fa-sitemap"></i> Data Structures &amp; Algorithms</span>
-                  <span class="skill-status-tag">Foundational</span>
+              <div class="sp-item">
+                <div class="sp-item-head">
+                  <span class="sp-name"><i class="fa-solid fa-sitemap"></i> Data Structures &amp; Algorithms</span>
+                  <span class="sp-tag">Foundational</span>
                 </div>
-                <p class="skill-sub">Arrays, linked lists, stacks, queues, trees, sorting, searching, time &amp; space complexity.</p>
+                <p class="sp-sub">Arrays, linked lists, stacks, queues, trees, sorting, searching, time &amp; space complexity.</p>
               </div>
 
-              <div class="skill-item">
-                <div class="skill-info">
-                  <span class="skill-name"><i class="fa-solid fa-cubes"></i> Object-Oriented Concepts (OOP)</span>
-                  <span class="skill-status-tag">Applied</span>
+              <div class="sp-item">
+                <div class="sp-item-head">
+                  <span class="sp-name"><i class="fa-solid fa-cubes"></i> Object-Oriented Concepts (OOP)</span>
+                  <span class="sp-tag">Applied</span>
                 </div>
-                <p class="skill-sub">Encapsulation, inheritance, polymorphism, abstraction, and clean class hierarchy design.</p>
+                <p class="sp-sub">Encapsulation, inheritance, polymorphism, abstraction, and clean class design.</p>
               </div>
             </div>
           </div>
 
           <!-- Category 3: Web Development -->
-          <div class="skill-category-card glass-card" data-tilt>
-            <div class="category-header">
-              <div class="cat-icon cat-web"><i class="fa-solid fa-globe"></i></div>
+          <div class="superpower-card card-turquoise" data-tilt>
+            <div class="sp-header">
+              <div class="sp-icon icon-turquoise"><i class="fa-solid fa-globe"></i></div>
               <div>
-                <span class="cat-pill">Client Tier</span>
-                <h3 class="cat-title">Web Development</h3>
+                <span class="sp-category-tag">Client Tier</span>
+                <h3 class="sp-title">Web Development</h3>
               </div>
             </div>
-            <p class="cat-desc">Standards-based frontend engineering crafted with clean semantics and responsiveness.</p>
+            <p class="sp-desc">Standards-based frontend engineering crafted with clean semantics and responsiveness.</p>
             
-            <div class="skill-items">
-              <div class="skill-item">
-                <div class="skill-info">
-                  <span class="skill-name"><i class="fa-brands fa-html5"></i> Semantic HTML5</span>
-                  <span class="skill-status-tag">Standards</span>
+            <div class="sp-items-list">
+              <div class="sp-item">
+                <div class="sp-item-head">
+                  <span class="sp-name"><i class="fa-brands fa-html5"></i> Semantic HTML5</span>
+                  <span class="sp-tag">Accessible</span>
                 </div>
-                <p class="skill-sub">Accessible landmark tags, ARIA roles, clean document structures, Canvas 2D integration.</p>
+                <p class="sp-sub">Accessible landmark tags, ARIA roles, clean document structures, Canvas 2D integration.</p>
               </div>
 
-              <div class="skill-item">
-                <div class="skill-info">
-                  <span class="skill-name"><i class="fa-brands fa-css3-alt"></i> Modern CSS3 &amp; Glassmorphism</span>
-                  <span class="skill-status-tag">Responsive</span>
+              <div class="sp-item">
+                <div class="sp-item-head">
+                  <span class="sp-name"><i class="fa-brands fa-css3-alt"></i> Modern CSS3 &amp; Animations</span>
+                  <span class="sp-tag">Responsive</span>
                 </div>
-                <p class="skill-sub">Flexbox, CSS Grid, CSS custom properties, keyframe choreography, media queries.</p>
+                <p class="sp-sub">Flexbox, CSS Grid, CSS custom properties, keyframe choreography, media queries.</p>
               </div>
 
-              <div class="skill-item">
-                <div class="skill-info">
-                  <span class="skill-name"><i class="fa-brands fa-square-js"></i> Vanilla JavaScript (ES6+)</span>
-                  <span class="skill-status-tag">Interactive</span>
+              <div class="sp-item">
+                <div class="sp-item-head">
+                  <span class="sp-name"><i class="fa-brands fa-square-js"></i> Vanilla JavaScript (ES6+)</span>
+                  <span class="sp-tag">Interactive</span>
                 </div>
-                <p class="skill-sub">DOM manipulation, Web Audio API synthesis, particle physics, asynchronous workflows.</p>
+                <p class="sp-sub">DOM manipulation, Web Audio API synthesis, particle physics, asynchronous workflows.</p>
               </div>
             </div>
           </div>
 
-          <!-- Category 4: Tools & Engineering Practices -->
-          <div class="skill-category-card glass-card" data-tilt>
-            <div class="category-header">
-              <div class="cat-icon cat-tools"><i class="fa-solid fa-toolbox"></i></div>
+          <!-- Category 4: Tools & Practices -->
+          <div class="superpower-card card-yellow" data-tilt>
+            <div class="sp-header">
+              <div class="sp-icon icon-yellow"><i class="fa-solid fa-toolbox"></i></div>
               <div>
-                <span class="cat-pill">Workflow &amp; Soft Skills</span>
-                <h3 class="cat-title">Development Tools &amp; Methods</h3>
+                <span class="sp-category-tag">Workflow</span>
+                <h3 class="sp-title">Tools &amp; Methods</h3>
               </div>
             </div>
-            <p class="cat-desc">Everyday tools for source control, editing, debugging, and team collaboration.</p>
+            <p class="sp-desc">Everyday tools for source control, editing, debugging, and team collaboration.</p>
             
-            <div class="skill-items">
-              <div class="skill-item">
-                <div class="skill-info">
-                  <span class="skill-name"><i class="fa-brands fa-git-alt"></i> Git &amp; GitHub</span>
-                  <span class="skill-status-tag">Version Control</span>
+            <div class="sp-items-list">
+              <div class="sp-item">
+                <div class="sp-item-head">
+                  <span class="sp-name"><i class="fa-brands fa-git-alt"></i> Git &amp; GitHub</span>
+                  <span class="sp-tag">Version Control</span>
                 </div>
-                <p class="skill-sub">Branching strategies, staging, commits, remote repository hosting, CI/CD pipelines.</p>
+                <p class="sp-sub">Branching workflows, staging, commits, remote repository hosting, CI/CD pipelines.</p>
               </div>
 
-              <div class="skill-item">
-                <div class="skill-info">
-                  <span class="skill-name"><i class="fa-solid fa-laptop-code"></i> VS Code &amp; Linux CLI</span>
-                  <span class="skill-status-tag">Workspace</span>
+              <div class="sp-item">
+                <div class="sp-item-head">
+                  <span class="sp-name"><i class="fa-solid fa-laptop-code"></i> VS Code &amp; Linux CLI</span>
+                  <span class="sp-tag">Workspace</span>
                 </div>
-                <p class="skill-sub">Integrated development environment, debugging, shell commands, and extensions.</p>
+                <p class="sp-sub">Integrated development environment, debugging, shell commands, and extensions.</p>
               </div>
 
-              <div class="skill-item">
-                <div class="skill-info">
-                  <span class="skill-name"><i class="fa-solid fa-users"></i> Analytical Thinking &amp; Teamwork</span>
-                  <span class="skill-status-tag">Collaboration</span>
+              <div class="sp-item">
+                <div class="sp-item-head">
+                  <span class="sp-name"><i class="fa-solid fa-users"></i> Analytical Thinking &amp; Teamwork</span>
+                  <span class="sp-tag">Collaboration</span>
                 </div>
-                <p class="skill-sub">Problem breakdown, structured code reviews, and cross-functional hackathon teamwork.</p>
+                <p class="sp-sub">Problem breakdown, structured code reviews, and cross-functional hackathon teamwork.</p>
               </div>
             </div>
           </div>
 
         </div>
 
-        <!-- Distinct Exploring Section -->
-        <div class="exploring-banner glass-card">
-          <div class="exploring-header">
-            <span class="exploring-badge"><i class="fa-solid fa-compass"></i> Learning Frontiers</span>
-            <h3 class="exploring-title">Active Explorations &amp; Emerging Domains</h3>
-            <p class="exploring-subtitle">
+        <!-- Distinct Exploring Banner -->
+        <div class="exploring-feature-banner">
+          <div class="exploring-header-row">
+            <span class="section-tag-pill tag-cobalt"><i class="fa-solid fa-compass"></i> Learning Frontiers</span>
+            <h3 class="exploring-main-title">Active Explorations &amp; Emerging Domains</h3>
+            <p class="exploring-subtitle-text">
               Technologies and paradigms I am actively investigating to expand my engineering horizons:
             </p>
           </div>
 
-          <div class="exploring-grid">
-            <div class="exploring-card" data-tilt>
-              <div class="exp-icon"><i class="fa-brands fa-aws"></i></div>
-              <h4 class="exp-name">AWS Cloud Technologies</h4>
-              <p class="exp-desc">
+          <div class="exploring-cards-row">
+            <div class="frontier-card frontier-aws" data-tilt>
+              <div class="frontier-icon"><i class="fa-brands fa-aws"></i></div>
+              <h4 class="frontier-name">AWS Cloud Technologies</h4>
+              <p class="frontier-desc">
                 Deploying static web applications with AWS Amplify Hosting, Amazon S3 asset storage, Amazon CloudFront global edge delivery, and cloud infrastructure patterns for the AWS Student Builder Challenge.
               </p>
             </div>
 
-            <div class="exploring-card" data-tilt>
-              <div class="exp-icon"><i class="fa-solid fa-shield-cat"></i></div>
-              <h4 class="exp-name">Local AI &amp; Privacy Engineering</h4>
-              <p class="exp-desc">
+            <div class="frontier-card frontier-ai" data-tilt>
+              <div class="frontier-icon"><i class="fa-solid fa-shield-cat"></i></div>
+              <h4 class="frontier-name">Local AI &amp; Privacy Engineering</h4>
+              <p class="frontier-desc">
                 Investigating client-side inference, prompt sanitization layers, and on-device NLP intermediaries to prevent data leakage when interacting with commercial LLMs (demonstrated in PRISM).
               </p>
             </div>
 
-            <div class="exploring-card" data-tilt>
-              <div class="exp-icon"><i class="fa-solid fa-lock"></i></div>
-              <h4 class="exp-name">Cyber Security Specialization</h4>
-              <p class="exp-desc">
+            <div class="frontier-card frontier-security" data-tilt>
+              <div class="frontier-icon"><i class="fa-solid fa-lock"></i></div>
+              <h4 class="frontier-name">Cyber Security Specialization</h4>
+              <p class="frontier-desc">
                 Currently enrolled in a comprehensive 6-month cybersecurity curriculum covering vulnerability assessment, secure coding, network security, and defense-in-depth principles.
               </p>
             </div>
@@ -790,46 +827,46 @@
       <div class="container">
         
         <div class="section-heading text-center">
-          <span class="section-tag"><i class="fa-solid fa-rocket"></i> Section C</span>
-          <h2 class="section-title">Small beginnings. <span class="gradient-text">Big possibilities.</span></h2>
-          <p class="section-subtitle">
+          <span class="section-tag-pill tag-coral"><i class="fa-solid fa-layer-group"></i> Section C</span>
+          <h2 class="section-main-title">Small beginnings. <span class="highlight-coral">Big possibilities.</span></h2>
+          <p class="section-sub-text">
             A transparent overview of academic applications, hackathon-shortlisted innovations, and creative cloud engineering.
           </p>
         </div>
 
-        <div class="projects-grid">
+        <div class="projects-display-grid">
           
           <!-- PROJECT 1: PRISM — Local AI Privacy Copilot (Hackathon Winner/Shortlisted) -->
-          <article class="project-card glass-card project-card-featured" data-tilt>
-            <div class="project-header">
-              <div class="project-category-badge badge-shortlisted">
+          <article class="project-showcase-card featured-project-card" data-tilt>
+            <div class="proj-card-top">
+              <div class="proj-badge-award">
                 <i class="fa-solid fa-trophy"></i> Hackathon Shortlisted
               </div>
-              <span class="project-index">01</span>
+              <span class="proj-index-num">01</span>
             </div>
 
-            <h3 class="project-title">PRISM — Local AI Privacy Copilot</h3>
+            <h3 class="proj-title">PRISM — Local AI Privacy Copilot</h3>
 
-            <div class="project-tech-stack">
-              <span class="tech-tag">Python</span>
-              <span class="tech-tag">Privacy Engineering</span>
-              <span class="tech-tag">Prompt Sanitization</span>
-              <span class="tech-tag">Local NLP</span>
-              <span class="tech-tag">API Intermediary</span>
+            <div class="proj-tech-tags">
+              <span class="tag-pill">Python</span>
+              <span class="tag-pill">Privacy Engineering</span>
+              <span class="tag-pill">Prompt Sanitization</span>
+              <span class="tag-pill">Local NLP</span>
+              <span class="tag-pill">API Intermediary</span>
             </div>
 
-            <p class="project-overview">
+            <p class="proj-summary">
               An innovative privacy-preserving copilot developed for a competitive hackathon that shields sensitive user data, PII, and credentials before transmission to external AI services.
             </p>
 
-            <div class="project-details-block">
-              <h4 class="details-heading"><i class="fa-solid fa-award"></i> Hackathon Success &amp; Architecture</h4>
-              <ul class="details-list">
+            <div class="proj-details-box">
+              <h4 class="details-box-title"><i class="fa-solid fa-award"></i> Hackathon Recognition &amp; Architecture</h4>
+              <ul class="details-bullet-list">
                 <li>
                   <strong>Hackathon Recognition:</strong> Fully completed and demonstrated at the hackathon, earning direct <strong>shortlisting by the sponsoring company for future incubation and collaboration</strong>!
                 </li>
                 <li>
-                  <strong>The Problem Solved:</strong> When developers and students send prompts to third-party LLMs, proprietary code, passwords, API tokens, and personally identifiable information (PII) leak inadvertently.
+                  <strong>The Problem Solved:</strong> When developers and students send prompts to commercial LLMs, confidential code, passwords, API tokens, and personal details leak inadvertently.
                 </li>
                 <li>
                   <strong>The Engineering:</strong> PRISM executes client-side regex and heuristic sanitizers locally, intercepting outgoing prompts to strip or pseudonymize sensitive tokens before API dispatch.
@@ -837,36 +874,36 @@
               </ul>
             </div>
 
-            <div class="project-status-bar">
-              <span class="status-indicator completed"></span>
-              <span class="status-text"><strong>Hackathon Completed &bull; Shortlisted by Sponsor</strong></span>
+            <div class="proj-card-footer">
+              <span class="status-dot dot-green"></span>
+              <span class="status-msg"><strong>Hackathon Completed &bull; Shortlisted by Sponsor</strong></span>
             </div>
           </article>
 
           <!-- PROJECT 2: Smart Healthcare Companion -->
-          <article class="project-card glass-card" data-tilt>
-            <div class="project-header">
-              <div class="project-category-badge">Academic Desktop System</div>
-              <span class="project-index">02</span>
+          <article class="project-showcase-card" data-tilt>
+            <div class="proj-card-top">
+              <div class="proj-badge-academic">Academic Desktop App</div>
+              <span class="proj-index-num">02</span>
             </div>
 
-            <h3 class="project-title">Smart Healthcare Companion</h3>
+            <h3 class="proj-title">Smart Healthcare Companion</h3>
 
-            <div class="project-tech-stack">
-              <span class="tech-tag">Java</span>
-              <span class="tech-tag">Java Swing</span>
-              <span class="tech-tag">AWT</span>
-              <span class="tech-tag">JDBC</span>
-              <span class="tech-tag">MySQL</span>
+            <div class="proj-tech-tags">
+              <span class="tag-pill">Java</span>
+              <span class="tag-pill">Java Swing</span>
+              <span class="tag-pill">AWT</span>
+              <span class="tag-pill">JDBC</span>
+              <span class="tag-pill">MySQL</span>
             </div>
 
-            <p class="project-overview">
+            <p class="proj-summary">
               A comprehensive desktop healthcare management application designed to streamline patient records, appointment scheduling, and doctor consultation workflows.
             </p>
 
-            <div class="project-details-block">
-              <h4 class="details-heading"><i class="fa-solid fa-hospital-user"></i> Architecture &amp; Implementation</h4>
-              <ul class="details-list">
+            <div class="proj-details-box">
+              <h4 class="details-box-title"><i class="fa-solid fa-hospital-user"></i> Architecture &amp; Implementation</h4>
+              <ul class="details-bullet-list">
                 <li>
                   <strong>Purpose:</strong> Replaces chaotic manual clinic paperwork with an intuitive desktop GUI for reception staff and medical practitioners.
                 </li>
@@ -879,38 +916,38 @@
               </ul>
             </div>
 
-            <div class="project-status-bar">
-              <span class="status-indicator completed"></span>
-              <span class="status-text">Completed Academic Project</span>
+            <div class="proj-card-footer">
+              <span class="status-dot dot-green"></span>
+              <span class="status-msg">Completed Academic Project</span>
             </div>
           </article>
 
-          <!-- PROJECT 3: My Digital Universe (Portfolio) -->
-          <article class="project-card glass-card" data-tilt>
-            <div class="project-header">
-              <div class="project-category-badge badge-aws">AWS Student Builder</div>
-              <span class="project-index">03</span>
+          <!-- PROJECT 3: A Little World of Big Ideas (Portfolio) -->
+          <article class="project-showcase-card" data-tilt>
+            <div class="proj-card-top">
+              <div class="proj-badge-aws">AWS Student Builder</div>
+              <span class="proj-index-num">03</span>
             </div>
 
-            <h3 class="project-title">My Digital Universe (Portfolio)</h3>
+            <h3 class="proj-title">A Little World of Big Ideas (Portfolio)</h3>
 
-            <div class="project-tech-stack">
-              <span class="tech-tag">HTML5</span>
-              <span class="tech-tag">CSS3</span>
-              <span class="tech-tag">Vanilla JS</span>
-              <span class="tech-tag">Canvas 2D</span>
-              <span class="tech-tag">AWS Amplify</span>
+            <div class="proj-tech-tags">
+              <span class="tag-pill">HTML5</span>
+              <span class="tag-pill">CSS3</span>
+              <span class="tag-pill">Vanilla JS</span>
+              <span class="tag-pill">Canvas 2D</span>
+              <span class="tag-pill">AWS Amplify</span>
             </div>
 
-            <p class="project-overview">
+            <p class="proj-summary">
               A bespoke, lightweight interactive portfolio engineered to represent my engineering journey, technical competencies, and creative curiosity for the AWS Student Builder Challenge.
             </p>
 
-            <div class="project-details-block">
-              <h4 class="details-heading"><i class="fa-solid fa-cloud-arrow-up"></i> Creative &amp; Cloud Features</h4>
-              <ul class="details-list">
+            <div class="proj-details-box">
+              <h4 class="details-box-title"><i class="fa-solid fa-shapes"></i> Creative &amp; Cloud Features</h4>
+              <ul class="details-bullet-list">
                 <li>
-                  <strong>Interactive Solar System:</strong> Custom orbital simulation featuring central star `AX`, three clickable planets with accessible dossiers, and personal constellation.
+                  <strong>Interactive Creative Playground:</strong> Four colorful interactive worlds, interactive shape interest discovery, and a built-in terminal CLI.
                 </li>
                 <li>
                   <strong>Zero Framework Bloat:</strong> Pure vanilla web standards delivering instantaneous load times and zero dependency overhead.
@@ -921,20 +958,20 @@
               </ul>
             </div>
 
-            <div class="project-status-bar">
-              <span class="status-indicator completed"></span>
-              <span class="status-text">Production Ready (AWS Amplify Hosting)</span>
+            <div class="proj-card-footer">
+              <span class="status-dot dot-green"></span>
+              <span class="status-msg">Production Ready (AWS Amplify Hosting)</span>
             </div>
           </article>
 
         </div>
 
-        <!-- Space for Future Projects -->
-        <div class="future-projects-card glass-card">
-          <div class="future-icon"><i class="fa-solid fa-compass-drafting"></i></div>
-          <div class="future-content">
-            <h4 class="future-title">More Possibilities on the Horizon</h4>
-            <p class="future-text">
+        <!-- Space for Future Projects Card -->
+        <div class="future-horizon-card">
+          <div class="horizon-icon-wrap"><i class="fa-solid fa-lightbulb"></i></div>
+          <div class="horizon-content">
+            <h4 class="horizon-title">More Big Ideas on the Horizon</h4>
+            <p class="horizon-desc">
               As I advance through my Computer Science degree at SCTCE, this space will house future collaborative projects, cloud architectures built on AWS, and open-source contributions. Every challenge is a stepping stone.
             </p>
           </div>
@@ -945,43 +982,43 @@
 
 
     <!-- ====================================================================
-         INTERACTIVE DEEP SPACE CONSOLE (TERMINAL CLI)
+         DEVELOPER CONSOLE (PLAYGROUND SHELL)
          ==================================================================== -->
     <section class="section-block terminal-section" id="terminal">
       <div class="container">
         
         <div class="section-heading text-center">
-          <span class="section-tag"><i class="fa-solid fa-terminal"></i> Developer Shell</span>
-          <h2 class="section-title">Deep Space <span class="gradient-text">Console</span></h2>
-          <p class="section-subtitle">
-            An interactive command-line interface. Type commands like <code class="code-pill">help</code>, <code class="code-pill">about</code>, <code class="code-pill">prism</code>, <code class="code-pill">education</code>, or <code class="code-pill">skills</code> to explore Akhila's universe.
+          <span class="section-tag-pill tag-lavender"><i class="fa-solid fa-terminal"></i> Interactive Shell</span>
+          <h2 class="section-main-title">Developer <span class="highlight-lavender">Console</span></h2>
+          <p class="section-sub-text">
+            Type commands like <code class="code-pill">help</code>, <code class="code-pill">about</code>, <code class="code-pill">prism</code>, <code class="code-pill">education</code>, or <code class="code-pill">skills</code> to explore Akhila's playground via CLI.
           </p>
         </div>
 
-        <div class="terminal-window glass-card">
-          <div class="terminal-bar">
-            <div class="terminal-dots">
-              <span class="dot dot-red"></span>
-              <span class="dot dot-yellow"></span>
-              <span class="dot dot-green"></span>
+        <div class="terminal-shell-card">
+          <div class="shell-bar">
+            <div class="shell-dots">
+              <span class="shell-dot dot-coral"></span>
+              <span class="shell-dot dot-yellow"></span>
+              <span class="shell-dot dot-turquoise"></span>
             </div>
-            <div class="terminal-title">
-              <i class="fa-solid fa-laptop-code"></i> akhila@digital-universe:~ (zsh)
+            <div class="shell-title">
+              <i class="fa-solid fa-laptop-code"></i> akhila@creative-playground:~ (zsh)
             </div>
-            <div class="terminal-actions">
-              <button class="terminal-btn-icon" id="term-clear-btn" title="Clear Display"><i class="fa-solid fa-broom"></i></button>
+            <div class="shell-controls">
+              <button class="shell-clear-btn" id="term-clear-btn" title="Clear Console Output"><i class="fa-solid fa-broom"></i></button>
             </div>
           </div>
 
-          <div class="terminal-body" id="terminal-body">
-            <div class="terminal-output" id="terminal-output">
-              <p class="term-line term-dim">Connected to Akhila Xavier Universe Terminal v3.0 [SCTCE Node]</p>
-              <p class="term-line term-info">Type <strong class="term-accent">help</strong> for the directory of commands, or <strong class="term-accent">prism</strong> to view the hackathon-shortlisted project.</p>
+          <div class="shell-body" id="terminal-body">
+            <div class="shell-output" id="terminal-output">
+              <p class="term-line term-dim">Connected to Akhila Xavier Creative Console v3.5 [SCTCE Node]</p>
+              <p class="term-line term-info">Type <strong class="term-accent">help</strong> for available commands, or <strong class="term-accent">prism</strong> to query the hackathon-shortlisted project.</p>
             </div>
 
-            <form class="terminal-input-row" id="terminal-form" autocomplete="off">
-              <span class="term-prompt">akhila@universe:~$</span>
-              <input type="text" id="terminal-input" class="terminal-input" placeholder="Type a command (e.g. help, prism, skills)..." spellcheck="false" autocomplete="off">
+            <form class="shell-input-form" id="terminal-form" autocomplete="off">
+              <span class="term-prompt">akhila@playground:~$</span>
+              <input type="text" id="terminal-input" class="term-input" placeholder="Type a command (e.g. help, prism, skills)..." spellcheck="false" autocomplete="off">
             </form>
           </div>
         </div>
@@ -991,127 +1028,128 @@
 
 
     <!-- ====================================================================
-         CONTACT SECTION ("SIGNALS")
+         CONTACT SECTION ("CONNECT")
          ==================================================================== -->
     <section class="section-block contact-section" id="contact">
       <div class="container">
         
         <div class="section-heading text-center">
-          <span class="section-tag"><i class="fa-solid fa-satellite-dish"></i> Subspace Array</span>
-          <h2 class="section-title">Transmit a <span class="gradient-text">Signal.</span></h2>
-          <p class="section-subtitle">
-            Have an opportunity, questions about my projects, or want to collaborate on software? Let's connect across the stars.
+          <span class="section-tag-pill tag-coral"><i class="fa-solid fa-paper-plane"></i> Let's Connect</span>
+          <h2 class="section-main-title">Start a <span class="highlight-coral">Conversation.</span></h2>
+          <p class="section-sub-text">
+            Have a project opportunity, questions about my work, or want to collaborate on software? I'd love to hear from you.
           </p>
         </div>
 
-        <div class="contact-grid">
+        <div class="contact-layout-grid">
           
           <!-- Contact Channels Column -->
-          <div class="contact-info-column">
+          <div class="contact-channels-column">
             
-            <div class="contact-channels-card glass-card" data-tilt>
-              <h3 class="channels-heading"><i class="fa-solid fa-address-card"></i> Verified Channels</h3>
+            <div class="channels-box-card" data-tilt>
+              <h3 class="channels-box-title"><i class="fa-solid fa-address-card"></i> Verified Channels</h3>
 
               <!-- Email Channel -->
-              <div class="channel-row">
-                <div class="channel-icon"><i class="fa-solid fa-envelope"></i></div>
-                <div class="channel-meta">
-                  <span class="channel-lbl">Direct Email</span>
-                  <a href="mailto:akhilaxavier2007@gmail.com" class="channel-val" id="contact-email-link">akhilaxavier2007@gmail.com</a>
+              <div class="channel-item-row">
+                <div class="channel-icon-pill icon-coral"><i class="fa-solid fa-envelope"></i></div>
+                <div class="channel-info-block">
+                  <span class="channel-tag-label">Direct Email</span>
+                  <a href="mailto:akhilaxavier2007@gmail.com" class="channel-link-text" id="contact-email-link">akhilaxavier2007@gmail.com</a>
                 </div>
-                <button class="channel-copy-btn" id="copy-email-btn" title="Copy email address" aria-label="Copy email address">
+                <button class="channel-action-btn" id="copy-email-btn" title="Copy email address" aria-label="Copy email address">
                   <i class="fa-regular fa-copy"></i>
                 </button>
               </div>
 
               <!-- Phone Channel -->
-              <div class="channel-row">
-                <div class="channel-icon"><i class="fa-solid fa-phone"></i></div>
-                <div class="channel-meta">
-                  <span class="channel-lbl">Mobile Frequency</span>
-                  <a href="tel:+918714176644" class="channel-val">+91 8714176644</a>
+              <div class="channel-item-row">
+                <div class="channel-icon-pill icon-turquoise"><i class="fa-solid fa-phone"></i></div>
+                <div class="channel-info-block">
+                  <span class="channel-tag-label">Mobile</span>
+                  <a href="tel:+918714176644" class="channel-link-text">+91 8714176644</a>
                 </div>
               </div>
 
               <!-- LinkedIn Channel -->
-              <div class="channel-row">
-                <div class="channel-icon"><i class="fa-brands fa-linkedin-in"></i></div>
-                <div class="channel-meta">
-                  <span class="channel-lbl">LinkedIn Profile</span>
-                  <a href="https://www.linkedin.com/in/akhila-xavier-68671237b" target="_blank" rel="noopener noreferrer" class="channel-val">
+              <div class="channel-item-row">
+                <div class="channel-icon-pill icon-lavender"><i class="fa-brands fa-linkedin-in"></i></div>
+                <div class="channel-info-block">
+                  <span class="channel-tag-label">LinkedIn</span>
+                  <a href="https://www.linkedin.com/in/akhila-xavier-68671237b" target="_blank" rel="noopener noreferrer" class="channel-link-text">
                     linkedin.com/in/akhila-xavier-68671237b
                   </a>
                 </div>
-                <a href="https://www.linkedin.com/in/akhila-xavier-68671237b" target="_blank" rel="noopener noreferrer" class="channel-arrow-btn" aria-label="Open LinkedIn profile">
+                <a href="https://www.linkedin.com/in/akhila-xavier-68671237b" target="_blank" rel="noopener noreferrer" class="channel-action-btn" aria-label="Open LinkedIn profile">
                   <i class="fa-solid fa-arrow-up-right-from-square"></i>
                 </a>
               </div>
 
               <!-- Instagram Channel -->
-              <div class="channel-row">
-                <div class="channel-icon"><i class="fa-brands fa-instagram"></i></div>
-                <div class="channel-meta">
-                  <span class="channel-lbl">Instagram</span>
-                  <a href="https://instagram.com/akhilaxaviier" target="_blank" rel="noopener noreferrer" class="channel-val">
+              <div class="channel-item-row">
+                <div class="channel-icon-pill icon-yellow"><i class="fa-brands fa-instagram"></i></div>
+                <div class="channel-info-block">
+                  <span class="channel-tag-label">Instagram</span>
+                  <a href="https://instagram.com/akhilaxaviier" target="_blank" rel="noopener noreferrer" class="channel-link-text">
                     @akhilaxaviier
                   </a>
                 </div>
-                <a href="https://instagram.com/akhilaxaviier" target="_blank" rel="noopener noreferrer" class="channel-arrow-btn" aria-label="Open Instagram profile">
+                <a href="https://instagram.com/akhilaxaviier" target="_blank" rel="noopener noreferrer" class="channel-action-btn" aria-label="Open Instagram profile">
                   <i class="fa-solid fa-arrow-up-right-from-square"></i>
                 </a>
               </div>
 
               <!-- Location Channel -->
-              <div class="channel-row">
-                <div class="channel-icon"><i class="fa-solid fa-location-dot"></i></div>
-                <div class="channel-meta">
-                  <span class="channel-lbl">Base Coordinates</span>
-                  <span class="channel-val">Trivandrum / Kollam, Kerala, India</span>
+              <div class="channel-item-row">
+                <div class="channel-icon-pill icon-cobalt"><i class="fa-solid fa-location-dot"></i></div>
+                <div class="channel-info-block">
+                  <span class="channel-tag-label">Location</span>
+                  <span class="channel-link-text">Trivandrum / Kollam, Kerala, India</span>
                 </div>
               </div>
+
             </div>
 
-            <!-- Telemetry Status Card -->
-            <div class="telemetry-radar-card glass-card">
-              <div class="radar-header">
-                <span class="radar-ping"></span>
-                <strong>Active Telemetry Radar</strong>
+            <!-- Time / Status Card -->
+            <div class="playground-time-card">
+              <div class="time-card-header">
+                <span class="time-ping-dot"></span>
+                <strong>Current Local Time</strong>
               </div>
-              <p>Current Time: <strong id="telemetry-clock">Loading...</strong></p>
-              <p class="radar-note">Open for innovative student engineering collaborations, hackathons, and forward-thinking technical opportunities.</p>
+              <p class="time-display-val" id="telemetry-clock">Loading...</p>
+              <p class="time-sub-note">Open for innovative student engineering collaborations, hackathons, and forward-thinking software projects.</p>
             </div>
 
           </div>
 
-          <!-- Interactive Contact Transmission Form -->
-          <div class="contact-form-column glass-card">
-            <h3 class="form-title">Send a Transmission</h3>
-            <p class="form-subtitle">Fill in your telemetry details below to dispatch a message.</p>
+          <!-- Interactive Message Form -->
+          <div class="contact-form-column">
+            <h3 class="form-main-title">Send a Message</h3>
+            <p class="form-sub-title">Fill in your details below and I will get back to you soon.</p>
 
-            <form class="cosmic-form" id="contact-form">
-              <div class="form-row">
-                <div class="form-group">
+            <form class="playful-form" id="contact-form">
+              <div class="form-two-cols">
+                <div class="form-field-group">
                   <label for="sender-name"><i class="fa-solid fa-user"></i> Your Name</label>
                   <input type="text" id="sender-name" name="name" placeholder="Ada Lovelace" required>
                 </div>
-                <div class="form-group">
-                  <label for="sender-email"><i class="fa-solid fa-at"></i> Your Frequency (Email)</label>
-                  <input type="email" id="sender-email" name="email" placeholder="ada@analytical-engine.space" required>
+                <div class="form-field-group">
+                  <label for="sender-email"><i class="fa-solid fa-envelope"></i> Your Email</label>
+                  <input type="email" id="sender-email" name="email" placeholder="ada@analytical-engine.com" required>
                 </div>
               </div>
 
-              <div class="form-group">
-                <label for="sender-subject"><i class="fa-solid fa-tag"></i> Mission Subject</label>
+              <div class="form-field-group">
+                <label for="sender-subject"><i class="fa-solid fa-tag"></i> Subject</label>
                 <input type="text" id="sender-subject" name="subject" placeholder="Project Opportunity / AWS Challenge Feedback" required>
               </div>
 
-              <div class="form-group">
-                <label for="sender-message"><i class="fa-solid fa-message"></i> Telemetry Message</label>
+              <div class="form-field-group">
+                <label for="sender-message"><i class="fa-solid fa-message"></i> Message</label>
                 <textarea id="sender-message" name="message" rows="5" placeholder="Share your message, feedback, or collaboration scope..." required></textarea>
               </div>
 
-              <button type="submit" class="btn-primary form-submit-btn" id="send-msg-btn">
-                <span>Transmit Signal</span>
+              <button type="submit" class="btn-playground-primary form-submit-btn" id="send-msg-btn">
+                <span>Send Message</span>
                 <i class="fa-solid fa-paper-plane"></i>
               </button>
             </form>
@@ -1132,29 +1170,32 @@
       
       <div class="footer-left">
         <div class="footer-brand">
-          <span class="brand-orbit-icon"><i class="fa-solid fa-atom"></i></span>
-          <span class="brand-name">Akhila <span class="brand-accent">Xavier</span></span>
+          <div class="brand-badge-box">
+            <span class="brand-monogram">AX</span>
+            <div class="brand-badge-dot"></div>
+          </div>
+          <span class="footer-brand-name">Akhila <span class="brand-coral">Xavier</span></span>
         </div>
-        <p class="footer-tagline">"Exploring technology. Creating possibilities."</p>
+        <p class="footer-tagline">"A Little World of Big Ideas."</p>
         <p class="footer-affiliation">
           B.Tech Computer Science &amp; Engineering &bull; Sree Chitra Thirunal College of Engineering, Trivandrum
         </p>
       </div>
 
       <div class="footer-right">
-        <div class="footer-social-bubbles">
-          <a href="mailto:akhilaxavier2007@gmail.com" class="social-bubble" aria-label="Email Akhila"><i class="fa-solid fa-envelope"></i></a>
-          <a href="https://www.linkedin.com/in/akhila-xavier-68671237b" target="_blank" rel="noopener noreferrer" class="social-bubble" aria-label="LinkedIn Profile"><i class="fa-brands fa-linkedin-in"></i></a>
-          <a href="https://instagram.com/akhilaxaviier" target="_blank" rel="noopener noreferrer" class="social-bubble" aria-label="Instagram Profile"><i class="fa-brands fa-instagram"></i></a>
-          <a href="#" class="social-bubble" id="footer-repo-link" target="_blank" rel="noopener noreferrer" aria-label="Project Repository"><i class="fa-brands fa-github"></i></a>
+        <div class="footer-social-row">
+          <a href="mailto:akhilaxavier2007@gmail.com" class="social-icon-btn" aria-label="Email Akhila"><i class="fa-solid fa-envelope"></i></a>
+          <a href="https://www.linkedin.com/in/akhila-xavier-68671237b" target="_blank" rel="noopener noreferrer" class="social-icon-btn" aria-label="LinkedIn Profile"><i class="fa-brands fa-linkedin-in"></i></a>
+          <a href="https://instagram.com/akhilaxaviier" target="_blank" rel="noopener noreferrer" class="social-icon-btn" aria-label="Instagram Profile"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#" class="social-icon-btn" id="footer-repo-link" target="_blank" rel="noopener noreferrer" aria-label="Project Repository"><i class="fa-brands fa-github"></i></a>
         </div>
 
-        <p class="copyright-note">
+        <p class="copyright-text">
           &copy; <span id="current-year">2026</span> Akhila Xavier. Built for the AWS Student Builder Challenge.
         </p>
 
-        <a href="#home" class="btn-back-to-top" aria-label="Back to top">
-          <span>Return to Orbit</span>
+        <a href="#home" class="back-to-top-link" aria-label="Back to top">
+          <span>Back to Top</span>
           <i class="fa-solid fa-arrow-up"></i>
         </a>
       </div>

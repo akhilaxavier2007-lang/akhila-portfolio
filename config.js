@@ -1,10 +1,11 @@
 /**
  * ==========================================================================
- * AKHILA XAVIER — MY DIGITAL UNIVERSE
- * Configuration File: Personal Contact & Verified Profile Settings
+ * AKHILA XAVIER — A LITTLE WORLD OF BIG IDEAS
+ * Configuration File: Personal Contact & Profile Settings
  * ==========================================================================
  * 
  * Verified from Akhila Xavier's CV for the AWS Student Builder Challenge.
+ * Creative Playground Portfolio Theme.
  */
 
 const USER_CONFIG = {
@@ -12,7 +13,8 @@ const USER_CONFIG = {
   owner: {
     fullName: "Akhila Xavier",
     title: "B.Tech Computer Science and Engineering Student",
-    brandStatement: "Exploring technology. Creating possibilities.",
+    brandStatement: "A Little World of Big Ideas.",
+    tagline: "Exploring technology, crafting playful software, and turning curiosity into real possibilities.",
     education: {
       degree: "B.Tech in Computer Science and Engineering",
       institution: "Sree Chitra Thirunal College of Engineering (SCTCE)",
@@ -37,10 +39,10 @@ const USER_CONFIG = {
     phone: "+918714176644",
     linkedin: "https://www.linkedin.com/in/akhila-xavier-68671237b",
     instagram: "https://instagram.com/akhilaxaviier",
-    portfolioRepository: "" // Fill with GitHub repo once pushed
+    portfolioRepository: "" // Fill with GitHub repo once published
   },
 
-  // Faculty References
+  // Faculty Mentors / References
   references: [
     {
       name: "Dr. Soniya B",
@@ -56,11 +58,11 @@ const USER_CONFIG = {
     }
   ],
 
-  // Interactive Universe Settings
-  universe: {
-    orbitalSpeedMultiplier: 1.0,
-    starfieldDensity: 110,
-    enableSoundSFX: false // Can be toggled by user via navbar audio button
+  // Playground Settings
+  playground: {
+    shapeAnimationSpeed: 1.0,
+    enableDoodles: true,
+    enablePlayfulAudio: true
   }
 };
 
@@ -69,4 +71,4 @@ Object.freeze(USER_CONFIG);
 Object.freeze(USER_CONFIG.owner);
 Object.freeze(USER_CONFIG.owner.education);
 Object.freeze(USER_CONFIG.links);
-Object.freeze(USER_CONFIG.universe);
+Object.freeze(USER_CONFIG.playground);
