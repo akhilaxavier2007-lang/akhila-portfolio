@@ -1,31 +1,16 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100">
-  <defs>
-    <linearGradient id="coral-grad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#FF6B6B" />
-      <stop offset="100%" stop-color="#FF5E7E" />
-    </linearGradient>
-    <linearGradient id="purple-grad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#9B5DE5" />
-      <stop offset="100%" stop-color="#845EC2" />
-    </linearGradient>
-  </defs>
-  
-  <!-- Warm Cream Rounded Background -->
-  <rect width="100" height="100" rx="28" fill="#FAF7F2" />
-  
-  <!-- Overlapping Playful Geometric Shapes -->
-  <!-- Sunshine Yellow Pill -->
-  <rect x="18" y="18" width="30" height="30" rx="15" fill="#FFD166" />
-  
-  <!-- Turquoise Blue Blob Shape -->
-  <circle cx="70" cy="35" r="16" fill="#00F5D4" />
-  
-  <!-- Coral Pink Large Circle -->
-  <circle cx="40" cy="62" r="22" fill="url(#coral-grad)" />
-  
-  <!-- Lavender Purple Starburst / Diamond -->
-  <rect x="60" y="55" width="24" height="24" rx="8" transform="rotate(45 72 67)" fill="url(#purple-grad)" />
-  
-  <!-- Central Stylized 'AX' Monogram in Deep Charcoal -->
-  <text x="50" y="61" font-family="'Space Grotesk', -apple-system, sans-serif" font-weight="800" font-size="28" fill="#1E2029" text-anchor="middle">AX</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <!-- Warm cream background -->
+  <rect width="64" height="64" rx="14" fill="#FAF6ED"/>
+  <!-- Bold black border (neobrutalist) -->
+  <rect x="1.5" y="1.5" width="61" height="61" rx="13" stroke="#181824" stroke-width="3" fill="none"/>
+  <!-- Hot pink background square offset -->
+  <rect x="6" y="6" width="52" height="52" rx="10" fill="#FF1493"/>
+  <!-- Yellow 4-point star top-right -->
+  <polygon points="52,8 54,12 58,12 55,15 56,19 52,17 48,19 49,15 46,12 50,12" fill="#FFD600"/>
+  <!-- White AX monogram -->
+  <text x="32" y="43" text-anchor="middle" font-family="'Arial Black', sans-serif" font-weight="900" font-size="24" fill="#FFFFFF" letter-spacing="-1">AX</text>
+  <!-- Small cobalt blue dot decoration -->
+  <circle cx="12" cy="52" r="4" fill="#1A56DB"/>
+  <!-- Small orange dot -->
+  <circle cx="52" cy="52" r="3" fill="#FF5400"/>
 </svg>
