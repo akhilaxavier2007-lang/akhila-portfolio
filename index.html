@@ -4,74 +4,120 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Akhila Xavier — My Digital Universe</title>
-  <meta name="description" content="Welcome to the digital universe of Akhila Xavier — B.Tech Computer Science student at SCTCE. Exploring technology, creating possibilities.">
+  <meta name="description" content="Welcome to the digital universe of Akhila Xavier — B.Tech Computer Science student at SCTCE (9.8 CGPA). Hackathon Shortlisted Innovator. Exploring technology, creating possibilities.">
   <meta name="author" content="Akhila Xavier">
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
 
-  <!-- Google Fonts: Space Grotesk (Headings), Outfit (Body), JetBrains Mono (Technical) -->
+  <!-- Open Graph Meta for Social Sharing & Challenge Judges -->
+  <meta property="og:title" content="Akhila Xavier — My Digital Universe">
+  <meta property="og:description" content="B.Tech Computer Science (9.8 CGPA) at SCTCE Trivandrum. Hackathon Shortlisted Innovator. Explore my interactive digital universe, solar system, and software projects.">
+  <meta property="og:type" content="website">
+
+  <!-- Google Fonts: Space Grotesk, Outfit & JetBrains Mono -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Outfit:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,500;0,700;1,400&family=Outfit:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-  <!-- FontAwesome for subtle, elegant icons -->
+  <!-- FontAwesome Icons 6.5 -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
   <!-- Main Stylesheet -->
   <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body data-theme="nebula">
 
-  <!-- Ambient Dynamic Cosmic Canvas (Stars & Orbital dust) -->
+  <!-- Ambient Dynamic Cosmic Canvas (Starfield & Constellations) -->
   <canvas id="universe-canvas" aria-hidden="true"></canvas>
+
+  <!-- Custom Cosmic Cursor & Follower -->
+  <div class="custom-cursor" id="cursor" aria-hidden="true"></div>
+  <div class="custom-cursor-follower" id="cursor-follower" aria-hidden="true"></div>
+
+  <!-- Toast Notification Hub -->
+  <div class="toast-container" id="toast-container" aria-live="polite"></div>
 
   <!-- Skip Link for Accessibility -->
   <a href="#main-content" class="skip-link">Skip to main content</a>
 
+  <!-- Top Real-Time Mission Status Bar -->
+  <div class="mission-status-bar" id="mission-status">
+    <div class="status-ping"></div>
+    <span class="status-text">
+      <strong>Orbital Coordinates:</strong> B.Tech CSE @ SCTCE Trivandrum &bull; <strong>9.8 CGPA</strong> &bull; Hackathon Shortlisted Innovator &bull; <span class="status-badge-open">Open for Collaborations</span>
+    </span>
+  </div>
+
   <!-- Header & Navigation -->
   <header class="site-header" id="header">
     <div class="nav-container">
-      <a href="#home" class="nav-brand" aria-label="Akhila Xavier Home">
+      
+      <!-- Brand Logo -->
+      <a href="#home" class="nav-brand" aria-label="Akhila Xavier Homepage">
         <span class="brand-orbit-icon"><i class="fa-solid fa-atom"></i></span>
-        <span class="brand-name">Akhila <span class="brand-accent">Xavier</span></span>
+        <div class="brand-titles">
+          <span class="brand-name">Akhila <span class="brand-accent">Xavier</span></span>
+          <span class="brand-sub">Digital Universe</span>
+        </div>
       </a>
 
-      <!-- Desktop Navigation -->
+      <!-- Desktop Navigation Menu -->
       <nav class="desktop-nav" aria-label="Primary Navigation">
         <ul class="nav-links">
-          <li><a href="#home" class="nav-item active">Home</a></li>
-          <li><a href="#universe-section" class="nav-item">Interactive Universe</a></li>
-          <li><a href="#about" class="nav-item">About</a></li>
-          <li><a href="#skills" class="nav-item">Skills</a></li>
-          <li><a href="#projects" class="nav-item">Projects</a></li>
-          <li><a href="#contact" class="nav-item">Contact</a></li>
+          <li><a href="#home" class="nav-item active"><i class="fa-solid fa-house"></i> Home</a></li>
+          <li><a href="#universe-section" class="nav-item"><i class="fa-solid fa-planet-ringed"></i> Universe</a></li>
+          <li><a href="#about" class="nav-item"><i class="fa-solid fa-user-astronaut"></i> About</a></li>
+          <li><a href="#skills" class="nav-item"><i class="fa-solid fa-dna"></i> Skills</a></li>
+          <li><a href="#projects" class="nav-item"><i class="fa-solid fa-meteor"></i> Projects</a></li>
+          <li><a href="#terminal" class="nav-item"><i class="fa-solid fa-terminal"></i> Console</a></li>
+          <li><a href="#contact" class="nav-item"><i class="fa-solid fa-satellite-dish"></i> Contact</a></li>
         </ul>
       </nav>
 
-      <!-- Nav CTA & Mobile Menu Toggle -->
+      <!-- Nav Controls: Theme, Audio & CTA -->
       <div class="nav-actions">
+        <!-- Cosmic Theme Switcher -->
+        <button class="icon-tool-btn" id="theme-btn" title="Cycle Cosmic Theme (Nebula / Andromeda / Supernova)" aria-label="Cycle Cosmic Theme">
+          <i class="fa-solid fa-palette"></i>
+        </button>
+
+        <!-- Web Audio API Synthesizer SFX Toggle -->
+        <button class="icon-tool-btn" id="audio-btn" title="Toggle Cosmic Synthesizer SFX" aria-label="Toggle Cosmic Synthesizer Sound FX">
+          <i class="fa-solid fa-volume-xmark" id="audio-icon"></i>
+        </button>
+
+        <!-- Signal Me CTA -->
         <a href="#contact" class="btn-pill btn-nav-cta">
-          <span>Connect</span>
-          <i class="fa-solid fa-arrow-right"></i>
+          <span>Signal Me</span>
+          <i class="fa-solid fa-paper-plane"></i>
         </a>
+
+        <!-- Mobile Drawer Toggle -->
         <button class="menu-toggle" id="menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobile-menu">
           <span class="menu-bar"></span>
           <span class="menu-bar"></span>
         </button>
       </div>
+
     </div>
 
-    <!-- Mobile Drawer Navigation -->
+    <!-- Mobile Drawer Menu -->
     <div class="mobile-drawer" id="mobile-menu" aria-hidden="true">
       <ul class="mobile-links">
-        <li><a href="#home" class="mobile-nav-item">Home</a></li>
-        <li><a href="#universe-section" class="mobile-nav-item">Interactive Universe</a></li>
-        <li><a href="#about" class="mobile-nav-item">About Me</a></li>
-        <li><a href="#skills" class="mobile-nav-item">Tech Superpowers</a></li>
-        <li><a href="#projects" class="mobile-nav-item">Projects</a></li>
-        <li><a href="#contact" class="mobile-nav-item">Contact</a></li>
+        <li><a href="#home" class="mobile-nav-item"><i class="fa-solid fa-house"></i> Home</a></li>
+        <li><a href="#universe-section" class="mobile-nav-item"><i class="fa-solid fa-planet-ringed"></i> Interactive Universe</a></li>
+        <li><a href="#about" class="mobile-nav-item"><i class="fa-solid fa-user-astronaut"></i> About &amp; Education</a></li>
+        <li><a href="#skills" class="mobile-nav-item"><i class="fa-solid fa-dna"></i> Tech Superpowers</a></li>
+        <li><a href="#projects" class="mobile-nav-item"><i class="fa-solid fa-meteor"></i> Projects &amp; Hackathons</a></li>
+        <li><a href="#terminal" class="mobile-nav-item"><i class="fa-solid fa-terminal"></i> Deep Space Console</a></li>
+        <li><a href="#contact" class="mobile-nav-item"><i class="fa-solid fa-satellite-dish"></i> Contact &amp; Connect</a></li>
       </ul>
       <div class="mobile-drawer-footer">
-        <p class="drawer-brand">"Exploring technology. Creating possibilities."</p>
+        <p class="drawer-quote">"Exploring technology. Creating possibilities."</p>
+        <div class="drawer-socials">
+          <a href="mailto:akhilaxavier2007@gmail.com" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
+          <a href="https://www.linkedin.com/in/akhila-xavier-68671237b" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+          <a href="https://instagram.com/akhilaxaviier" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+        </div>
       </div>
     </div>
   </header>
@@ -82,66 +128,117 @@
          HOMEPAGE HERO SECTION
          ==================================================================== -->
     <section class="hero-section" id="home">
+      <div class="hero-glow-orb orb-1"></div>
+      <div class="hero-glow-orb orb-2"></div>
+
       <div class="container hero-container">
         
+        <!-- Left Hero Content -->
         <div class="hero-content">
           <div class="hero-eyebrow">
-            <span class="eyebrow-dot"></span>
-            <span class="eyebrow-text">B.Tech Computer Science &amp; Engineering Student</span>
+            <span class="eyebrow-ping"></span>
+            <span class="eyebrow-text">SCTCE TRIVANDRUM &bull; B.TECH CSE (9.8 CGPA)</span>
           </div>
 
           <h1 class="hero-title">
-            AKHILA <span class="gradient-text">XAVIER</span>
+            AKHILA <span class="gradient-text cosmic-name">XAVIER</span>
           </h1>
+
+          <!-- Typewriter Role Showcase -->
+          <div class="hero-role-wrapper">
+            <span class="role-lead">Pursuing</span>
+            <span class="typing-text" id="typing-text">Computer Science &amp; Engineering</span>
+            <span class="typing-cursor">|</span>
+          </div>
 
           <p class="hero-tagline">
             "Exploring technology. Creating possibilities."
           </p>
 
           <p class="hero-intro">
-            Welcome to my digital universe — a space where curiosity meets technology, ideas become projects and every new experience opens another possibility.
+            Welcome to my digital universe — a space where curiosity meets technology, ideas become projects, and every new experience opens another possibility.
           </p>
 
+          <!-- Call to Action Buttons -->
           <div class="hero-actions">
             <a href="#universe-section" class="btn-primary">
-              <i class="fa-solid fa-satellite"></i>
-              <span>Explore Interactive Universe</span>
+              <i class="fa-solid fa-atom"></i>
+              <span>Explore The Universe</span>
             </a>
-            <a href="#about" class="btn-secondary">
-              <span>Read My Journey</span>
-              <i class="fa-solid fa-arrow-down"></i>
+            <a href="#projects" class="btn-secondary">
+              <i class="fa-solid fa-meteor"></i>
+              <span>View Flagship Projects</span>
+            </a>
+            <a href="#terminal" class="btn-secondary btn-console-cta">
+              <i class="fa-solid fa-terminal"></i>
+              <span>Terminal CLI</span>
             </a>
           </div>
 
-          <!-- Academic Affiliation Pill -->
-          <div class="affiliation-badge">
-            <i class="fa-solid fa-graduation-cap"></i>
-            <span>Sree Chitra Thirunal College of Engineering, Thiruvananthapuram</span>
+          <!-- Academic & Hackathon Honors Metric Row -->
+          <div class="hero-metrics-strip">
+            <div class="metric-block">
+              <div class="metric-num">9.8</div>
+              <div class="metric-cap">B.Tech First Year CGPA</div>
+            </div>
+            <div class="metric-sep"></div>
+            <div class="metric-block">
+              <div class="metric-num">CBSE Topper</div>
+              <div class="metric-cap">Informatics Practices</div>
+            </div>
+            <div class="metric-sep"></div>
+            <div class="metric-block">
+              <div class="metric-num">Shortlisted</div>
+              <div class="metric-cap">Hackathon by Sponsor Co.</div>
+            </div>
+            <div class="metric-sep"></div>
+            <div class="metric-block">
+              <div class="metric-num">Java Topper</div>
+              <div class="metric-cap">Secondary School Coding</div>
+            </div>
           </div>
         </div>
 
-        <!-- Central Celestial Visual Anchor -->
-        <div class="hero-visual" aria-hidden="true">
+        <!-- Right Celestial 3D Visual Core -->
+        <div class="hero-visual" data-tilt aria-hidden="true">
           <div class="celestial-core-display">
             <div class="core-glow-aura"></div>
             <div class="core-ring-orbital ring-1"></div>
             <div class="core-ring-orbital ring-2"></div>
+            
             <div class="central-monogram-sphere">
               <span class="monogram-text">AX</span>
+              <div class="micro-sparkle sp-1"></div>
+              <div class="micro-sparkle sp-2"></div>
+              <div class="micro-sparkle sp-3"></div>
             </div>
-            <!-- Orbiting Micro Particles -->
-            <div class="orbit-sparkle s1" title="Curiosity"></div>
-            <div class="orbit-sparkle s2" title="Code"></div>
-            <div class="orbit-sparkle s3" title="Creation"></div>
+
+            <!-- Orbiting Skill Badges -->
+            <div class="satellite-pill sat-python" title="Proficient in Python">
+              <i class="fa-brands fa-python"></i>
+              <span>Python</span>
+            </div>
+            <div class="satellite-pill sat-java" title="Java OOP & Swing">
+              <i class="fa-brands fa-java"></i>
+              <span>Java</span>
+            </div>
+            <div class="satellite-pill sat-c" title="C & Systems Logic">
+              <i class="fa-solid fa-code"></i>
+              <span>C / Shell</span>
+            </div>
+            <div class="satellite-pill sat-aws" title="AWS Cloud & Local AI">
+              <i class="fa-brands fa-aws"></i>
+              <span>AWS Cloud</span>
+            </div>
           </div>
         </div>
 
       </div>
 
       <!-- Exploration Scroll Indicator -->
-      <a href="#universe-section" class="scroll-indicator" aria-label="Scroll to Interactive Universe">
+      <a href="#universe-section" class="scroll-indicator" aria-label="Scroll to Interactive Solar System">
         <span class="scroll-track"><span class="scroll-ball"></span></span>
-        <span class="scroll-caption">Enter The Orbit</span>
+        <span class="scroll-caption">Descent Into Orbit</span>
       </a>
     </section>
 
@@ -160,7 +257,7 @@
           </p>
           <div class="interaction-hint">
             <i class="fa-solid fa-hand-pointer"></i>
-            <span><strong>Click any orbiting planet</strong> to reveal its cosmic dossier, or explore the secret constellation below.</span>
+            <span><strong>Click any orbiting planet</strong> to reveal its cosmic dossier, or explore the personal constellation below.</span>
           </div>
         </div>
 
@@ -173,7 +270,7 @@
             <div class="star-core">
               <span class="star-label">AX</span>
             </div>
-            <span class="star-caption">Akhila Xavier<br><small>Center of Gravity</small></span>
+            <span class="star-caption">Akhila Xavier<br><small>Gravitational Core</small></span>
           </div>
 
           <!-- Orbital Track 1: About Me -->
@@ -183,7 +280,7 @@
               <div class="planet-sphere sphere-lavender">
                 <i class="fa-solid fa-user-astronaut"></i>
               </div>
-              <span class="planet-badge">Planet I &bull; About Me</span>
+              <span class="planet-badge">Planet I &bull; About Me &amp; 9.8 CGPA</span>
             </button>
           </div>
 
@@ -198,18 +295,18 @@
             </button>
           </div>
 
-          <!-- Orbital Track 3: Projects -->
+          <!-- Orbital Track 3: Projects & Hackathons -->
           <div class="orbit-path orbit-path-3"></div>
           <div class="planet-anchor" id="planet-anchor-3">
             <button class="planet planet-projects" id="planet-projects-btn" aria-label="Open Projects Planet Dossier" aria-haspopup="dialog">
               <div class="planet-sphere sphere-violet">
-                <i class="fa-solid fa-diagram-project"></i>
+                <i class="fa-solid fa-meteor"></i>
               </div>
-              <span class="planet-badge">Planet III &bull; Projects</span>
+              <span class="planet-badge">Planet III &bull; Projects &amp; Hackathon</span>
             </button>
           </div>
 
-          <!-- Quick Pause/Resume Controls for Accessibility -->
+          <!-- Accessibility Orbit Motion Control -->
           <div class="orbit-accessibility-control">
             <button class="orbit-toggle-btn" id="orbit-motion-toggle" aria-label="Pause or play planetary orbit animation">
               <i class="fa-solid fa-pause" id="motion-icon"></i>
@@ -242,7 +339,7 @@
 
             <div class="modal-card-footer">
               <button class="btn-secondary btn-sm" id="modal-dismiss-btn">Close Panel</button>
-              <a href="#about" class="btn-primary btn-sm" id="modal-deep-link">Navigate to Full Section</a>
+              <a href="#about" class="btn-primary btn-sm" id="modal-deep-link">Jump to Full Section</a>
             </div>
 
           </div>
@@ -256,50 +353,57 @@
             <span class="constellation-pill"><i class="fa-solid fa-wand-magic-sparkles"></i> Optional Discovery</span>
             <h3 class="constellation-title">The Little Things That Make Me Me</h3>
             <p class="constellation-desc">
-              Behind the code lies human curiosity. Tap individual stars to reveal the personal interests and quiet passions that shape my mindset.
+              Behind the code lies human curiosity and balance. Tap individual stars to discover the personal pursuits, hobbies, and quiet passions that shape my mindset.
             </p>
           </div>
 
           <div class="constellation-map" id="constellation-map" role="region" aria-label="Personal Interest Constellation">
             <!-- SVG Constellation Connecting Lines -->
-            <svg class="constellation-lines" viewBox="0 0 800 320" preserveAspectRatio="none" aria-hidden="true">
-              <polyline points="100,160 250,70 420,120 580,60 720,170" class="star-connector" />
-              <polyline points="250,70 420,240 580,60" class="star-connector-branch" />
+            <svg class="constellation-lines" viewBox="0 0 850 320" preserveAspectRatio="none" aria-hidden="true">
+              <polyline points="80,160 210,70 380,140 540,60 700,160 810,90" class="star-connector" />
+              <polyline points="210,70 380,240 700,160" class="star-connector-branch" />
             </svg>
 
-            <!-- Star 1: Music -->
-            <button class="constellation-star star-1" data-interest="music" aria-label="Star 1: Music">
+            <!-- Star 1: Problem Solving & Coding -->
+            <button class="constellation-star star-1" data-interest="coding" aria-label="Star 1: Problem Solving &amp; Coding">
+              <span class="star-glow"></span>
+              <span class="star-point"><i class="fa-solid fa-terminal"></i></span>
+              <span class="star-title">Problem Solving</span>
+            </button>
+
+            <!-- Star 2: Listening to Music -->
+            <button class="constellation-star star-2" data-interest="music" aria-label="Star 2: Music">
               <span class="star-glow"></span>
               <span class="star-point"><i class="fa-solid fa-music"></i></span>
               <span class="star-title">Music</span>
             </button>
 
-            <!-- Star 2: Books -->
-            <button class="constellation-star star-2" data-interest="books" aria-label="Star 2: Books">
+            <!-- Star 3: Reading Books -->
+            <button class="constellation-star star-3" data-interest="books" aria-label="Star 3: Books">
               <span class="star-glow"></span>
               <span class="star-point"><i class="fa-solid fa-book-open"></i></span>
               <span class="star-title">Books</span>
             </button>
 
-            <!-- Star 3: Swimming -->
-            <button class="constellation-star star-3" data-interest="swimming" aria-label="Star 3: Swimming">
+            <!-- Star 4: Dancing -->
+            <button class="constellation-star star-4" data-interest="dancing" aria-label="Star 4: Dancing">
               <span class="star-glow"></span>
-              <span class="star-point"><i class="fa-solid fa-water"></i></span>
+              <span class="star-point"><i class="fa-solid fa-person-dots-from-line"></i></span>
+              <span class="star-title">Dancing</span>
+            </button>
+
+            <!-- Star 5: Swimming -->
+            <button class="constellation-star star-5" data-interest="swimming" aria-label="Star 5: Swimming">
+              <span class="star-glow"></span>
+              <span class="star-point"><i class="fa-solid fa-person-swimming"></i></span>
               <span class="star-title">Swimming</span>
             </button>
 
-            <!-- Star 4: Curiosity -->
-            <button class="constellation-star star-4" data-interest="curiosity" aria-label="Star 4: Curiosity">
-              <span class="star-glow"></span>
-              <span class="star-point"><i class="fa-solid fa-compass"></i></span>
-              <span class="star-title">Curiosity</span>
-            </button>
-
-            <!-- Star 5: Learning New Tech -->
-            <button class="constellation-star star-5" data-interest="learning" aria-label="Star 5: Learning New Technologies">
+            <!-- Star 6: Continuous Curiosity -->
+            <button class="constellation-star star-6" data-interest="curiosity" aria-label="Star 6: Curiosity &amp; Tech">
               <span class="star-glow"></span>
               <span class="star-point"><i class="fa-solid fa-lightbulb"></i></span>
-              <span class="star-title">Learning Tech</span>
+              <span class="star-title">Curiosity</span>
             </button>
           </div>
 
@@ -310,7 +414,7 @@
               <div class="reveal-text">
                 <h4 class="reveal-title" id="reveal-title">Select a star to discover</h4>
                 <p class="reveal-body" id="reveal-body">
-                  Click on any star in the constellation map above to explore how music, reading, swimming, and curiosity inspire my software journey.
+                  Click on any star in the constellation map above to explore how problem solving, music, reading, dancing, swimming, and curiosity inspire my software journey.
                 </p>
               </div>
             </div>
@@ -331,36 +435,37 @@
           <span class="section-tag"><i class="fa-solid fa-compass"></i> Section A</span>
           <h2 class="section-title">More than just a <span class="gradient-text">collection of code.</span></h2>
           <p class="section-subtitle">
-            An introduction to my background as an engineering undergraduate, what drives my curiosity, and how I approach problem solving.
+            An introduction to my background as an engineering undergraduate at SCTCE, what drives my curiosity, and how I approach problem solving.
           </p>
         </div>
 
         <div class="about-grid">
           
           <!-- Narrative Column -->
-          <div class="about-narrative glass-card">
+          <div class="about-narrative glass-card" data-tilt>
             <h3 class="narrative-heading">
-              Hello, I am Akhila Xavier — a Computer Science and Engineering student driven by the desire to understand how systems work from the inside out.
+              Hello, I am Akhila Xavier — a creative thinker and Computer Science undergraduate driven by the desire to understand how systems work from the inside out.
             </h3>
 
             <p>
-              Currently pursuing my <strong>B.Tech in Computer Science and Engineering</strong> at <strong>Sree Chitra Thirunal College of Engineering (SCTCE), Thiruvananthapuram</strong>, my journey is rooted in an active curiosity about technology and software development.
+              Currently pursuing my <strong>B.Tech in Computer Science and Engineering (2025–2029)</strong> at <strong>Sree Chitra Thirunal College of Engineering (SCTCE), Trivandrum</strong>, I completed my first year with an outstanding <strong>CGPA of 9.8</strong>.
             </p>
 
             <p>
-              To me, programming is not just about memorizing syntax or completing assignments; it is a creative medium for transforming raw ideas into practical, reliable tools. Whether exploring object-oriented design in Java, writing structured algorithms in C, or experimenting with modern web standards, I enjoy the meticulous process of taking a problem apart, understanding its constraints, and assembling an elegant solution.
+              My passion for programming took root early: I was recognized as the <strong>CBSE Class 12 Topper in Informatics Practices (Python programming &amp; DBMS)</strong> at Stratford Public School, and the <strong>School Topper in Java programming</strong> at Holy Trinity Anglo Indian School.
             </p>
 
             <p>
-              Beyond the terminal, I believe true creativity comes from maintaining a broad perspective. Listening to music, reading thoughtfully, swimming, and exploring new concepts outside the classroom all contribute to how I approach technical challenges with patience, balance, and an open mind.
+              To me, programming is not just about memorizing syntax; it is an art of analytical thinking. Whether developing structured algorithms in C and Python, architecting desktop applications in Java, or engineering client-side privacy intermediaries in hackathons, I approach engineering with discipline, curiosity, and attention to detail.
             </p>
 
+            <!-- Philosophy Box -->
             <div class="learning-approach-box">
               <div class="approach-icon"><i class="fa-solid fa-seedling"></i></div>
               <div>
-                <h4 class="approach-title">My Philosophy: Continuous Learning</h4>
+                <h4 class="approach-title">My Philosophy: Building Through Truth &amp; Verified Fundamentals</h4>
                 <p class="approach-text">
-                  I don't claim to know everything. Instead, I embrace the mindset of a dedicated learner — someone who listens attentively, asks questions, verifies principles through building, and continuously refines her craft.
+                  I believe authentic engineering comes from listening carefully, breaking down complex abstractions, and verifying every concept through hands-on building. No shortcuts, no invented achievements — only continuous, disciplined progress.
                 </p>
               </div>
             </div>
@@ -369,42 +474,93 @@
           <!-- Academic & Overview Telemetry Column -->
           <div class="about-telemetry">
             
+            <!-- Academic Coordinates Card -->
             <div class="telemetry-card glass-card">
-              <h4 class="card-mini-title"><i class="fa-solid fa-id-card"></i> Student Coordinates</h4>
+              <h4 class="card-mini-title"><i class="fa-solid fa-graduation-cap"></i> Academic Trajectory</h4>
               
               <ul class="telemetry-list">
                 <li>
-                  <span class="t-label"><i class="fa-solid fa-user"></i> Name:</span>
-                  <span class="t-value">Akhila Xavier</span>
+                  <div class="traj-item">
+                    <span class="traj-year">2025 – 2029</span>
+                    <strong>B.Tech in Computer Science &amp; Engineering</strong>
+                    <span class="traj-inst">Sree Chithra Thirunal College of Engineering (SCTCE), Trivandrum</span>
+                    <span class="traj-badge highlight-gold"><i class="fa-solid fa-star"></i> Completed First Year with 9.8 CGPA</span>
+                  </div>
                 </li>
                 <li>
-                  <span class="t-label"><i class="fa-solid fa-graduation-cap"></i> Degree:</span>
-                  <span class="t-value">B.Tech Computer Science &amp; Engineering</span>
+                  <div class="traj-item">
+                    <span class="traj-year">2023 – 2025</span>
+                    <strong>Higher Secondary Education</strong>
+                    <span class="traj-inst">Stratford Public School, Kollam</span>
+                    <span class="traj-badge"><i class="fa-solid fa-award"></i> CBSE Class 12 Topper in Informatics Practices (Python &amp; DBMS)</span>
+                  </div>
                 </li>
                 <li>
-                  <span class="t-label"><i class="fa-solid fa-building-columns"></i> Institution:</span>
-                  <span class="t-value">SCT College of Engineering, Thiruvananthapuram</span>
-                </li>
-                <li>
-                  <span class="t-label"><i class="fa-solid fa-location-dot"></i> Location:</span>
-                  <span class="t-value">Kerala, India</span>
-                </li>
-                <li>
-                  <span class="t-label"><i class="fa-solid fa-compass"></i> Focus:</span>
-                  <span class="t-value text-accent">Core CS, Web &amp; Cloud Fundamentals</span>
+                  <div class="traj-item">
+                    <span class="traj-year">2022 – 2023</span>
+                    <strong>Secondary School Education</strong>
+                    <span class="traj-inst">Holy Trinity Anglo Indian School, Kollam</span>
+                    <span class="traj-badge"><i class="fa-solid fa-award"></i> School Topper in Java Programming</span>
+                  </div>
                 </li>
               </ul>
             </div>
 
-            <!-- Authentic Interests Card -->
-            <div class="interests-card glass-card">
-              <h4 class="card-mini-title"><i class="fa-solid fa-heart"></i> Personal Interests</h4>
-              <div class="interest-chips">
-                <span class="chip"><i class="fa-solid fa-code"></i> Technology &amp; Coding</span>
-                <span class="chip"><i class="fa-solid fa-music"></i> Music</span>
-                <span class="chip"><i class="fa-solid fa-book"></i> Books &amp; Reading</span>
-                <span class="chip"><i class="fa-solid fa-person-swimming"></i> Swimming</span>
-                <span class="chip"><i class="fa-solid fa-brain"></i> Creative Problem Solving</span>
+            <!-- Certifications & Workshops Card -->
+            <div class="certifications-card glass-card">
+              <h4 class="card-mini-title"><i class="fa-solid fa-certificate"></i> Specialized Workshops &amp; Training</h4>
+              <ul class="cert-list">
+                <li>
+                  <i class="fa-solid fa-robot"></i>
+                  <div>
+                    <strong>Introduction to Robotics Workshop</strong>
+                    <span>Mar Athanasius College of Engineering (MACE)</span>
+                  </div>
+                </li>
+                <li>
+                  <i class="fa-solid fa-microchip"></i>
+                  <div>
+                    <strong>Embedded System Design</strong>
+                    <span>Government Engineering College (GEC), Palakkad</span>
+                  </div>
+                </li>
+                <li>
+                  <i class="fa-solid fa-shield-halved"></i>
+                  <div>
+                    <strong>Cyber Security Specialization</strong>
+                    <span class="text-accent">6-Month Intensive Training Program (In Progress)</span>
+                  </div>
+                </li>
+              </ul>
+            </div>
+
+            <!-- Languages & Faculty Mentors Card -->
+            <div class="meta-card glass-card">
+              <h4 class="card-mini-title"><i class="fa-solid fa-language"></i> Languages &amp; Faculty References</h4>
+              <div class="lang-chips">
+                <span class="chip-lang">Malayalam <small>(Native)</small></span>
+                <span class="chip-lang">English <small>(Fluent)</small></span>
+                <span class="chip-lang">Tamil</span>
+                <span class="chip-lang">Hindi</span>
+              </div>
+              
+              <div class="faculty-refs">
+                <div class="ref-person">
+                  <i class="fa-solid fa-chalkboard-user"></i>
+                  <div>
+                    <strong>Dr. Soniya B</strong>
+                    <span>HOD &amp; Professor, Dept. of CSE, SCTCE</span>
+                    <code>soniya@sctce.ac.in</code>
+                  </div>
+                </div>
+                <div class="ref-person">
+                  <i class="fa-solid fa-chalkboard-user"></i>
+                  <div>
+                    <strong>Prof. Binu Rajan</strong>
+                    <span>Assistant Professor, Dept. of CSE, SCTCE</span>
+                    <code>binurajan@sctce.ac.in</code>
+                  </div>
+                </div>
               </div>
             </div>
 
@@ -426,74 +582,90 @@
           <span class="section-tag"><i class="fa-solid fa-microchip"></i> Section B</span>
           <h2 class="section-title">Tools I use to turn <span class="gradient-text">ideas into reality.</span></h2>
           <p class="section-subtitle">
-            An honest overview of my programming foundation, development tooling, and emerging technologies currently being explored.
+            An honest overview of my programming proficiency, computer science foundations, and emerging technologies currently being explored.
           </p>
         </div>
 
         <div class="skills-categories-grid">
           
           <!-- Category 1: Programming Languages -->
-          <div class="skill-category-card glass-card">
+          <div class="skill-category-card glass-card" data-tilt>
             <div class="category-header">
-              <div class="cat-icon cat-prog"><i class="fa-solid fa-code"></i></div>
+              <div class="cat-icon cat-prog"><i class="fa-brands fa-python"></i></div>
               <div>
-                <span class="cat-pill">Core Foundation</span>
+                <span class="cat-pill">Core Arsenal</span>
                 <h3 class="cat-title">Programming Languages</h3>
               </div>
             </div>
-            <p class="cat-desc">Strong fundamentals in structured and object-oriented programming paradigms.</p>
+            <p class="cat-desc">Proficient in modern Python, object-oriented Java, structured C, and shell programming.</p>
             
             <div class="skill-items">
               <div class="skill-item">
                 <div class="skill-info">
-                  <span class="skill-name"><i class="fa-solid fa-c"></i> C Programming</span>
-                  <span class="skill-status-tag">Academic &amp; Core</span>
+                  <span class="skill-name"><i class="fa-brands fa-python"></i> Python Programming</span>
+                  <span class="skill-status-tag tag-primary">Proficient &amp; Topper</span>
                 </div>
-                <p class="skill-sub">Pointers, memory management, structured programming, systems logic.</p>
+                <p class="skill-sub">CBSE Class 12 Topper. Data structures, scripting, file operations, algorithms, AI integration.</p>
               </div>
 
               <div class="skill-item">
                 <div class="skill-info">
-                  <span class="skill-name"><i class="fa-brands fa-java"></i> Java</span>
-                  <span class="skill-status-tag">Primary OOP</span>
+                  <span class="skill-name"><i class="fa-brands fa-java"></i> Java Programming</span>
+                  <span class="skill-status-tag tag-primary">School Topper</span>
                 </div>
-                <p class="skill-sub">Object-oriented architecture, Swing GUI, AWT, JDBC database connectivity.</p>
+                <p class="skill-sub">School Topper. Robust OOP architecture, Java Swing GUI, AWT, JDBC database pipelines.</p>
+              </div>
+
+              <div class="skill-item">
+                <div class="skill-info">
+                  <span class="skill-name"><i class="fa-solid fa-code"></i> C &amp; Shell Programming</span>
+                  <span class="skill-status-tag">Systems Logic</span>
+                </div>
+                <p class="skill-sub">Pointers, dynamic memory management, structured systems programming, bash workflows.</p>
               </div>
             </div>
           </div>
 
-          <!-- Category 2: Computer Science Concepts -->
-          <div class="skill-category-card glass-card">
+          <!-- Category 2: Computer Science & DBMS -->
+          <div class="skill-category-card glass-card" data-tilt>
             <div class="category-header">
-              <div class="cat-icon cat-cs"><i class="fa-solid fa-network-wired"></i></div>
+              <div class="cat-icon cat-cs"><i class="fa-solid fa-database"></i></div>
               <div>
                 <span class="cat-pill">Theoretical Core</span>
-                <h3 class="cat-title">Computer Science</h3>
+                <h3 class="cat-title">Computer Science &amp; Databases</h3>
               </div>
             </div>
-            <p class="cat-desc">Theoretical foundations essential for writing efficient, maintainable algorithms.</p>
+            <p class="cat-desc">Theoretical foundations essential for writing high-performance, maintainable software.</p>
             
             <div class="skill-items">
+              <div class="skill-item">
+                <div class="skill-info">
+                  <span class="skill-name"><i class="fa-solid fa-database"></i> Database Management (DBMS)</span>
+                  <span class="skill-status-tag tag-primary">Class 12 Topper</span>
+                </div>
+                <p class="skill-sub">Relational schema design, normalization (1NF-3NF), SQL queries, indexing, MySQL integration.</p>
+              </div>
+
               <div class="skill-item">
                 <div class="skill-info">
                   <span class="skill-name"><i class="fa-solid fa-sitemap"></i> Data Structures &amp; Algorithms</span>
                   <span class="skill-status-tag">Foundational</span>
                 </div>
-                <p class="skill-sub">Arrays, linked lists, stacks, queues, trees, searching, sorting and time complexity.</p>
+                <p class="skill-sub">Arrays, linked lists, stacks, queues, trees, sorting, searching, time &amp; space complexity.</p>
               </div>
 
               <div class="skill-item">
                 <div class="skill-info">
-                  <span class="skill-name"><i class="fa-solid fa-cubes"></i> Object-Oriented Programming</span>
+                  <span class="skill-name"><i class="fa-solid fa-cubes"></i> Object-Oriented Concepts (OOP)</span>
                   <span class="skill-status-tag">Applied</span>
                 </div>
-                <p class="skill-sub">Encapsulation, inheritance, polymorphism, abstraction, and clean class design.</p>
+                <p class="skill-sub">Encapsulation, inheritance, polymorphism, abstraction, and clean class hierarchy design.</p>
               </div>
             </div>
           </div>
 
           <!-- Category 3: Web Development -->
-          <div class="skill-category-card glass-card">
+          <div class="skill-category-card glass-card" data-tilt>
             <div class="category-header">
               <div class="cat-icon cat-web"><i class="fa-solid fa-globe"></i></div>
               <div>
@@ -501,107 +673,107 @@
                 <h3 class="cat-title">Web Development</h3>
               </div>
             </div>
-            <p class="cat-desc">Standards-based web technologies used to craft responsive, accessible interfaces.</p>
+            <p class="cat-desc">Standards-based frontend engineering crafted with clean semantics and responsiveness.</p>
             
             <div class="skill-items">
               <div class="skill-item">
                 <div class="skill-info">
-                  <span class="skill-name"><i class="fa-brands fa-html5"></i> HTML5</span>
-                  <span class="skill-status-tag">Semantic</span>
+                  <span class="skill-name"><i class="fa-brands fa-html5"></i> Semantic HTML5</span>
+                  <span class="skill-status-tag">Standards</span>
                 </div>
-                <p class="skill-sub">Accessible document structures, semantic landmark tags, forms, and audio/canvas APIs.</p>
+                <p class="skill-sub">Accessible landmark tags, ARIA roles, clean document structures, Canvas 2D integration.</p>
               </div>
 
               <div class="skill-item">
                 <div class="skill-info">
-                  <span class="skill-name"><i class="fa-brands fa-css3-alt"></i> CSS3</span>
+                  <span class="skill-name"><i class="fa-brands fa-css3-alt"></i> Modern CSS3 &amp; Glassmorphism</span>
                   <span class="skill-status-tag">Responsive</span>
                 </div>
-                <p class="skill-sub">Flexbox, CSS Grid, media queries, CSS custom properties, and keyframe animations.</p>
+                <p class="skill-sub">Flexbox, CSS Grid, CSS custom properties, keyframe choreography, media queries.</p>
               </div>
 
               <div class="skill-item">
                 <div class="skill-info">
-                  <span class="skill-name"><i class="fa-brands fa-square-js"></i> Vanilla JavaScript</span>
+                  <span class="skill-name"><i class="fa-brands fa-square-js"></i> Vanilla JavaScript (ES6+)</span>
                   <span class="skill-status-tag">Interactive</span>
                 </div>
-                <p class="skill-sub">DOM manipulation, event handling, asynchronous logic, Canvas 2D rendering.</p>
+                <p class="skill-sub">DOM manipulation, Web Audio API synthesis, particle physics, asynchronous workflows.</p>
               </div>
             </div>
           </div>
 
-          <!-- Category 4: Development Tools -->
-          <div class="skill-category-card glass-card">
+          <!-- Category 4: Tools & Engineering Practices -->
+          <div class="skill-category-card glass-card" data-tilt>
             <div class="category-header">
               <div class="cat-icon cat-tools"><i class="fa-solid fa-toolbox"></i></div>
               <div>
-                <span class="cat-pill">Workflow</span>
-                <h3 class="cat-title">Development Tools</h3>
+                <span class="cat-pill">Workflow &amp; Soft Skills</span>
+                <h3 class="cat-title">Development Tools &amp; Methods</h3>
               </div>
             </div>
-            <p class="cat-desc">Everyday developer workflow tools for version control, editing, and collaboration.</p>
+            <p class="cat-desc">Everyday tools for source control, editing, debugging, and team collaboration.</p>
             
             <div class="skill-items">
               <div class="skill-item">
                 <div class="skill-info">
-                  <span class="skill-name"><i class="fa-brands fa-git-alt"></i> Git</span>
+                  <span class="skill-name"><i class="fa-brands fa-git-alt"></i> Git &amp; GitHub</span>
                   <span class="skill-status-tag">Version Control</span>
                 </div>
-                <p class="skill-sub">Local repository management, commits, staging, branch workflows, and history tracking.</p>
+                <p class="skill-sub">Branching strategies, staging, commits, remote repository hosting, CI/CD pipelines.</p>
               </div>
 
               <div class="skill-item">
                 <div class="skill-info">
-                  <span class="skill-name"><i class="fa-brands fa-github"></i> GitHub</span>
+                  <span class="skill-name"><i class="fa-solid fa-laptop-code"></i> VS Code &amp; Linux CLI</span>
+                  <span class="skill-status-tag">Workspace</span>
+                </div>
+                <p class="skill-sub">Integrated development environment, debugging, shell commands, and extensions.</p>
+              </div>
+
+              <div class="skill-item">
+                <div class="skill-info">
+                  <span class="skill-name"><i class="fa-solid fa-users"></i> Analytical Thinking &amp; Teamwork</span>
                   <span class="skill-status-tag">Collaboration</span>
                 </div>
-                <p class="skill-sub">Remote repository hosting, issues, collaboration, and continuous deployment pipelines.</p>
-              </div>
-
-              <div class="skill-item">
-                <div class="skill-info">
-                  <span class="skill-name"><i class="fa-solid fa-laptop-code"></i> VS Code</span>
-                  <span class="skill-status-tag">Editor</span>
-                </div>
-                <p class="skill-sub">Primary integrated development environment, debugging tools, extensions.</p>
+                <p class="skill-sub">Problem breakdown, structured code reviews, and cross-functional hackathon teamwork.</p>
               </div>
             </div>
           </div>
 
         </div>
 
-        <!-- Distinct Section: Currently Exploring -->
+        <!-- Distinct Exploring Section -->
         <div class="exploring-banner glass-card">
           <div class="exploring-header">
-            <span class="exploring-badge"><i class="fa-solid fa-compass"></i> Learning Frontier</span>
-            <h3 class="exploring-title">Currently Exploring &amp; Learning</h3>
+            <span class="exploring-badge"><i class="fa-solid fa-compass"></i> Learning Frontiers</span>
+            <h3 class="exploring-title">Active Explorations &amp; Emerging Domains</h3>
             <p class="exploring-subtitle">
-              Technologies and paradigms I am actively investigating to expand my technical horizon:
+              Technologies and paradigms I am actively investigating to expand my engineering horizons:
             </p>
           </div>
 
           <div class="exploring-grid">
-            <div class="exploring-card">
+            <div class="exploring-card" data-tilt>
               <div class="exp-icon"><i class="fa-brands fa-aws"></i></div>
               <h4 class="exp-name">AWS Cloud Technologies</h4>
               <p class="exp-desc">
-                Investigating AWS Amplify Hosting, Amazon S3 static asset delivery, Amazon CloudFront global edge distribution, and cloud fundamentals through the AWS Student Builder Challenge.
+                Deploying static web applications with AWS Amplify Hosting, Amazon S3 asset storage, Amazon CloudFront global edge delivery, and cloud infrastructure patterns for the AWS Student Builder Challenge.
               </p>
             </div>
 
-            <div class="exploring-card">
+            <div class="exploring-card" data-tilt>
               <div class="exp-icon"><i class="fa-solid fa-shield-cat"></i></div>
-              <h4 class="exp-name">Local AI Architectures</h4>
+              <h4 class="exp-name">Local AI &amp; Privacy Engineering</h4>
               <p class="exp-desc">
-                Exploring lightweight local AI models and on-device inference to analyze data without depending entirely on centralized external cloud APIs.
+                Investigating client-side inference, prompt sanitization layers, and on-device NLP intermediaries to prevent data leakage when interacting with commercial LLMs (demonstrated in PRISM).
               </p>
             </div>
 
-            <div class="exploring-card">
-              <div class="exp-icon"><i class="fa-solid fa-user-shield"></i></div>
-              <h4 class="exp-name">Privacy-Focused Software</h4>
+            <div class="exploring-card" data-tilt>
+              <div class="exp-icon"><i class="fa-solid fa-lock"></i></div>
+              <h4 class="exp-name">Cyber Security Specialization</h4>
               <p class="exp-desc">
-                Studying architectural patterns for data anonymization, client-side preprocessing, and protecting user confidentiality before third-party service transmission.
+                Currently enrolled in a comprehensive 6-month cybersecurity curriculum covering vulnerability assessment, secure coding, network security, and defense-in-depth principles.
               </p>
             </div>
           </div>
@@ -621,17 +793,61 @@
           <span class="section-tag"><i class="fa-solid fa-rocket"></i> Section C</span>
           <h2 class="section-title">Small beginnings. <span class="gradient-text">Big possibilities.</span></h2>
           <p class="section-subtitle">
-            A transparent overview of academic applications, conceptual prototypes, and creative frontend engineering.
+            A transparent overview of academic applications, hackathon-shortlisted innovations, and creative cloud engineering.
           </p>
         </div>
 
         <div class="projects-grid">
           
-          <!-- PROJECT 1: Smart Healthcare Companion -->
-          <article class="project-card glass-card">
+          <!-- PROJECT 1: PRISM — Local AI Privacy Copilot (Hackathon Winner/Shortlisted) -->
+          <article class="project-card glass-card project-card-featured" data-tilt>
             <div class="project-header">
-              <div class="project-category-badge">Academic Application</div>
+              <div class="project-category-badge badge-shortlisted">
+                <i class="fa-solid fa-trophy"></i> Hackathon Shortlisted
+              </div>
               <span class="project-index">01</span>
+            </div>
+
+            <h3 class="project-title">PRISM — Local AI Privacy Copilot</h3>
+
+            <div class="project-tech-stack">
+              <span class="tech-tag">Python</span>
+              <span class="tech-tag">Privacy Engineering</span>
+              <span class="tech-tag">Prompt Sanitization</span>
+              <span class="tech-tag">Local NLP</span>
+              <span class="tech-tag">API Intermediary</span>
+            </div>
+
+            <p class="project-overview">
+              An innovative privacy-preserving copilot developed for a competitive hackathon that shields sensitive user data, PII, and credentials before transmission to external AI services.
+            </p>
+
+            <div class="project-details-block">
+              <h4 class="details-heading"><i class="fa-solid fa-award"></i> Hackathon Success &amp; Architecture</h4>
+              <ul class="details-list">
+                <li>
+                  <strong>Hackathon Recognition:</strong> Fully completed and demonstrated at the hackathon, earning direct <strong>shortlisting by the sponsoring company for future incubation and collaboration</strong>!
+                </li>
+                <li>
+                  <strong>The Problem Solved:</strong> When developers and students send prompts to third-party LLMs, proprietary code, passwords, API tokens, and personally identifiable information (PII) leak inadvertently.
+                </li>
+                <li>
+                  <strong>The Engineering:</strong> PRISM executes client-side regex and heuristic sanitizers locally, intercepting outgoing prompts to strip or pseudonymize sensitive tokens before API dispatch.
+                </li>
+              </ul>
+            </div>
+
+            <div class="project-status-bar">
+              <span class="status-indicator completed"></span>
+              <span class="status-text"><strong>Hackathon Completed &bull; Shortlisted by Sponsor</strong></span>
+            </div>
+          </article>
+
+          <!-- PROJECT 2: Smart Healthcare Companion -->
+          <article class="project-card glass-card" data-tilt>
+            <div class="project-header">
+              <div class="project-category-badge">Academic Desktop System</div>
+              <span class="project-index">02</span>
             </div>
 
             <h3 class="project-title">Smart Healthcare Companion</h3>
@@ -645,78 +861,34 @@
             </div>
 
             <p class="project-overview">
-              A desktop-based healthcare management application built in Java designed to streamline patient records, appointment scheduling, and doctor consultations.
+              A comprehensive desktop healthcare management application designed to streamline patient records, appointment scheduling, and doctor consultation workflows.
             </p>
 
             <div class="project-details-block">
-              <h4 class="details-heading"><i class="fa-solid fa-circle-info"></i> Project Details &amp; Purpose</h4>
+              <h4 class="details-heading"><i class="fa-solid fa-hospital-user"></i> Architecture &amp; Implementation</h4>
               <ul class="details-list">
                 <li>
-                  <strong>Purpose:</strong> Solve the clutter of manual hospital paperwork by providing an intuitive graphical user interface for front-desk staff and patients.
+                  <strong>Purpose:</strong> Replaces chaotic manual clinic paperwork with an intuitive desktop GUI for reception staff and medical practitioners.
                 </li>
                 <li>
-                  <strong>Architecture:</strong> Developed with Java Swing and AWT for desktop window management and interactive input dialogs.
+                  <strong>Desktop GUI:</strong> Built with Java Swing and AWT for smooth window management, data entry dialogs, and tabular record views.
                 </li>
                 <li>
-                  <strong>Database Tier:</strong> Integrated with a MySQL relational database using JDBC for secure storage of patient demographic records and consultation histories.
-                </li>
-                <li>
-                  <strong>Academic Scope:</strong> Focuses purely on core OOP concepts, relational normalization, and client-side validation without misrepresenting AI or cloud capabilities.
+                  <strong>Database Tier:</strong> Integrated with MySQL via JDBC, enforcing relational schema integrity, primary key normalization, and patient record retrieval.
                 </li>
               </ul>
             </div>
 
             <div class="project-status-bar">
               <span class="status-indicator completed"></span>
-              <span class="status-text">Academic Desktop Project (Completed)</span>
+              <span class="status-text">Completed Academic Project</span>
             </div>
           </article>
 
-          <!-- PROJECT 2: PRISM — Local AI Privacy Copilot -->
-          <article class="project-card glass-card">
+          <!-- PROJECT 3: My Digital Universe (Portfolio) -->
+          <article class="project-card glass-card" data-tilt>
             <div class="project-header">
-              <div class="project-category-badge">Exploratory Concept &amp; Prototype</div>
-              <span class="project-index">02</span>
-            </div>
-
-            <h3 class="project-title">PRISM — Local AI Privacy Copilot</h3>
-
-            <div class="project-tech-stack">
-              <span class="tech-tag">Privacy Engineering</span>
-              <span class="tech-tag">Data Sanitization</span>
-              <span class="tech-tag">Python Concept</span>
-              <span class="tech-tag">API Security</span>
-            </div>
-
-            <p class="project-overview">
-              An exploratory project investigating privacy-preserving intermediaries that protect sensitive user data before interacting with external artificial intelligence services.
-            </p>
-
-            <div class="project-details-block">
-              <h4 class="details-heading"><i class="fa-solid fa-shield-halved"></i> Conceptual Approach</h4>
-              <ul class="details-list">
-                <li>
-                  <strong>The Problem:</strong> When developers and students send prompts to commercial LLM APIs, confidential details, API keys, and personal identifiers can inadvertently leak.
-                </li>
-                <li>
-                  <strong>The Concept:</strong> PRISM explores a local client-side layer that inspects outgoing prompts, detects sensitive patterns (e.g. emails, tokens, personal identifiers), and scrubs or pseudonymizes them locally.
-                </li>
-                <li>
-                  <strong>Current Status:</strong> Early experimental research and prototype stage. Presented honestly as an active investigation into local AI safety rather than a fully finished commercial copilot.
-                </li>
-              </ul>
-            </div>
-
-            <div class="project-status-bar">
-              <span class="status-indicator exploring"></span>
-              <span class="status-text">Research &amp; Prototype Exploration (In Progress)</span>
-            </div>
-          </article>
-
-          <!-- PROJECT 3: My Digital Universe -->
-          <article class="project-card glass-card">
-            <div class="project-header">
-              <div class="project-category-badge">AWS Student Builder Submission</div>
+              <div class="project-category-badge badge-aws">AWS Student Builder</div>
               <span class="project-index">03</span>
             </div>
 
@@ -725,29 +897,26 @@
             <div class="project-tech-stack">
               <span class="tech-tag">HTML5</span>
               <span class="tech-tag">CSS3</span>
-              <span class="tech-tag">Vanilla JavaScript</span>
+              <span class="tech-tag">Vanilla JS</span>
               <span class="tech-tag">Canvas 2D</span>
               <span class="tech-tag">AWS Amplify</span>
             </div>
 
             <p class="project-overview">
-              A bespoke, lightweight interactive portfolio engineered to represent my engineering journey, technical interests, and creative curiosity for the AWS Student Builder Challenge.
+              A bespoke, lightweight interactive portfolio engineered to represent my engineering journey, technical competencies, and creative curiosity for the AWS Student Builder Challenge.
             </p>
 
             <div class="project-details-block">
-              <h4 class="details-heading"><i class="fa-solid fa-atom"></i> Creative Engineering</h4>
+              <h4 class="details-heading"><i class="fa-solid fa-cloud-arrow-up"></i> Creative &amp; Cloud Features</h4>
               <ul class="details-list">
                 <li>
-                  <strong>Interactive Cosmic Feature:</strong> Custom solar system featuring central star `AX` with three clickable orbiting planets and a personal interest constellation.
+                  <strong>Interactive Solar System:</strong> Custom orbital simulation featuring central star `AX`, three clickable planets with accessible dossiers, and personal constellation.
                 </li>
                 <li>
-                  <strong>Zero Bulky Frameworks:</strong> Built with pure HTML5, CSS3, and modular vanilla JavaScript for lightning-fast load times and zero dependency overhead.
+                  <strong>Zero Framework Bloat:</strong> Pure vanilla web standards delivering instantaneous load times and zero dependency overhead.
                 </li>
                 <li>
-                  <strong>AWS Architecture:</strong> Prepared specifically for static hosting via AWS Amplify, with automated CI/CD from GitHub, Amazon S3 storage, and Amazon CloudFront CDN.
-                </li>
-                <li>
-                  <strong>Accessible &amp; Responsive:</strong> Includes reduced-motion preferences, keyboard navigation, and full responsiveness across phone, tablet, and desktop screens.
+                  <strong>AWS Architecture:</strong> Prepared for AWS Amplify Hosting with automated CI/CD from GitHub, Amazon S3 storage, and Amazon CloudFront CDN.
                 </li>
               </ul>
             </div>
@@ -776,79 +945,178 @@
 
 
     <!-- ====================================================================
-         CONTACT SECTION
+         INTERACTIVE DEEP SPACE CONSOLE (TERMINAL CLI)
+         ==================================================================== -->
+    <section class="section-block terminal-section" id="terminal">
+      <div class="container">
+        
+        <div class="section-heading text-center">
+          <span class="section-tag"><i class="fa-solid fa-terminal"></i> Developer Shell</span>
+          <h2 class="section-title">Deep Space <span class="gradient-text">Console</span></h2>
+          <p class="section-subtitle">
+            An interactive command-line interface. Type commands like <code class="code-pill">help</code>, <code class="code-pill">about</code>, <code class="code-pill">prism</code>, <code class="code-pill">education</code>, or <code class="code-pill">skills</code> to explore Akhila's universe.
+          </p>
+        </div>
+
+        <div class="terminal-window glass-card">
+          <div class="terminal-bar">
+            <div class="terminal-dots">
+              <span class="dot dot-red"></span>
+              <span class="dot dot-yellow"></span>
+              <span class="dot dot-green"></span>
+            </div>
+            <div class="terminal-title">
+              <i class="fa-solid fa-laptop-code"></i> akhila@digital-universe:~ (zsh)
+            </div>
+            <div class="terminal-actions">
+              <button class="terminal-btn-icon" id="term-clear-btn" title="Clear Display"><i class="fa-solid fa-broom"></i></button>
+            </div>
+          </div>
+
+          <div class="terminal-body" id="terminal-body">
+            <div class="terminal-output" id="terminal-output">
+              <p class="term-line term-dim">Connected to Akhila Xavier Universe Terminal v3.0 [SCTCE Node]</p>
+              <p class="term-line term-info">Type <strong class="term-accent">help</strong> for the directory of commands, or <strong class="term-accent">prism</strong> to view the hackathon-shortlisted project.</p>
+            </div>
+
+            <form class="terminal-input-row" id="terminal-form" autocomplete="off">
+              <span class="term-prompt">akhila@universe:~$</span>
+              <input type="text" id="terminal-input" class="terminal-input" placeholder="Type a command (e.g. help, prism, skills)..." spellcheck="false" autocomplete="off">
+            </form>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ====================================================================
+         CONTACT SECTION ("SIGNALS")
          ==================================================================== -->
     <section class="section-block contact-section" id="contact">
       <div class="container">
         
         <div class="section-heading text-center">
-          <span class="section-tag"><i class="fa-solid fa-paper-plane"></i> Connect</span>
-          <h2 class="section-title">Start a <span class="gradient-text">Conversation.</span></h2>
+          <span class="section-tag"><i class="fa-solid fa-satellite-dish"></i> Subspace Array</span>
+          <h2 class="section-title">Transmit a <span class="gradient-text">Signal.</span></h2>
           <p class="section-subtitle">
-            Whether you have questions about my projects, feedback on this universe, or opportunities to collaborate, feel free to reach out.
+            Have an opportunity, questions about my projects, or want to collaborate on software? Let's connect across the stars.
           </p>
         </div>
 
-        <div class="contact-card-wrapper glass-card">
-          <div class="contact-header-info">
-            <h3 class="contact-intro-title">Get In Touch</h3>
-            <p class="contact-intro-desc">
-              All social profiles and contact channels are configured through <code class="code-pill">config.js</code>. No broken or mock links are published.
-            </p>
-          </div>
-
-          <!-- Verified Channels List -->
-          <div class="contact-channels-grid">
+        <div class="contact-grid">
+          
+          <!-- Contact Channels Column -->
+          <div class="contact-info-column">
             
-            <!-- Email Channel -->
-            <div class="channel-box" id="email-channel-card">
-              <div class="channel-icon"><i class="fa-solid fa-envelope"></i></div>
-              <div class="channel-details">
-                <span class="channel-type">Email Dispatch</span>
-                <span class="channel-status" id="email-status-text">Checking configuration...</span>
+            <div class="contact-channels-card glass-card" data-tilt>
+              <h3 class="channels-heading"><i class="fa-solid fa-address-card"></i> Verified Channels</h3>
+
+              <!-- Email Channel -->
+              <div class="channel-row">
+                <div class="channel-icon"><i class="fa-solid fa-envelope"></i></div>
+                <div class="channel-meta">
+                  <span class="channel-lbl">Direct Email</span>
+                  <a href="mailto:akhilaxavier2007@gmail.com" class="channel-val" id="contact-email-link">akhilaxavier2007@gmail.com</a>
+                </div>
+                <button class="channel-copy-btn" id="copy-email-btn" title="Copy email address" aria-label="Copy email address">
+                  <i class="fa-regular fa-copy"></i>
+                </button>
               </div>
-              <a href="#" class="btn-channel" id="email-action-btn" target="_blank" rel="noopener noreferrer">
-                <span>Send Email</span>
-                <i class="fa-solid fa-arrow-up-right-from-square"></i>
-              </a>
+
+              <!-- Phone Channel -->
+              <div class="channel-row">
+                <div class="channel-icon"><i class="fa-solid fa-phone"></i></div>
+                <div class="channel-meta">
+                  <span class="channel-lbl">Mobile Frequency</span>
+                  <a href="tel:+918714176644" class="channel-val">+91 8714176644</a>
+                </div>
+              </div>
+
+              <!-- LinkedIn Channel -->
+              <div class="channel-row">
+                <div class="channel-icon"><i class="fa-brands fa-linkedin-in"></i></div>
+                <div class="channel-meta">
+                  <span class="channel-lbl">LinkedIn Profile</span>
+                  <a href="https://www.linkedin.com/in/akhila-xavier-68671237b" target="_blank" rel="noopener noreferrer" class="channel-val">
+                    linkedin.com/in/akhila-xavier-68671237b
+                  </a>
+                </div>
+                <a href="https://www.linkedin.com/in/akhila-xavier-68671237b" target="_blank" rel="noopener noreferrer" class="channel-arrow-btn" aria-label="Open LinkedIn profile">
+                  <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                </a>
+              </div>
+
+              <!-- Instagram Channel -->
+              <div class="channel-row">
+                <div class="channel-icon"><i class="fa-brands fa-instagram"></i></div>
+                <div class="channel-meta">
+                  <span class="channel-lbl">Instagram</span>
+                  <a href="https://instagram.com/akhilaxaviier" target="_blank" rel="noopener noreferrer" class="channel-val">
+                    @akhilaxaviier
+                  </a>
+                </div>
+                <a href="https://instagram.com/akhilaxaviier" target="_blank" rel="noopener noreferrer" class="channel-arrow-btn" aria-label="Open Instagram profile">
+                  <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                </a>
+              </div>
+
+              <!-- Location Channel -->
+              <div class="channel-row">
+                <div class="channel-icon"><i class="fa-solid fa-location-dot"></i></div>
+                <div class="channel-meta">
+                  <span class="channel-lbl">Base Coordinates</span>
+                  <span class="channel-val">Trivandrum / Kollam, Kerala, India</span>
+                </div>
+              </div>
             </div>
 
-            <!-- GitHub Channel -->
-            <div class="channel-box" id="github-channel-card">
-              <div class="channel-icon"><i class="fa-brands fa-github"></i></div>
-              <div class="channel-details">
-                <span class="channel-type">GitHub Profile</span>
-                <span class="channel-status" id="github-status-text">Checking configuration...</span>
+            <!-- Telemetry Status Card -->
+            <div class="telemetry-radar-card glass-card">
+              <div class="radar-header">
+                <span class="radar-ping"></span>
+                <strong>Active Telemetry Radar</strong>
               </div>
-              <a href="#" class="btn-channel" id="github-action-btn" target="_blank" rel="noopener noreferrer">
-                <span>View Profile</span>
-                <i class="fa-solid fa-arrow-up-right-from-square"></i>
-              </a>
-            </div>
-
-            <!-- LinkedIn Channel -->
-            <div class="channel-box" id="linkedin-channel-card">
-              <div class="channel-icon"><i class="fa-brands fa-linkedin-in"></i></div>
-              <div class="channel-details">
-                <span class="channel-type">LinkedIn Connection</span>
-                <span class="channel-status" id="linkedin-status-text">Checking configuration...</span>
-              </div>
-              <a href="#" class="btn-channel" id="linkedin-action-btn" target="_blank" rel="noopener noreferrer">
-                <span>Connect</span>
-                <i class="fa-solid fa-arrow-up-right-from-square"></i>
-              </a>
+              <p>Current Time: <strong id="telemetry-clock">Loading...</strong></p>
+              <p class="radar-note">Open for innovative student engineering collaborations, hackathons, and forward-thinking technical opportunities.</p>
             </div>
 
           </div>
 
-          <!-- Configuration Note for the User -->
-          <div class="config-instruction-notice">
-            <i class="fa-solid fa-circle-info"></i>
-            <div>
-              <strong>Profile Configuration Notice:</strong>
-              <span>To set your verified email, GitHub, and LinkedIn profile URLs, simply edit <code class="code-pill">config.js</code> in the project root. The buttons above automatically update or display a configuration notice.</span>
-            </div>
+          <!-- Interactive Contact Transmission Form -->
+          <div class="contact-form-column glass-card">
+            <h3 class="form-title">Send a Transmission</h3>
+            <p class="form-subtitle">Fill in your telemetry details below to dispatch a message.</p>
+
+            <form class="cosmic-form" id="contact-form">
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="sender-name"><i class="fa-solid fa-user"></i> Your Name</label>
+                  <input type="text" id="sender-name" name="name" placeholder="Ada Lovelace" required>
+                </div>
+                <div class="form-group">
+                  <label for="sender-email"><i class="fa-solid fa-at"></i> Your Frequency (Email)</label>
+                  <input type="email" id="sender-email" name="email" placeholder="ada@analytical-engine.space" required>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="sender-subject"><i class="fa-solid fa-tag"></i> Mission Subject</label>
+                <input type="text" id="sender-subject" name="subject" placeholder="Project Opportunity / AWS Challenge Feedback" required>
+              </div>
+
+              <div class="form-group">
+                <label for="sender-message"><i class="fa-solid fa-message"></i> Telemetry Message</label>
+                <textarea id="sender-message" name="message" rows="5" placeholder="Share your message, feedback, or collaboration scope..." required></textarea>
+              </div>
+
+              <button type="submit" class="btn-primary form-submit-btn" id="send-msg-btn">
+                <span>Transmit Signal</span>
+                <i class="fa-solid fa-paper-plane"></i>
+              </button>
+            </form>
           </div>
+
         </div>
 
       </div>
@@ -869,23 +1137,24 @@
         </div>
         <p class="footer-tagline">"Exploring technology. Creating possibilities."</p>
         <p class="footer-affiliation">
-          B.Tech Computer Science &amp; Engineering &bull; Sree Chitra Thirunal College of Engineering, Thiruvananthapuram
+          B.Tech Computer Science &amp; Engineering &bull; Sree Chitra Thirunal College of Engineering, Trivandrum
         </p>
       </div>
 
       <div class="footer-right">
-        <!-- Repository Link Anchor -->
-        <a href="#" class="footer-repo-link" id="footer-repo-link" target="_blank" rel="noopener noreferrer">
-          <i class="fa-brands fa-github"></i>
-          <span id="repo-link-text">Project Repository</span>
-        </a>
+        <div class="footer-social-bubbles">
+          <a href="mailto:akhilaxavier2007@gmail.com" class="social-bubble" aria-label="Email Akhila"><i class="fa-solid fa-envelope"></i></a>
+          <a href="https://www.linkedin.com/in/akhila-xavier-68671237b" target="_blank" rel="noopener noreferrer" class="social-bubble" aria-label="LinkedIn Profile"><i class="fa-brands fa-linkedin-in"></i></a>
+          <a href="https://instagram.com/akhilaxaviier" target="_blank" rel="noopener noreferrer" class="social-bubble" aria-label="Instagram Profile"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#" class="social-bubble" id="footer-repo-link" target="_blank" rel="noopener noreferrer" aria-label="Project Repository"><i class="fa-brands fa-github"></i></a>
+        </div>
 
         <p class="copyright-note">
-          &copy; <span id="current-year">2026</span> Akhila Xavier. Designed &amp; built for the AWS Student Builder Challenge.
+          &copy; <span id="current-year">2026</span> Akhila Xavier. Built for the AWS Student Builder Challenge.
         </p>
 
         <a href="#home" class="btn-back-to-top" aria-label="Back to top">
-          <span>Back to Top</span>
+          <span>Return to Orbit</span>
           <i class="fa-solid fa-arrow-up"></i>
         </a>
       </div>
@@ -895,7 +1164,7 @@
 
   <!-- Configuration File -->
   <script src="config.js"></script>
-  <!-- Application Engine Script -->
+  <!-- Main Application Script -->
   <script src="script.js"></script>
 </body>
 </html>

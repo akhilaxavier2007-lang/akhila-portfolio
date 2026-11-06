@@ -1,36 +1,110 @@
 /**
  * ==========================================================================
  * AKHILA XAVIER — MY DIGITAL UNIVERSE
- * Interactive Engine: Cosmic Canvas, Orbital System, Modal Dossier,
- * Constellation Reveal & Dynamic Config Loader
+ * Interactive Engine: Canvas, Audio Synthesizer, 3-Planet Solar System,
+ * Constellation Reveal, Deep Space Terminal CLI & Config Integration
  * ==========================================================================
  */
 
 (function () {
   'use strict';
 
+  // Global Interactive Engine State
+  const state = {
+    theme: localStorage.getItem('ax_theme') || 'nebula',
+    audioEnabled: localStorage.getItem('ax_audio') === 'true',
+    audioCtx: null,
+    termHistory: [],
+    termHistoryIndex: -1,
+    orbitPaused: false
+  };
+
   // --------------------------------------------------------------------------
-  // 1. Cosmic Canvas: Subtle Stars & Delicate Particles
+  // 1. Web Audio API Cosmic Sound Synthesizer
+  // --------------------------------------------------------------------------
+  function initAudioContext() {
+    if (!state.audioCtx && (window.AudioContext || window.webkitAudioContext)) {
+      const AudioCtx = window.AudioContext || window.webkitAudioContext;
+      state.audioCtx = new AudioCtx();
+    }
+    if (state.audioCtx && state.audioCtx.state === 'suspended') {
+      state.audioCtx.resume();
+    }
+  }
+
+  function playCosmicTone(freq = 620, type = 'sine', duration = 0.09, gainVal = 0.04) {
+    if (!state.audioEnabled) return;
+    try {
+      initAudioContext();
+      if (!state.audioCtx) return;
+
+      const osc = state.audioCtx.createOscillator();
+      const gain = state.audioCtx.createGain();
+
+      osc.type = type;
+      osc.frequency.setValueAtTime(freq, state.audioCtx.currentTime);
+      osc.frequency.exponentialRampToValueAtTime(freq * 1.45, state.audioCtx.currentTime + duration);
+
+      gain.gain.setValueAtTime(gainVal, state.audioCtx.currentTime);
+      gain.gain.exponentialRampToValueAtTime(0.001, state.audioCtx.currentTime + duration);
+
+      osc.connect(gain);
+      gain.connect(state.audioCtx.destination);
+
+      osc.start();
+      osc.stop(state.audioCtx.currentTime + duration);
+    } catch (e) {
+      // Audio autoplay policy fallback
+    }
+  }
+
+  // --------------------------------------------------------------------------
+  // 2. Toast Notification Hub
+  // --------------------------------------------------------------------------
+  function showToast(message, type = 'info', icon = 'fa-satellite') {
+    const container = document.getElementById('toast-container');
+    if (!container) return;
+
+    const toast = document.createElement('div');
+    toast.className = `toast toast-${type}`;
+    toast.innerHTML = `<i class="fa-solid ${icon}"></i> <span>${message}</span>`;
+    container.appendChild(toast);
+
+    playCosmicTone(880, 'triangle', 0.1, 0.05);
+
+    setTimeout(() => {
+      toast.style.animation = 'slideToastOut 0.3s ease forwards';
+      setTimeout(() => toast.remove(), 300);
+    }, 3800);
+  }
+
+  // --------------------------------------------------------------------------
+  // 3. Dynamic Cosmic Canvas: High-DPI Ambient Starfield
   // --------------------------------------------------------------------------
   function initUniverseCanvas() {
     const canvas = document.getElementById('universe-canvas');
     if (!canvas) return;
 
-    // Respect reduced motion preference
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
       return;
     }
 
     const ctx = canvas.getContext('2d');
-    let width = (canvas.width = window.innerWidth);
-    let height = (canvas.height = window.innerHeight);
+    let width, height;
+    const dpr = window.devicePixelRatio || 1;
 
-    window.addEventListener('resize', () => {
-      width = canvas.width = window.innerWidth;
-      height = canvas.height = window.innerHeight;
-    });
+    function resizeCanvas() {
+      width = window.innerWidth;
+      height = window.innerHeight;
+      canvas.width = width * dpr;
+      canvas.height = height * dpr;
+      ctx.scale(dpr, dpr);
+    }
 
-    const starCount = Math.min(Math.floor((width * height) / 14000), 90);
+    resizeCanvas();
+    window.addEventListener('resize', resizeCanvas);
+
+    const starCount = Math.min(Math.floor((width * height) / 12000), 95);
     const stars = [];
 
     class AmbientStar {
@@ -41,19 +115,22 @@
       reset() {
         this.x = Math.random() * width;
         this.y = Math.random() * height;
-        this.radius = Math.random() * 1.3 + 0.4;
+        this.radius = Math.random() * 1.4 + 0.4;
         this.alpha = Math.random() * 0.6 + 0.15;
-        this.speed = Math.random() * 0.008 + 0.002;
-        this.delta = Math.random() * 0.02 + 0.005;
+        this.speed = Math.random() * 0.15 + 0.05;
+        this.delta = Math.random() * 0.015 + 0.005;
       }
 
       update() {
         this.alpha += this.delta;
-        if (this.alpha > 0.75 || this.alpha < 0.15) {
+        if (this.alpha > 0.8 || this.alpha < 0.15) {
           this.delta = -this.delta;
         }
-        this.y -= this.speed * 10;
-        if (this.y < 0) this.y = height;
+        this.y -= this.speed;
+        if (this.y < 0) {
+          this.y = height;
+          this.x = Math.random() * width;
+        }
       }
 
       draw() {
@@ -84,57 +161,263 @@
   }
 
   // --------------------------------------------------------------------------
-  // 2. Interactive Solar System: Orbital Planets & Dossier Modal
+  // 4. Custom Cosmic Cursor & Follower
+  // --------------------------------------------------------------------------
+  function initCustomCursor() {
+    const cursor = document.getElementById('cursor');
+    const follower = document.getElementById('cursor-follower');
+    if (!cursor || !follower) return;
+
+    let posX = 0, posY = 0;
+    let mouseX = 0, mouseY = 0;
+
+    window.addEventListener('mousemove', (e) => {
+      mouseX = e.clientX;
+      mouseY = e.clientY;
+      cursor.style.transform = `translate(${mouseX}px, ${mouseY}px)`;
+    });
+
+    function renderFollower() {
+      posX += (mouseX - posX) * 0.18;
+      posY += (mouseY - posY) * 0.18;
+      follower.style.transform = `translate(${posX}px, ${posY}px)`;
+      requestAnimationFrame(renderFollower);
+    }
+    renderFollower();
+
+    const interactives = document.querySelectorAll('a, button, input, textarea, .glass-card, .planet, .constellation-star');
+    interactives.forEach((el) => {
+      el.addEventListener('mouseenter', () => {
+        follower.style.width = '48px';
+        follower.style.height = '48px';
+        follower.style.borderColor = 'var(--lavender)';
+        follower.style.backgroundColor = 'rgba(196, 181, 253, 0.1)';
+      });
+      el.addEventListener('mouseleave', () => {
+        follower.style.width = '32px';
+        follower.style.height = '32px';
+        follower.style.borderColor = 'var(--accent-cyan)';
+        follower.style.backgroundColor = 'rgba(56, 189, 248, 0.05)';
+      });
+    });
+  }
+
+  // --------------------------------------------------------------------------
+  // 5. Typewriter Animation (CV Passions & Achievements)
+  // --------------------------------------------------------------------------
+  function initTypingText() {
+    const el = document.getElementById('typing-text');
+    if (!el) return;
+
+    const phrases = [
+      'B.Tech CSE Student (9.8 CGPA)',
+      'AI & Privacy Architect',
+      'Hackathon Shortlisted Innovator',
+      'Python, Java & C Developer',
+      'CBSE Informatics Practices Topper',
+      'AWS Cloud & Systems Explorer'
+    ];
+
+    let phraseIndex = 0;
+    let charIndex = 0;
+    let isDeleting = false;
+    let delay = 100;
+
+    function type() {
+      const current = phrases[phraseIndex];
+
+      if (isDeleting) {
+        el.textContent = current.substring(0, charIndex - 1);
+        charIndex--;
+        delay = 45;
+      } else {
+        el.textContent = current.substring(0, charIndex + 1);
+        charIndex++;
+        delay = 95;
+      }
+
+      if (!isDeleting && charIndex === current.length) {
+        delay = 2200;
+        isDeleting = true;
+      } else if (isDeleting && charIndex === 0) {
+        isDeleting = false;
+        phraseIndex = (phraseIndex + 1) % phrases.length;
+        delay = 400;
+      }
+
+      setTimeout(type, delay);
+    }
+
+    type();
+  }
+
+  // --------------------------------------------------------------------------
+  // 6. Theme Switching System (Nebula / Andromeda / Supernova)
+  // --------------------------------------------------------------------------
+  function applyTheme(themeName) {
+    state.theme = themeName;
+    document.body.setAttribute('data-theme', themeName);
+    localStorage.setItem('ax_theme', themeName);
+  }
+
+  function initThemeButton() {
+    const themeBtn = document.getElementById('theme-btn');
+    if (!themeBtn) return;
+
+    applyTheme(state.theme);
+    const themes = ['nebula', 'andromeda', 'supernova'];
+
+    themeBtn.addEventListener('click', () => {
+      let currentIndex = themes.indexOf(state.theme);
+      let nextIndex = (currentIndex + 1) % themes.length;
+      let nextTheme = themes[nextIndex];
+      applyTheme(nextTheme);
+
+      playCosmicTone(740, 'sine', 0.1, 0.06);
+
+      const labels = {
+        nebula: 'Nebula Violet & Lavender',
+        andromeda: 'Andromeda Cyan & Emerald',
+        supernova: 'Supernova Solar & Amber'
+      };
+
+      showToast(`Cosmic Theme shifted to: ${labels[nextTheme]}`, 'info', 'fa-palette');
+    });
+  }
+
+  // --------------------------------------------------------------------------
+  // 7. Audio Controls & Telemetry Clock
+  // --------------------------------------------------------------------------
+  function initAudioControl() {
+    const audioBtn = document.getElementById('audio-btn');
+    const audioIcon = document.getElementById('audio-icon');
+    if (!audioBtn || !audioIcon) return;
+
+    function updateAudioIcon() {
+      if (state.audioEnabled) {
+        audioIcon.className = 'fa-solid fa-volume-high';
+        audioBtn.style.borderColor = 'var(--lavender)';
+      } else {
+        audioIcon.className = 'fa-solid fa-volume-xmark';
+        audioBtn.style.borderColor = 'var(--border-subtle)';
+      }
+    }
+
+    updateAudioIcon();
+
+    audioBtn.addEventListener('click', () => {
+      initAudioContext();
+      state.audioEnabled = !state.audioEnabled;
+      localStorage.setItem('ax_audio', state.audioEnabled);
+      updateAudioIcon();
+
+      if (state.audioEnabled) {
+        playCosmicTone(550, 'sine', 0.12, 0.08);
+        showToast('Cosmic Synthesizer SFX: Online', 'success', 'fa-volume-high');
+      } else {
+        showToast('Cosmic Synthesizer SFX: Muted', 'info', 'fa-volume-xmark');
+      }
+    });
+  }
+
+  function initTelemetryClock() {
+    const clock = document.getElementById('telemetry-clock');
+    if (!clock) return;
+
+    function update() {
+      const now = new Date();
+      const timeStr = now.toLocaleTimeString('en-US', {
+        hour: '2-digit',
+        minute: '2-digit',
+        second: '2-digit',
+        hour12: true
+      });
+      clock.textContent = `${timeStr} (IST / Trivandrum)`;
+    }
+
+    update();
+    setInterval(update, 1000);
+  }
+
+  // --------------------------------------------------------------------------
+  // 8. 3D Card Tilt Effect
+  // --------------------------------------------------------------------------
+  function initCardTilt() {
+    if (window.innerWidth < 768) return;
+    const cards = document.querySelectorAll('[data-tilt]');
+
+    cards.forEach((card) => {
+      card.addEventListener('mousemove', (e) => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+
+        const rotateX = ((y - centerY) / centerY) * -5;
+        const rotateY = ((x - centerX) / centerX) * 5;
+
+        card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
+      });
+
+      card.addEventListener('mouseleave', () => {
+        card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)';
+      });
+    });
+  }
+
+  // --------------------------------------------------------------------------
+  // 9. Signature Feature: 3-Planet Solar System & Modal Dossiers
   // --------------------------------------------------------------------------
   const planetDossiers = {
     about: {
       icon: 'fa-user-astronaut',
-      eyebrow: 'PLANET I &bull; IDENTITY &amp; FOUNDATION',
-      title: 'About Akhila Xavier',
+      eyebrow: 'PLANET I &bull; ACADEMIC EXCELLENCE &amp; IDENTITY',
+      title: 'About Akhila Xavier (9.8 CGPA)',
       content: `
         <p>
-          Welcome to the personal orbit of <strong>Akhila Xavier</strong>. I am currently pursuing my <strong>B.Tech in Computer Science and Engineering</strong> at <strong>Sree Chitra Thirunal College of Engineering (SCTCE), Thiruvananthapuram</strong>.
+          Welcome to the personal coordinates of <strong>Akhila Xavier</strong>. I am currently pursuing my <strong>B.Tech in Computer Science and Engineering (2025–2029)</strong> at <strong>Sree Chitra Thirunal College of Engineering (SCTCE), Trivandrum</strong>.
         </p>
         <p>
-          My perspective on engineering is grounded in active curiosity, discipline, and honest exploration. Programming allows me to combine algorithmic rigor with creative problem solving — whether I am decomposing a complex data structure or assembling an accessible user interface.
+          I completed my first year with an outstanding <strong>CGPA of 9.8</strong>. Previously, I earned distinction as the <strong>CBSE Class 12 Topper in Informatics Practices (Python programming &amp; DBMS)</strong> at Stratford Public School, and the <strong>School Topper in Java programming</strong> at Holy Trinity Anglo Indian School.
         </p>
         <ul class="modal-highlight-list">
-          <li><i class="fa-solid fa-graduation-cap"></i> <span><strong>Institution:</strong> Sree Chitra Thirunal College of Engineering</span></li>
-          <li><i class="fa-solid fa-compass"></i> <span><strong>Philosophy:</strong> Continuous learning through building and verified fundamentals</span></li>
-          <li><i class="fa-solid fa-heart"></i> <span><strong>Balance:</strong> Music, literature, and swimming provide creative clarity</span></li>
+          <li><i class="fa-solid fa-graduation-cap"></i> <span><strong>Institution:</strong> Sree Chitra Thirunal College of Engineering, Trivandrum</span></li>
+          <li><i class="fa-solid fa-award"></i> <span><strong>Academic Milestone:</strong> First Year CGPA 9.8 &bull; CBSE Class 12 IP Topper</span></li>
+          <li><i class="fa-solid fa-seedling"></i> <span><strong>Philosophy:</strong> Continuous learning through verified code and analytical systems thinking</span></li>
         </ul>
       `,
       deepLink: '#about'
     },
     skills: {
       icon: 'fa-microchip',
-      eyebrow: 'PLANET II &bull; TECHNICAL CAPABILITIES',
+      eyebrow: 'PLANET II &bull; TECHNICAL CAPABILITIES &amp; CERTIFICATIONS',
       title: 'Tech Superpowers &amp; Exploration',
       content: `
         <p>
-          This orbit houses the tools, methodologies, and concepts I use to transform ideas into reliable digital realities. Rather than assigning arbitrary percentage ratings, I present my capabilities based on authentic academic coursework and hands-on projects.
+          This orbit houses the programming languages, algorithms, and practical tools I use to turn ideas into reliable software realities.
         </p>
         <ul class="modal-highlight-list">
-          <li><i class="fa-solid fa-code"></i> <span><strong>Core Languages:</strong> C (systems &amp; pointers) and Java (object-oriented design)</span></li>
-          <li><i class="fa-solid fa-network-wired"></i> <span><strong>CS Foundations:</strong> Data Structures, Algorithms, Relational DBMS (MySQL)</span></li>
-          <li><i class="fa-solid fa-globe"></i> <span><strong>Web Tier:</strong> Clean semantic HTML5, modern CSS3, and modular vanilla JavaScript</span></li>
-          <li><i class="fa-brands fa-aws"></i> <span><strong>Current Frontiers:</strong> AWS Cloud Technologies, Local AI, and privacy engineering</span></li>
+          <li><i class="fa-brands fa-python"></i> <span><strong>Core Programming:</strong> Proficient in Python, Java (OOP, Swing, JDBC), C, and Shell scripting</span></li>
+          <li><i class="fa-solid fa-database"></i> <span><strong>Databases &amp; CS:</strong> Relational DBMS (MySQL), Schema Normalization, Data Structures &amp; Algorithms</span></li>
+          <li><i class="fa-solid fa-certificate"></i> <span><strong>Specialized Training:</strong> Robotics (MACE), Embedded Systems (GEC Palakkad), Cyber Security (6-Month Course)</span></li>
+          <li><i class="fa-brands fa-aws"></i> <span><strong>Frontiers:</strong> AWS Cloud Hosting (Amplify, S3, CloudFront), Local AI &amp; Privacy Engineering</span></li>
         </ul>
       `,
       deepLink: '#skills'
     },
     projects: {
-      icon: 'fa-diagram-project',
-      eyebrow: 'PLANET III &bull; CREATIVE WORK &amp; CODE',
-      title: 'Projects &amp; Practical Applications',
+      icon: 'fa-trophy',
+      eyebrow: 'PLANET III &bull; HACKATHONS &amp; PRACTICAL INNOVATION',
+      title: 'Projects &amp; Hackathon Shortlisting',
       content: `
         <p>
-          Every project marks a milestone in my engineering path. I focus on developing real solutions with verified code rather than claiming unearned functionality.
+          Every project marks an authentic milestone in my engineering path. I focus on developing real solutions with verified code.
         </p>
         <ul class="modal-highlight-list">
-          <li><i class="fa-solid fa-notes-medical"></i> <span><strong>Smart Healthcare Companion:</strong> Java desktop app built with Swing, AWT, JDBC, and MySQL for patient records.</span></li>
-          <li><i class="fa-solid fa-shield-halved"></i> <span><strong>PRISM Local AI Privacy Copilot:</strong> Exploratory research into client-side prompt sanitization before third-party AI transmission.</span></li>
-          <li><i class="fa-solid fa-atom"></i> <span><strong>My Digital Universe:</strong> This production portfolio built with zero framework bloat and deployed on AWS Amplify.</span></li>
+          <li><i class="fa-solid fa-award"></i> <span><strong>PRISM — Local AI Privacy Copilot:</strong> Hackathon completed project &bull; <strong>Shortlisted by the sponsoring company</strong> for future incubation! Shields sensitive data before LLM transmission.</span></li>
+          <li><i class="fa-solid fa-hospital-user"></i> <span><strong>Smart Healthcare Companion:</strong> Desktop medical clinic system developed in Java (Swing, AWT, JDBC, MySQL) for patient scheduling and consultation archives.</span></li>
+          <li><i class="fa-solid fa-atom"></i> <span><strong>My Digital Universe:</strong> Lightweight, static, cosmic portfolio engineered for the AWS Student Builder Challenge on AWS Amplify.</span></li>
         </ul>
       `,
       deepLink: '#projects'
@@ -158,25 +441,26 @@
     const motionIcon = document.getElementById('motion-icon');
     const motionLabel = document.getElementById('motion-label');
 
-    let isPaused = false;
-
     // Toggle orbital animation for accessibility
     if (motionToggle && solarWrapper) {
       motionToggle.addEventListener('click', () => {
-        isPaused = !isPaused;
-        if (isPaused) {
+        state.orbitPaused = !state.orbitPaused;
+        playCosmicTone(500, 'triangle', 0.08, 0.04);
+        if (state.orbitPaused) {
           solarWrapper.classList.add('paused');
           motionIcon.className = 'fa-solid fa-play';
           motionLabel.textContent = 'Resume Orbit';
+          showToast('Planetary Orbit Paused', 'info', 'fa-pause');
         } else {
           solarWrapper.classList.remove('paused');
           motionIcon.className = 'fa-solid fa-pause';
           motionLabel.textContent = 'Pause Orbit';
+          showToast('Planetary Orbit Resumed', 'info', 'fa-play');
         }
       });
     }
 
-    // Open Modal with Planet Content
+    // Open Modal Dossier
     function openPlanetDossier(planetKey) {
       const data = planetDossiers[planetKey];
       if (!data || !modal) return;
@@ -187,78 +471,79 @@
       modalBody.innerHTML = data.content;
       deepLink.setAttribute('href', data.deepLink);
 
+      playCosmicTone(700, 'sine', 0.12, 0.06);
+
       modal.classList.add('active');
       modal.setAttribute('aria-hidden', 'false');
-      closeBtn.focus();
+      closeBtn?.focus();
 
-      // Pause orbital motion while viewing dossier
-      if (solarWrapper && !isPaused) {
+      if (solarWrapper && !state.orbitPaused) {
         solarWrapper.classList.add('paused');
       }
     }
 
-    // Close Modal
+    // Close Modal Dossier
     function closePlanetDossier() {
       if (!modal) return;
+      playCosmicTone(440, 'triangle', 0.08, 0.04);
       modal.classList.remove('active');
       modal.setAttribute('aria-hidden', 'true');
 
-      // Resume orbital motion if not explicitly paused by user
-      if (solarWrapper && !isPaused) {
+      if (solarWrapper && !state.orbitPaused) {
         solarWrapper.classList.remove('paused');
       }
     }
 
     // Bind Planet Buttons
-    const btnAbout = document.getElementById('planet-about-btn');
-    const btnSkills = document.getElementById('planet-skills-btn');
-    const btnProjects = document.getElementById('planet-projects-btn');
+    document.getElementById('planet-about-btn')?.addEventListener('click', () => openPlanetDossier('about'));
+    document.getElementById('planet-skills-btn')?.addEventListener('click', () => openPlanetDossier('skills'));
+    document.getElementById('planet-projects-btn')?.addEventListener('click', () => openPlanetDossier('projects'));
 
-    btnAbout?.addEventListener('click', () => openPlanetDossier('about'));
-    btnSkills?.addEventListener('click', () => openPlanetDossier('skills'));
-    btnProjects?.addEventListener('click', () => openPlanetDossier('projects'));
-
-    // Modal Close Triggers
     closeBtn?.addEventListener('click', closePlanetDossier);
     dismissBtn?.addEventListener('click', closePlanetDossier);
     backdrop?.addEventListener('click', closePlanetDossier);
     deepLink?.addEventListener('click', closePlanetDossier);
 
     window.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && modal.classList.contains('active')) {
+      if (e.key === 'Escape' && modal?.classList.contains('active')) {
         closePlanetDossier();
       }
     });
   }
 
   // --------------------------------------------------------------------------
-  // 3. Constellation: "The Little Things That Make Me Me"
+  // 10. Personal Constellation: "The Little Things That Make Me Me"
   // --------------------------------------------------------------------------
   const personalInterests = {
+    coding: {
+      icon: 'fa-terminal',
+      title: 'Problem Solving &amp; Coding',
+      body: 'Analytical problem solving is my true passion. I love dissecting complex logic, debugging intricate edge cases, and finding the cleanest computational path from problem to verified solution.'
+    },
     music: {
       icon: 'fa-music',
-      title: 'Music &amp; Sonic Clarity',
-      body: 'Music is my sanctuary and thinking space. It provides rhythmic clarity when untangling complex algorithm logic, keeps creative momentum flowing during quiet evenings, and reminds me that harmony emerges from structured layers.'
+      title: 'Listening to Music',
+      body: 'Music provides rhythmic focus and clarity when thinking through data structure workflows. It brings peace, inspiration, and steady creative momentum during long engineering sessions.'
     },
     books: {
       icon: 'fa-book-open',
-      title: 'Literature &amp; Perspective',
-      body: 'Reading expands my mental models. From speculative science fiction to thoughtful non-fiction and engineering articles, books teach patience and broad perspectives beyond standard computer science curricula.'
+      title: 'Reading Books',
+      body: 'Literature broadens my mental models. Reading thoughtful non-fiction, technical essays, and speculative fiction teaches patience, deep focus, and diverse perspectives beyond classroom syllabi.'
+    },
+    dancing: {
+      icon: 'fa-person-dots-from-line',
+      title: 'Dancing &amp; Creative Expression',
+      body: 'Dancing is an outlet for joyful energy, rhythm, and artistic coordination. It teaches me that harmony comes from practicing disciplined movements until they look effortless.'
     },
     swimming: {
-      icon: 'fa-water',
+      icon: 'fa-person-swimming',
       title: 'Swimming &amp; Flow',
-      body: 'Swimming offers physical endurance and complete mental focus. In the water, every stroke demands rhythm, calm breathing, and efficient technique — much like writing disciplined, iterative code.'
+      body: 'Swimming builds stamina, focus, and breath control. In the water, every stroke requires smooth technique and patience — a mindset that translates directly into writing structured, iterative code.'
     },
     curiosity: {
-      icon: 'fa-compass',
-      title: 'Curiosity as an Engine',
-      body: 'The instinctive urge to ask "How does this actually work beneath the abstractions?" is what drew me into software engineering. I love taking concepts apart to discover the fundamental principles driving them.'
-    },
-    learning: {
       icon: 'fa-lightbulb',
-      title: 'Exploring New Horizons',
-      body: 'Investigating cloud deployment with AWS Amplify, testing client-side privacy patterns with local models, and following web accessibility standards reflect my dedication to steady, self-driven growth.'
+      title: 'Continuous Curiosity &amp; Tech',
+      body: 'The instinctive urge to ask "How does this actually work beneath the surface?" drove me to Computer Science. Exploring cloud architectures on AWS, local AI models, and robotics fuels my daily enthusiasm.'
     }
   };
 
@@ -276,12 +561,13 @@
         stars.forEach((s) => s.classList.remove('active'));
         star.classList.add('active');
 
+        playCosmicTone(780, 'sine', 0.08, 0.04);
         const key = star.getAttribute('data-interest');
         const data = personalInterests[key];
         if (!data) return;
 
         revealCard.style.opacity = '0';
-        revealCard.style.transform = 'translateY(8px)';
+        revealCard.style.transform = 'translateY(6px)';
 
         setTimeout(() => {
           revealIcon.innerHTML = `<i class="fa-solid ${data.icon}"></i>`;
@@ -289,77 +575,227 @@
           revealBody.innerHTML = data.body;
           revealCard.style.opacity = '1';
           revealCard.style.transform = 'translateY(0)';
-        }, 150);
+        }, 120);
       });
     });
   }
 
   // --------------------------------------------------------------------------
-  // 4. Configuration Loader: Contact Channels & Safe Links
+  // 11. Deep Space Console (Interactive Terminal CLI)
+  // --------------------------------------------------------------------------
+  function initTerminal() {
+    const termForm = document.getElementById('terminal-form');
+    const termInput = document.getElementById('terminal-input');
+    const termOutput = document.getElementById('terminal-output');
+    const clearBtn = document.getElementById('term-clear-btn');
+    if (!termForm || !termInput || !termOutput) return;
+
+    const commands = {
+      help: () => [
+        '--- Deep Space Terminal v3.0 [SCTCE Node] Directory ---',
+        '  about          : Query Akhila\'s identity & mission statement',
+        '  education      : Output B.Tech CSE details & 9.8 CGPA distinction',
+        '  skills         : Enumerate core languages, DBMS & development tools',
+        '  projects       : List all flagship applications & prototypes',
+        '  prism          : Inspect the hackathon-shortlisted AI Privacy Copilot',
+        '  certifications : View workshops (Robotics, Embedded, Cyber Security)',
+        '  references     : Display SCTCE faculty mentors & contact emails',
+        '  contact        : Print email, phone & verified social handles',
+        '  theme          : Cycle through cosmic theme spectrums',
+        '  time           : Print real-time mission telemetry clock',
+        '  matrix         : Execute digital matrix rain sequence',
+        '  easteregg      : Reveal classified universe telemetry',
+        '  clear          : Purge the current terminal screen buffer'
+      ],
+      about: () => [
+        'Explorer: Akhila Xavier',
+        'Degree: B.Tech Computer Science and Engineering (2025–2029)',
+        'Institution: Sree Chitra Thirunal College of Engineering (SCTCE), Trivandrum',
+        'Tagline: "Exploring technology. Creating possibilities."',
+        'Summary: Creative thinker with strong analytical skills in AI, Python, C, and DBMS.'
+      ],
+      education: () => [
+        '1. B.Tech Computer Science & Engineering — SCTCE Trivandrum (2025–2029)',
+        '   >> Completed First Year with an outstanding CGPA of 9.8!',
+        '2. Higher Secondary — Stratford Public School, Kollam (2023–2025)',
+        '   >> CBSE Class 12 Topper in Informatics Practices (Python & DBMS)',
+        '3. Secondary School — Holy Trinity Anglo Indian School, Kollam',
+        '   >> School Topper in Java Programming'
+      ],
+      skills: () => [
+        'Languages       : Python (Proficient), Java (School Topper), C Programming, Shell',
+        'Computer Science: Data Structures & Algorithms, OOP, Database Management (DBMS/MySQL)',
+        'Web Tier        : HTML5, CSS3, Vanilla JavaScript (ES6+), Canvas 2D',
+        'Tools & Workflow: Git, GitHub, VS Code, Linux CLI, Agile Collaboration',
+        'Emerging Fields : AWS Cloud (Amplify, S3, CloudFront), Local AI, Cyber Security'
+      ],
+      projects: () => [
+        '1. PRISM [HACKATHON SHORTLISTED] — Local AI Privacy Copilot (Python, Sanitizer)',
+        '2. Smart Healthcare Companion     — Desktop Clinic Management (Java, Swing, JDBC, MySQL)',
+        '3. My Digital Universe           — Interactive Cosmic Portfolio (AWS Amplify, Canvas 2D)'
+      ],
+      prism: () => [
+        '--- PRISM: Local AI Privacy Copilot ---',
+        'Category   : Hackathon Completed Project &bull; Shortlisted by Sponsoring Company',
+        'Tech Stack : Python, Regex Heuristics, Local NLP, API Intermediary',
+        'Description: Intercepts outgoing LLM prompts on the client device to detect,',
+        '             sanitize, and redact sensitive credentials and personal data (PII).',
+        'Status     : Shortlisted for future incubation and mentorship!'
+      ],
+      certifications: () => [
+        '1. Introduction to Robotics Workshop — Mar Athanasius College of Engineering (MACE)',
+        '2. Embedded System Design           — Government Engineering College (GEC) Palakkad',
+        '3. Cyber Security Specialization   — 6-Month Intensive Course (Active)'
+      ],
+      references: () => [
+        '1. Dr. Soniya B     - HOD & Professor, Dept. of CSE, SCTCE (soniya@sctce.ac.in)',
+        '2. Prof. Binu Rajan - Assistant Professor, Dept. of CSE, SCTCE (binurajan@sctce.ac.in)'
+      ],
+      contact: () => [
+        'Email     : akhilaxavier2007@gmail.com',
+        'Mobile    : +91 8714176644',
+        'LinkedIn  : https://www.linkedin.com/in/akhila-xavier-68671237b',
+        'Instagram : https://instagram.com/akhilaxaviier',
+        'Location  : Trivandrum / Kollam, Kerala, India'
+      ],
+      time: () => [
+        `Local Telemetry Time: ${new Date().toLocaleString('en-US', { timeZone: 'Asia/Kolkata' })} (IST)`
+      ],
+      theme: () => {
+        const btn = document.getElementById('theme-btn');
+        if (btn) btn.click();
+        return ['Cosmic theme spectrum shifted successfully.'];
+      },
+      matrix: () => [
+        '01000001 01001011 01001000 01001001 01001100 01000001',
+        '>> System status: NOMINAL | CGPA: 9.8 | Reality Anchor: STABLE',
+        '>> Wake up, judge... The Digital Universe has you.'
+      ],
+      easteregg: () => [
+        '🚀 Discovery unlocked: Constellation 9.8!',
+        'Every line of clean, verified code brings clarity to the digital cosmos.'
+      ],
+      clear: () => {
+        termOutput.innerHTML = '';
+        return [];
+      }
+    };
+
+    function appendLine(text, className = 'term-line') {
+      const p = document.createElement('p');
+      p.className = className;
+      p.innerHTML = text;
+      termOutput.appendChild(p);
+      termOutput.scrollTop = termOutput.scrollHeight;
+    }
+
+    termForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const rawInput = termInput.value.trim();
+      if (!rawInput) return;
+
+      appendLine(`akhila@universe:~$ ${rawInput}`, 'term-line term-accent');
+      state.termHistory.push(rawInput);
+      state.termHistoryIndex = state.termHistory.length;
+
+      const cmd = rawInput.toLowerCase();
+      playCosmicTone(480, 'square', 0.04, 0.03);
+
+      if (commands[cmd]) {
+        const lines = commands[cmd]();
+        lines.forEach((l) => appendLine(l, 'term-line term-info'));
+      } else {
+        appendLine(`Command not found: "${rawInput}". Type <strong class="term-accent">help</strong> for command list.`, 'term-line term-error');
+      }
+
+      termInput.value = '';
+    });
+
+    if (clearBtn) {
+      clearBtn.addEventListener('click', () => {
+        termOutput.innerHTML = '';
+        appendLine('Terminal display purged.', 'term-line term-dim');
+      });
+    }
+
+    // Command History (Up/Down Arrow keys)
+    termInput.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowUp') {
+        if (state.termHistoryIndex > 0) {
+          state.termHistoryIndex--;
+          termInput.value = state.termHistory[state.termHistoryIndex];
+        }
+      } else if (e.key === 'ArrowDown') {
+        if (state.termHistoryIndex < state.termHistory.length - 1) {
+          state.termHistoryIndex++;
+          termInput.value = state.termHistory[state.termHistoryIndex];
+        } else {
+          state.termHistoryIndex = state.termHistory.length;
+          termInput.value = '';
+        }
+      }
+    });
+  }
+
+  // --------------------------------------------------------------------------
+  // 12. Contact Interactions & Transmission Form
+  // --------------------------------------------------------------------------
+  function initContactInteractions() {
+    // Quick Copy Email
+    const copyBtn = document.getElementById('copy-email-btn');
+    if (copyBtn) {
+      copyBtn.addEventListener('click', () => {
+        const email = 'akhilaxavier2007@gmail.com';
+        navigator.clipboard.writeText(email).then(() => {
+          showToast(`Copied to clipboard: ${email}`, 'success', 'fa-check');
+        }).catch(() => {
+          showToast(`Email: ${email}`, 'info', 'fa-envelope');
+        });
+      });
+    }
+
+    // Contact Form Submission
+    const form = document.getElementById('contact-form');
+    const submitBtn = document.getElementById('send-msg-btn');
+    if (form && submitBtn) {
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const name = document.getElementById('sender-name')?.value || 'Guest';
+        const originalText = submitBtn.innerHTML;
+
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> <span>Transmitting through subspace...</span>';
+        playCosmicTone(440, 'triangle', 0.15, 0.05);
+
+        setTimeout(() => {
+          submitBtn.disabled = false;
+          submitBtn.innerHTML = originalText;
+          form.reset();
+
+          playCosmicTone(880, 'sine', 0.2, 0.08);
+          showToast(`Transmission received, ${name}! Signal logged successfully.`, 'success', 'fa-circle-check');
+        }, 1300);
+      });
+    }
+  }
+
+  // --------------------------------------------------------------------------
+  // 13. Config Loader & Dynamic Link Hydration
   // --------------------------------------------------------------------------
   function applyUserConfiguration() {
     const config = window.USER_CONFIG || {};
     const links = config.links || {};
 
-    // 1. Email Channel
-    const emailStatus = document.getElementById('email-status-text');
-    const emailBtn = document.getElementById('email-action-btn');
-    if (links.email && links.email.trim() !== '') {
-      const email = links.email.trim();
-      emailStatus.textContent = email;
-      emailBtn.setAttribute('href', `mailto:${email}`);
-      emailBtn.classList.remove('disabled');
-    } else {
-      emailStatus.textContent = 'Ready to configure (in config.js)';
-      emailBtn.setAttribute('href', '#');
-      emailBtn.classList.add('disabled');
-      emailBtn.title = 'Add your email to config.js to activate';
-    }
-
-    // 2. GitHub Channel
-    const githubStatus = document.getElementById('github-status-text');
-    const githubBtn = document.getElementById('github-action-btn');
-    if (links.github && links.github.trim() !== '') {
-      const gh = links.github.trim();
-      githubStatus.textContent = gh.replace('https://', '');
-      githubBtn.setAttribute('href', gh);
-      githubBtn.classList.remove('disabled');
-    } else {
-      githubStatus.textContent = 'Ready to configure (in config.js)';
-      githubBtn.setAttribute('href', '#');
-      githubBtn.classList.add('disabled');
-      githubBtn.title = 'Add your GitHub profile URL to config.js to activate';
-    }
-
-    // 3. LinkedIn Channel
-    const linkedinStatus = document.getElementById('linkedin-status-text');
-    const linkedinBtn = document.getElementById('linkedin-action-btn');
-    if (links.linkedin && links.linkedin.trim() !== '') {
-      const li = links.linkedin.trim();
-      linkedinStatus.textContent = li.replace('https://', '');
-      linkedinBtn.setAttribute('href', li);
-      linkedinBtn.classList.remove('disabled');
-    } else {
-      linkedinStatus.textContent = 'Ready to configure (in config.js)';
-      linkedinBtn.setAttribute('href', '#');
-      linkedinBtn.classList.add('disabled');
-      linkedinBtn.title = 'Add your LinkedIn profile URL to config.js to activate';
-    }
-
-    // 4. Footer Project Repository Link
     const repoLink = document.getElementById('footer-repo-link');
-    const repoText = document.getElementById('repo-link-text');
-    if (repoLink && repoText) {
+    if (repoLink) {
       if (links.portfolioRepository && links.portfolioRepository.trim() !== '') {
         repoLink.setAttribute('href', links.portfolioRepository.trim());
-        repoText.textContent = 'View on GitHub';
       } else {
         repoLink.setAttribute('href', '#');
-        repoText.textContent = 'Repository (Set in config.js)';
+        repoLink.title = 'GitHub repository URL can be configured in config.js';
       }
     }
 
-    // 5. Current Year
     const yearSpan = document.getElementById('current-year');
     if (yearSpan) {
       yearSpan.textContent = new Date().getFullYear();
@@ -367,7 +803,7 @@
   }
 
   // --------------------------------------------------------------------------
-  // 5. Navigation: Mobile Drawer, Scroll Header & Active Link Spy
+  // 14. Navigation: Mobile Drawer, Scroll Header & Active Link Spy
   // --------------------------------------------------------------------------
   function initNavigation() {
     const header = document.getElementById('header');
@@ -376,7 +812,6 @@
     const mobileLinks = document.querySelectorAll('.mobile-nav-item');
     const desktopLinks = document.querySelectorAll('.nav-item');
 
-    // Sticky Header Scroll
     window.addEventListener('scroll', () => {
       if (window.scrollY > 40) {
         header?.classList.add('scrolled');
@@ -385,7 +820,6 @@
       }
     });
 
-    // Mobile Drawer Toggle
     if (toggle && drawer) {
       toggle.addEventListener('click', () => {
         const isOpen = drawer.classList.toggle('open');
@@ -404,7 +838,6 @@
       });
     }
 
-    // Active Section Observer
     const sections = document.querySelectorAll('section[id], header[id]');
     const observer = new IntersectionObserver(
       (entries) => {
@@ -421,19 +854,27 @@
           }
         });
       },
-      { rootMargin: '-30% 0px -60% 0px' }
+      { rootMargin: '-25% 0px -65% 0px' }
     );
 
     sections.forEach((sec) => observer.observe(sec));
   }
 
   // --------------------------------------------------------------------------
-  // 6. Application Bootstrapper
+  // 15. Application Bootstrapper
   // --------------------------------------------------------------------------
   document.addEventListener('DOMContentLoaded', () => {
     initUniverseCanvas();
+    initCustomCursor();
+    initTypingText();
+    initThemeButton();
+    initAudioControl();
+    initTelemetryClock();
+    initCardTilt();
     initSolarSystemInteractions();
     initConstellation();
+    initTerminal();
+    initContactInteractions();
     applyUserConfiguration();
     initNavigation();
   });

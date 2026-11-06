@@ -6,9 +6,9 @@
 
 ## 🌌 Project Overview
 
-**My Digital Universe** is an original, production-quality personal portfolio engineered by **Akhila Xavier**, a B.Tech Computer Science and Engineering student at **Sree Chitra Thirunal College of Engineering (SCTCE), Thiruvananthapuram**.
+**My Digital Universe** is an original, production-quality personal portfolio engineered by **Akhila Xavier**, a B.Tech Computer Science and Engineering student at **Sree Chitra Thirunal College of Engineering (SCTCE), Trivandrum** who completed her first year with an outstanding **CGPA of 9.8**.
 
-Designed with a minimal, futuristic aesthetic inspired by deep space and digital architecture, this website serves as a living representation of Akhila's academic foundation, technical capabilities, problem-solving mindset, and continuous journey through computer science.
+Designed with a minimal, futuristic cosmic aesthetic inspired by deep space and digital architecture, this website serves as a living representation of Akhila's academic excellence, hackathon achievements (including **PRISM**, which was **shortlisted by the sponsoring company**), technical capabilities, and continuous journey through computer science.
 
 ---
 
@@ -17,32 +17,39 @@ Designed with a minimal, futuristic aesthetic inspired by deep space and digital
 1. **Signature Creative Feature: Interactive Solar System**
    - **Central Star `AX`:** A celestial anchor representing Akhila Xavier.
    - **Three Orbiting Planets:**
-     - **Planet I (About Me):** Educational coordinates at SCTCE, background, and learning philosophy.
-     - **Planet II (Tech Superpowers):** Core languages (C, Java), CS fundamentals, and active frontiers.
-     - **Planet III (Projects):** Verified software applications and research concepts.
+     - **Planet I (About Me & 9.8 CGPA):** Educational trajectory at SCTCE, CBSE Class 12 IP Topper status, and learning philosophy.
+     - **Planet II (Tech Superpowers):** Core languages (Python, Java, C, Shell), DBMS, certifications (MACE, GEC Palakkad, Cyber Security), and active frontiers.
+     - **Planet III (Projects & Hackathon):** **PRISM** (Hackathon Shortlisted by Sponsor), *Smart Healthcare Companion*, and *My Digital Universe*.
    - **Interactive Modal Panels:** Clicking any planet pauses or reveals a glass-morphic dossier with smooth animations, accessible focus management, and keyboard escape controls.
    - **Orbital Accessibility Control:** A dedicated pause/resume button allowing users to halt orbit animations in accordance with vestibular accessibility standards.
 
 2. **Personal Constellation: "The Little Things That Make Me Me"**
-   - An optional interactive constellation map connecting stars representing **Music**, **Books**, **Swimming**, **Curiosity**, and **Learning New Tech**.
-   - Clicking each star reveals an authentic reflection showing the human curiosity behind the code.
+   - An optional interactive constellation map connecting stars representing **Problem Solving & Coding**, **Listening to Music**, **Reading Books**, **Dancing**, **Swimming**, and **Continuous Curiosity**.
+   - Clicking each star reveals an authentic reflection showing the human creativity behind the code.
 
-3. **Required Portfolio Sections**
-   - **Section A — About Me:** *"More than just a collection of code."* (Authentic student background, philosophy of continuous learning).
-   - **Section B — Tech Superpowers:** *"Tools I use to turn ideas into reality."* (Categorized into Programming, CS Concepts, Web Development, Tools, and Currently Exploring).
+3. **Interactive Deep Space Console (Terminal CLI)**
+   - A built-in interactive shell supporting commands: `help`, `about`, `education`, `skills`, `projects`, `prism`, `certifications`, `references`, `contact`, `theme`, `time`, `matrix`, `easteregg`, `clear`.
+   - Command history navigation with Up/Down arrow keys.
+
+4. **Multi-Cosmic Theme & Audio Synthesizer**
+   - **Theme Engine:** Instant switching between **Nebula** (Violet & Lavender), **Andromeda** (Cyan & Emerald), and **Supernova** (Solar Amber & Rose).
+   - **Web Audio API Synthesizer:** Subtle cosmic audio tones providing tactile feedback with a mute toggle.
+
+5. **Required Portfolio Sections**
+   - **Section A — About Me:** *"More than just a collection of code."* (SCTCE credentials, 9.8 CGPA, Stratford Public School Class 12 CBSE Topper in Informatics Practices, Holy Trinity Anglo Indian School Java Topper, faculty references Dr. Soniya B & Prof. Binu Rajan).
+   - **Section B — Tech Superpowers:** *"Tools I use to turn ideas into reality."* (Categorized into Programming, CS & DBMS, Web Development, Tools, and Currently Exploring).
    - **Section C — Projects & Achievements:** *"Small beginnings. Big possibilities."*
+     - *PRISM — Local AI Privacy Copilot* (Hackathon Completed & Shortlisted by Sponsoring Company)
      - *Smart Healthcare Companion* (Java, Swing, AWT, JDBC, MySQL)
-     - *PRISM Local AI Privacy Copilot* (Privacy Engineering Research & Concept)
      - *My Digital Universe* (Static Architecture, Canvas 2D, AWS Amplify Hosting)
 
-4. **Zero-Broken-Link Contact Engine (`config.js`)**
-   - No mock or invented URLs. Contact channels (Email, GitHub, LinkedIn) are managed through a centralized configuration file.
-   - If a link has not been filled out yet, the UI displays a clean configuration notice rather than leading visitors to a dead link.
-
-5. **Pure, Lightweight Technical Architecture**
-   - 100% Vanilla HTML5, modern CSS3, and modular ES6+ JavaScript.
-   - Zero bulky frameworks (no React, Next.js, or complex build tooling required).
-   - Instant loading speeds and optimal Lighthouse scores.
+6. **Verified Contact Subspace Array**
+   - Pre-configured with Akhila's verified details:
+     - Email: `akhilaxavier2007@gmail.com` (with one-click clipboard copy)
+     - Phone: `+91 8714176644`
+     - LinkedIn: `https://www.linkedin.com/in/akhila-xavier-68671237b`
+     - Instagram: `https://instagram.com/akhilaxaviier`
+     - Centralized `config.js` registry.
 
 ---
 
@@ -52,7 +59,7 @@ Designed with a minimal, futuristic aesthetic inspired by deep space and digital
 | :--- | :--- |
 | **Markup & Semantics** | Semantic HTML5, ARIA Landmarks, Open Graph Meta |
 | **Styling & Motion** | CSS3 (Custom Properties, Flexbox, CSS Grid, Glassmorphism, Keyframes) |
-| **Interactive Logic** | Modular Vanilla JavaScript (ES6+), HTML5 Canvas 2D, Intersection Observer |
+| **Interactive Logic** | Modular Vanilla JavaScript (ES6+), HTML5 Canvas 2D, Web Audio API, Intersection Observer |
 | **Cloud Hosting & CDN**| AWS Amplify Hosting, Amazon S3, Amazon CloudFront |
 | **Fonts & Icons** | Space Grotesk, Outfit, JetBrains Mono, FontAwesome 6 |
 
@@ -65,7 +72,7 @@ akhila-portfolio/
 │
 ├── index.html                 # Semantic HTML document with accessibility landmarks
 ├── style.css                  # Futuristic cosmic design tokens and responsive styles
-├── script.js                 # Pure JavaScript engine (Canvas, Orbit, Modal, Constellation)
+├── script.js                 # Pure JavaScript engine (Canvas, Audio, Orbit, Terminal, Modal)
 ├── config.js                 # Central configuration for contact details & profiles
 ├── favicon.svg               # Vector SVG cosmic favicon
 │
@@ -81,36 +88,16 @@ akhila-portfolio/
 
 ## 🚀 Local Setup & Testing
 
-Because the website uses a clean static architecture, running and testing it locally is simple:
-
 ### Option 1: Direct File Preview
-Double-click `index.html` to open the website directly in any modern browser (Google Chrome, Mozilla Firefox, Microsoft Edge, Safari).
+Double-click `index.html` to open the website directly in any modern browser.
 
 ### Option 2: Local HTTP Server (Recommended)
-Using Python (pre-installed on Windows/macOS/Linux):
+Using Python:
 ```powershell
 # In the project root:
 python -m http.server 8000
 ```
 Then navigate to `http://localhost:8000` in your web browser.
-
----
-
-## ⚙️ Personalizing Your Contact Links
-
-Before deploying, open `config.js` in your editor and input your actual profiles:
-
-```javascript
-const USER_CONFIG = {
-  links: {
-    email: "your.name@example.com",
-    linkedin: "https://www.linkedin.com/in/your-profile",
-    github: "https://github.com/your-username",
-    portfolioRepository: "https://github.com/your-username/akhila-portfolio"
-  }
-};
-```
-*If a field is left empty `""`, the website gracefully displays a status note ("Ready to configure") to prevent broken links during grading.*
 
 ---
 
@@ -134,4 +121,3 @@ For step-by-step instructions on connecting your GitHub repository to AWS Amplif
 
 Designed and developed by **Akhila Xavier** for the **AWS Student Builder Challenge**.  
 All rights reserved © 2026.
-
