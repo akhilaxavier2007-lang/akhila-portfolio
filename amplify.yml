@@ -1,0 +1,14 @@
+version: 1
+frontend:
+  phases:
+    # Static website: No compile or npm build step required
+    build:
+      commands: []
+  artifacts:
+    # Deploy all files from repository root
+    baseDirectory: /
+    files:
+      - '**/*'
+  cache:
+    paths: []
+

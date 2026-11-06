@@ -1,0 +1,43 @@
+# ==============================================================================
+# .gitignore for Akhila Xavier - My Digital Universe
+# AWS Student Builder Challenge Portfolio
+# ==============================================================================
+
+# Operating System Files
+.DS_Store
+Thumbs.db
+desktop.ini
+*.lnk
+
+# Editor & IDE Directories
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.swp
+
+# Environment Variables & Secrets (CRITICAL: Never commit AWS credentials)
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+aws-credentials.json
+credentials.csv
+*.pem
+*.key
+
+# Logs & Diagnostics
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+*.log
+
+# Temporary build or cache artifacts
+.cache/
+dist/
+build/
+.aws-sam/
+

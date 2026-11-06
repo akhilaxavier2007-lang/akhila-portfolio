@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100">
+  <defs>
+    <linearGradient id="cosmic-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#9d4edd" />
+      <stop offset="50%" stop-color="#00f0ff" />
+      <stop offset="100%" stop-color="#ff007a" />
+    </linearGradient>
+    <radialGradient id="glow-grad" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#00f0ff" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#070714" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <!-- Background -->
+  <rect width="100" height="100" rx="24" fill="#070714" />
+  <circle cx="50" cy="50" r="38" fill="url(#glow-grad)" opacity="0.4" />
+  
+  <!-- Outer Orbit Ellipse -->
+  <ellipse cx="50" cy="50" rx="36" ry="14" fill="none" stroke="url(#cosmic-grad)" stroke-width="2.5" transform="rotate(-30 50 50)" />
+  <ellipse cx="50" cy="50" rx="36" ry="14" fill="none" stroke="url(#cosmic-grad)" stroke-width="2.5" transform="rotate(30 50 50)" opacity="0.7" />
+
+  <!-- Center Celestial Core -->
+  <circle cx="50" cy="50" r="10" fill="url(#cosmic-grad)" />
+  
+  <!-- Orbiting Satellites -->
+  <circle cx="76" cy="35" r="3.5" fill="#00f0ff" />
+  <circle cx="24" cy="65" r="3" fill="#ff007a" />
+</svg>
+

@@ -1,0 +1,901 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Akhila Xavier — My Digital Universe</title>
+  <meta name="description" content="Welcome to the digital universe of Akhila Xavier — B.Tech Computer Science student at SCTCE. Exploring technology, creating possibilities.">
+  <meta name="author" content="Akhila Xavier">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+  <!-- Google Fonts: Space Grotesk (Headings), Outfit (Body), JetBrains Mono (Technical) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Outfit:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- FontAwesome for subtle, elegant icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Ambient Dynamic Cosmic Canvas (Stars & Orbital dust) -->
+  <canvas id="universe-canvas" aria-hidden="true"></canvas>
+
+  <!-- Skip Link for Accessibility -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- Header & Navigation -->
+  <header class="site-header" id="header">
+    <div class="nav-container">
+      <a href="#home" class="nav-brand" aria-label="Akhila Xavier Home">
+        <span class="brand-orbit-icon"><i class="fa-solid fa-atom"></i></span>
+        <span class="brand-name">Akhila <span class="brand-accent">Xavier</span></span>
+      </a>
+
+      <!-- Desktop Navigation -->
+      <nav class="desktop-nav" aria-label="Primary Navigation">
+        <ul class="nav-links">
+          <li><a href="#home" class="nav-item active">Home</a></li>
+          <li><a href="#universe-section" class="nav-item">Interactive Universe</a></li>
+          <li><a href="#about" class="nav-item">About</a></li>
+          <li><a href="#skills" class="nav-item">Skills</a></li>
+          <li><a href="#projects" class="nav-item">Projects</a></li>
+          <li><a href="#contact" class="nav-item">Contact</a></li>
+        </ul>
+      </nav>
+
+      <!-- Nav CTA & Mobile Menu Toggle -->
+      <div class="nav-actions">
+        <a href="#contact" class="btn-pill btn-nav-cta">
+          <span>Connect</span>
+          <i class="fa-solid fa-arrow-right"></i>
+        </a>
+        <button class="menu-toggle" id="menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobile-menu">
+          <span class="menu-bar"></span>
+          <span class="menu-bar"></span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Drawer Navigation -->
+    <div class="mobile-drawer" id="mobile-menu" aria-hidden="true">
+      <ul class="mobile-links">
+        <li><a href="#home" class="mobile-nav-item">Home</a></li>
+        <li><a href="#universe-section" class="mobile-nav-item">Interactive Universe</a></li>
+        <li><a href="#about" class="mobile-nav-item">About Me</a></li>
+        <li><a href="#skills" class="mobile-nav-item">Tech Superpowers</a></li>
+        <li><a href="#projects" class="mobile-nav-item">Projects</a></li>
+        <li><a href="#contact" class="mobile-nav-item">Contact</a></li>
+      </ul>
+      <div class="mobile-drawer-footer">
+        <p class="drawer-brand">"Exploring technology. Creating possibilities."</p>
+      </div>
+    </div>
+  </header>
+
+  <main id="main-content">
+    
+    <!-- ====================================================================
+         HOMEPAGE HERO SECTION
+         ==================================================================== -->
+    <section class="hero-section" id="home">
+      <div class="container hero-container">
+        
+        <div class="hero-content">
+          <div class="hero-eyebrow">
+            <span class="eyebrow-dot"></span>
+            <span class="eyebrow-text">B.Tech Computer Science &amp; Engineering Student</span>
+          </div>
+
+          <h1 class="hero-title">
+            AKHILA <span class="gradient-text">XAVIER</span>
+          </h1>
+
+          <p class="hero-tagline">
+            "Exploring technology. Creating possibilities."
+          </p>
+
+          <p class="hero-intro">
+            Welcome to my digital universe — a space where curiosity meets technology, ideas become projects and every new experience opens another possibility.
+          </p>
+
+          <div class="hero-actions">
+            <a href="#universe-section" class="btn-primary">
+              <i class="fa-solid fa-satellite"></i>
+              <span>Explore Interactive Universe</span>
+            </a>
+            <a href="#about" class="btn-secondary">
+              <span>Read My Journey</span>
+              <i class="fa-solid fa-arrow-down"></i>
+            </a>
+          </div>
+
+          <!-- Academic Affiliation Pill -->
+          <div class="affiliation-badge">
+            <i class="fa-solid fa-graduation-cap"></i>
+            <span>Sree Chitra Thirunal College of Engineering, Thiruvananthapuram</span>
+          </div>
+        </div>
+
+        <!-- Central Celestial Visual Anchor -->
+        <div class="hero-visual" aria-hidden="true">
+          <div class="celestial-core-display">
+            <div class="core-glow-aura"></div>
+            <div class="core-ring-orbital ring-1"></div>
+            <div class="core-ring-orbital ring-2"></div>
+            <div class="central-monogram-sphere">
+              <span class="monogram-text">AX</span>
+            </div>
+            <!-- Orbiting Micro Particles -->
+            <div class="orbit-sparkle s1" title="Curiosity"></div>
+            <div class="orbit-sparkle s2" title="Code"></div>
+            <div class="orbit-sparkle s3" title="Creation"></div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Exploration Scroll Indicator -->
+      <a href="#universe-section" class="scroll-indicator" aria-label="Scroll to Interactive Universe">
+        <span class="scroll-track"><span class="scroll-ball"></span></span>
+        <span class="scroll-caption">Enter The Orbit</span>
+      </a>
+    </section>
+
+
+    <!-- ====================================================================
+         SIGNATURE FEATURE: INTERACTIVE DIGITAL UNIVERSE
+         ==================================================================== -->
+    <section class="universe-section" id="universe-section">
+      <div class="container">
+        
+        <div class="section-heading text-center">
+          <span class="section-tag"><i class="fa-solid fa-atom"></i> Signature Creative Experience</span>
+          <h2 class="section-title">The <span class="gradient-text">Digital Universe</span></h2>
+          <p class="section-subtitle">
+            An original interactive cosmos representing my journey through technology, continuous learning, and creative curiosity.
+          </p>
+          <div class="interaction-hint">
+            <i class="fa-solid fa-hand-pointer"></i>
+            <span><strong>Click any orbiting planet</strong> to reveal its cosmic dossier, or explore the secret constellation below.</span>
+          </div>
+        </div>
+
+        <!-- The Orbital Solar System Canvas & Interactive Planets -->
+        <div class="solar-system-wrapper" id="solar-system">
+          
+          <!-- Central Star: Akhila Xavier -->
+          <div class="central-star" id="central-star" tabindex="0" role="button" aria-label="Central Star: Akhila Xavier (AX)">
+            <div class="star-corona"></div>
+            <div class="star-core">
+              <span class="star-label">AX</span>
+            </div>
+            <span class="star-caption">Akhila Xavier<br><small>Center of Gravity</small></span>
+          </div>
+
+          <!-- Orbital Track 1: About Me -->
+          <div class="orbit-path orbit-path-1"></div>
+          <div class="planet-anchor" id="planet-anchor-1">
+            <button class="planet planet-about" id="planet-about-btn" aria-label="Open About Me Planet Dossier" aria-haspopup="dialog">
+              <div class="planet-sphere sphere-lavender">
+                <i class="fa-solid fa-user-astronaut"></i>
+              </div>
+              <span class="planet-badge">Planet I &bull; About Me</span>
+            </button>
+          </div>
+
+          <!-- Orbital Track 2: Tech Superpowers -->
+          <div class="orbit-path orbit-path-2"></div>
+          <div class="planet-anchor" id="planet-anchor-2">
+            <button class="planet planet-skills" id="planet-skills-btn" aria-label="Open Tech Superpowers Planet Dossier" aria-haspopup="dialog">
+              <div class="planet-sphere sphere-cyan">
+                <i class="fa-solid fa-microchip"></i>
+              </div>
+              <span class="planet-badge">Planet II &bull; Tech Superpowers</span>
+            </button>
+          </div>
+
+          <!-- Orbital Track 3: Projects -->
+          <div class="orbit-path orbit-path-3"></div>
+          <div class="planet-anchor" id="planet-anchor-3">
+            <button class="planet planet-projects" id="planet-projects-btn" aria-label="Open Projects Planet Dossier" aria-haspopup="dialog">
+              <div class="planet-sphere sphere-violet">
+                <i class="fa-solid fa-diagram-project"></i>
+              </div>
+              <span class="planet-badge">Planet III &bull; Projects</span>
+            </button>
+          </div>
+
+          <!-- Quick Pause/Resume Controls for Accessibility -->
+          <div class="orbit-accessibility-control">
+            <button class="orbit-toggle-btn" id="orbit-motion-toggle" aria-label="Pause or play planetary orbit animation">
+              <i class="fa-solid fa-pause" id="motion-icon"></i>
+              <span id="motion-label">Pause Orbit</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Planet Information Modal / Dossier Overlay -->
+        <div class="planet-modal" id="planet-modal" role="dialog" aria-modal="true" aria-hidden="true">
+          <div class="planet-modal-backdrop" id="modal-backdrop"></div>
+          <div class="planet-modal-card glass-card">
+            
+            <div class="modal-card-header">
+              <div class="modal-badge-wrapper">
+                <span class="modal-planet-icon" id="modal-planet-icon"><i class="fa-solid fa-planet-ringed"></i></span>
+                <div>
+                  <span class="modal-eyebrow" id="modal-eyebrow">PLANET EXPLORATION</span>
+                  <h3 class="modal-title" id="modal-title">Planet Dossier</h3>
+                </div>
+              </div>
+              <button class="modal-close-btn" id="modal-close-btn" aria-label="Close information panel">
+                <i class="fa-solid fa-xmark"></i>
+              </button>
+            </div>
+
+            <div class="modal-card-body" id="modal-body-content">
+              <!-- Dynamically populated via JavaScript -->
+            </div>
+
+            <div class="modal-card-footer">
+              <button class="btn-secondary btn-sm" id="modal-dismiss-btn">Close Panel</button>
+              <a href="#about" class="btn-primary btn-sm" id="modal-deep-link">Navigate to Full Section</a>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- ================================================================
+             CONSTELLATION: "THE LITTLE THINGS THAT MAKE ME ME"
+             ================================================================ -->
+        <div class="constellation-showcase">
+          <div class="constellation-header">
+            <span class="constellation-pill"><i class="fa-solid fa-wand-magic-sparkles"></i> Optional Discovery</span>
+            <h3 class="constellation-title">The Little Things That Make Me Me</h3>
+            <p class="constellation-desc">
+              Behind the code lies human curiosity. Tap individual stars to reveal the personal interests and quiet passions that shape my mindset.
+            </p>
+          </div>
+
+          <div class="constellation-map" id="constellation-map" role="region" aria-label="Personal Interest Constellation">
+            <!-- SVG Constellation Connecting Lines -->
+            <svg class="constellation-lines" viewBox="0 0 800 320" preserveAspectRatio="none" aria-hidden="true">
+              <polyline points="100,160 250,70 420,120 580,60 720,170" class="star-connector" />
+              <polyline points="250,70 420,240 580,60" class="star-connector-branch" />
+            </svg>
+
+            <!-- Star 1: Music -->
+            <button class="constellation-star star-1" data-interest="music" aria-label="Star 1: Music">
+              <span class="star-glow"></span>
+              <span class="star-point"><i class="fa-solid fa-music"></i></span>
+              <span class="star-title">Music</span>
+            </button>
+
+            <!-- Star 2: Books -->
+            <button class="constellation-star star-2" data-interest="books" aria-label="Star 2: Books">
+              <span class="star-glow"></span>
+              <span class="star-point"><i class="fa-solid fa-book-open"></i></span>
+              <span class="star-title">Books</span>
+            </button>
+
+            <!-- Star 3: Swimming -->
+            <button class="constellation-star star-3" data-interest="swimming" aria-label="Star 3: Swimming">
+              <span class="star-glow"></span>
+              <span class="star-point"><i class="fa-solid fa-water"></i></span>
+              <span class="star-title">Swimming</span>
+            </button>
+
+            <!-- Star 4: Curiosity -->
+            <button class="constellation-star star-4" data-interest="curiosity" aria-label="Star 4: Curiosity">
+              <span class="star-glow"></span>
+              <span class="star-point"><i class="fa-solid fa-compass"></i></span>
+              <span class="star-title">Curiosity</span>
+            </button>
+
+            <!-- Star 5: Learning New Tech -->
+            <button class="constellation-star star-5" data-interest="learning" aria-label="Star 5: Learning New Technologies">
+              <span class="star-glow"></span>
+              <span class="star-point"><i class="fa-solid fa-lightbulb"></i></span>
+              <span class="star-title">Learning Tech</span>
+            </button>
+          </div>
+
+          <!-- Constellation Detail Card Reveal -->
+          <div class="constellation-reveal-card glass-card" id="constellation-reveal" aria-live="polite">
+            <div class="reveal-content-wrap">
+              <div class="reveal-icon" id="reveal-icon"><i class="fa-solid fa-star"></i></div>
+              <div class="reveal-text">
+                <h4 class="reveal-title" id="reveal-title">Select a star to discover</h4>
+                <p class="reveal-body" id="reveal-body">
+                  Click on any star in the constellation map above to explore how music, reading, swimming, and curiosity inspire my software journey.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ====================================================================
+         SECTION A: ABOUT ME
+         ==================================================================== -->
+    <section class="section-block about-section" id="about">
+      <div class="container">
+        
+        <div class="section-heading">
+          <span class="section-tag"><i class="fa-solid fa-compass"></i> Section A</span>
+          <h2 class="section-title">More than just a <span class="gradient-text">collection of code.</span></h2>
+          <p class="section-subtitle">
+            An introduction to my background as an engineering undergraduate, what drives my curiosity, and how I approach problem solving.
+          </p>
+        </div>
+
+        <div class="about-grid">
+          
+          <!-- Narrative Column -->
+          <div class="about-narrative glass-card">
+            <h3 class="narrative-heading">
+              Hello, I am Akhila Xavier — a Computer Science and Engineering student driven by the desire to understand how systems work from the inside out.
+            </h3>
+
+            <p>
+              Currently pursuing my <strong>B.Tech in Computer Science and Engineering</strong> at <strong>Sree Chitra Thirunal College of Engineering (SCTCE), Thiruvananthapuram</strong>, my journey is rooted in an active curiosity about technology and software development.
+            </p>
+
+            <p>
+              To me, programming is not just about memorizing syntax or completing assignments; it is a creative medium for transforming raw ideas into practical, reliable tools. Whether exploring object-oriented design in Java, writing structured algorithms in C, or experimenting with modern web standards, I enjoy the meticulous process of taking a problem apart, understanding its constraints, and assembling an elegant solution.
+            </p>
+
+            <p>
+              Beyond the terminal, I believe true creativity comes from maintaining a broad perspective. Listening to music, reading thoughtfully, swimming, and exploring new concepts outside the classroom all contribute to how I approach technical challenges with patience, balance, and an open mind.
+            </p>
+
+            <div class="learning-approach-box">
+              <div class="approach-icon"><i class="fa-solid fa-seedling"></i></div>
+              <div>
+                <h4 class="approach-title">My Philosophy: Continuous Learning</h4>
+                <p class="approach-text">
+                  I don't claim to know everything. Instead, I embrace the mindset of a dedicated learner — someone who listens attentively, asks questions, verifies principles through building, and continuously refines her craft.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Academic & Overview Telemetry Column -->
+          <div class="about-telemetry">
+            
+            <div class="telemetry-card glass-card">
+              <h4 class="card-mini-title"><i class="fa-solid fa-id-card"></i> Student Coordinates</h4>
+              
+              <ul class="telemetry-list">
+                <li>
+                  <span class="t-label"><i class="fa-solid fa-user"></i> Name:</span>
+                  <span class="t-value">Akhila Xavier</span>
+                </li>
+                <li>
+                  <span class="t-label"><i class="fa-solid fa-graduation-cap"></i> Degree:</span>
+                  <span class="t-value">B.Tech Computer Science &amp; Engineering</span>
+                </li>
+                <li>
+                  <span class="t-label"><i class="fa-solid fa-building-columns"></i> Institution:</span>
+                  <span class="t-value">SCT College of Engineering, Thiruvananthapuram</span>
+                </li>
+                <li>
+                  <span class="t-label"><i class="fa-solid fa-location-dot"></i> Location:</span>
+                  <span class="t-value">Kerala, India</span>
+                </li>
+                <li>
+                  <span class="t-label"><i class="fa-solid fa-compass"></i> Focus:</span>
+                  <span class="t-value text-accent">Core CS, Web &amp; Cloud Fundamentals</span>
+                </li>
+              </ul>
+            </div>
+
+            <!-- Authentic Interests Card -->
+            <div class="interests-card glass-card">
+              <h4 class="card-mini-title"><i class="fa-solid fa-heart"></i> Personal Interests</h4>
+              <div class="interest-chips">
+                <span class="chip"><i class="fa-solid fa-code"></i> Technology &amp; Coding</span>
+                <span class="chip"><i class="fa-solid fa-music"></i> Music</span>
+                <span class="chip"><i class="fa-solid fa-book"></i> Books &amp; Reading</span>
+                <span class="chip"><i class="fa-solid fa-person-swimming"></i> Swimming</span>
+                <span class="chip"><i class="fa-solid fa-brain"></i> Creative Problem Solving</span>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ====================================================================
+         SECTION B: TECH SUPERPOWERS
+         ==================================================================== -->
+    <section class="section-block skills-section" id="skills">
+      <div class="container">
+        
+        <div class="section-heading text-center">
+          <span class="section-tag"><i class="fa-solid fa-microchip"></i> Section B</span>
+          <h2 class="section-title">Tools I use to turn <span class="gradient-text">ideas into reality.</span></h2>
+          <p class="section-subtitle">
+            An honest overview of my programming foundation, development tooling, and emerging technologies currently being explored.
+          </p>
+        </div>
+
+        <div class="skills-categories-grid">
+          
+          <!-- Category 1: Programming Languages -->
+          <div class="skill-category-card glass-card">
+            <div class="category-header">
+              <div class="cat-icon cat-prog"><i class="fa-solid fa-code"></i></div>
+              <div>
+                <span class="cat-pill">Core Foundation</span>
+                <h3 class="cat-title">Programming Languages</h3>
+              </div>
+            </div>
+            <p class="cat-desc">Strong fundamentals in structured and object-oriented programming paradigms.</p>
+            
+            <div class="skill-items">
+              <div class="skill-item">
+                <div class="skill-info">
+                  <span class="skill-name"><i class="fa-solid fa-c"></i> C Programming</span>
+                  <span class="skill-status-tag">Academic &amp; Core</span>
+                </div>
+                <p class="skill-sub">Pointers, memory management, structured programming, systems logic.</p>
+              </div>
+
+              <div class="skill-item">
+                <div class="skill-info">
+                  <span class="skill-name"><i class="fa-brands fa-java"></i> Java</span>
+                  <span class="skill-status-tag">Primary OOP</span>
+                </div>
+                <p class="skill-sub">Object-oriented architecture, Swing GUI, AWT, JDBC database connectivity.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Category 2: Computer Science Concepts -->
+          <div class="skill-category-card glass-card">
+            <div class="category-header">
+              <div class="cat-icon cat-cs"><i class="fa-solid fa-network-wired"></i></div>
+              <div>
+                <span class="cat-pill">Theoretical Core</span>
+                <h3 class="cat-title">Computer Science</h3>
+              </div>
+            </div>
+            <p class="cat-desc">Theoretical foundations essential for writing efficient, maintainable algorithms.</p>
+            
+            <div class="skill-items">
+              <div class="skill-item">
+                <div class="skill-info">
+                  <span class="skill-name"><i class="fa-solid fa-sitemap"></i> Data Structures &amp; Algorithms</span>
+                  <span class="skill-status-tag">Foundational</span>
+                </div>
+                <p class="skill-sub">Arrays, linked lists, stacks, queues, trees, searching, sorting and time complexity.</p>
+              </div>
+
+              <div class="skill-item">
+                <div class="skill-info">
+                  <span class="skill-name"><i class="fa-solid fa-cubes"></i> Object-Oriented Programming</span>
+                  <span class="skill-status-tag">Applied</span>
+                </div>
+                <p class="skill-sub">Encapsulation, inheritance, polymorphism, abstraction, and clean class design.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Category 3: Web Development -->
+          <div class="skill-category-card glass-card">
+            <div class="category-header">
+              <div class="cat-icon cat-web"><i class="fa-solid fa-globe"></i></div>
+              <div>
+                <span class="cat-pill">Client Tier</span>
+                <h3 class="cat-title">Web Development</h3>
+              </div>
+            </div>
+            <p class="cat-desc">Standards-based web technologies used to craft responsive, accessible interfaces.</p>
+            
+            <div class="skill-items">
+              <div class="skill-item">
+                <div class="skill-info">
+                  <span class="skill-name"><i class="fa-brands fa-html5"></i> HTML5</span>
+                  <span class="skill-status-tag">Semantic</span>
+                </div>
+                <p class="skill-sub">Accessible document structures, semantic landmark tags, forms, and audio/canvas APIs.</p>
+              </div>
+
+              <div class="skill-item">
+                <div class="skill-info">
+                  <span class="skill-name"><i class="fa-brands fa-css3-alt"></i> CSS3</span>
+                  <span class="skill-status-tag">Responsive</span>
+                </div>
+                <p class="skill-sub">Flexbox, CSS Grid, media queries, CSS custom properties, and keyframe animations.</p>
+              </div>
+
+              <div class="skill-item">
+                <div class="skill-info">
+                  <span class="skill-name"><i class="fa-brands fa-square-js"></i> Vanilla JavaScript</span>
+                  <span class="skill-status-tag">Interactive</span>
+                </div>
+                <p class="skill-sub">DOM manipulation, event handling, asynchronous logic, Canvas 2D rendering.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Category 4: Development Tools -->
+          <div class="skill-category-card glass-card">
+            <div class="category-header">
+              <div class="cat-icon cat-tools"><i class="fa-solid fa-toolbox"></i></div>
+              <div>
+                <span class="cat-pill">Workflow</span>
+                <h3 class="cat-title">Development Tools</h3>
+              </div>
+            </div>
+            <p class="cat-desc">Everyday developer workflow tools for version control, editing, and collaboration.</p>
+            
+            <div class="skill-items">
+              <div class="skill-item">
+                <div class="skill-info">
+                  <span class="skill-name"><i class="fa-brands fa-git-alt"></i> Git</span>
+                  <span class="skill-status-tag">Version Control</span>
+                </div>
+                <p class="skill-sub">Local repository management, commits, staging, branch workflows, and history tracking.</p>
+              </div>
+
+              <div class="skill-item">
+                <div class="skill-info">
+                  <span class="skill-name"><i class="fa-brands fa-github"></i> GitHub</span>
+                  <span class="skill-status-tag">Collaboration</span>
+                </div>
+                <p class="skill-sub">Remote repository hosting, issues, collaboration, and continuous deployment pipelines.</p>
+              </div>
+
+              <div class="skill-item">
+                <div class="skill-info">
+                  <span class="skill-name"><i class="fa-solid fa-laptop-code"></i> VS Code</span>
+                  <span class="skill-status-tag">Editor</span>
+                </div>
+                <p class="skill-sub">Primary integrated development environment, debugging tools, extensions.</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Distinct Section: Currently Exploring -->
+        <div class="exploring-banner glass-card">
+          <div class="exploring-header">
+            <span class="exploring-badge"><i class="fa-solid fa-compass"></i> Learning Frontier</span>
+            <h3 class="exploring-title">Currently Exploring &amp; Learning</h3>
+            <p class="exploring-subtitle">
+              Technologies and paradigms I am actively investigating to expand my technical horizon:
+            </p>
+          </div>
+
+          <div class="exploring-grid">
+            <div class="exploring-card">
+              <div class="exp-icon"><i class="fa-brands fa-aws"></i></div>
+              <h4 class="exp-name">AWS Cloud Technologies</h4>
+              <p class="exp-desc">
+                Investigating AWS Amplify Hosting, Amazon S3 static asset delivery, Amazon CloudFront global edge distribution, and cloud fundamentals through the AWS Student Builder Challenge.
+              </p>
+            </div>
+
+            <div class="exploring-card">
+              <div class="exp-icon"><i class="fa-solid fa-shield-cat"></i></div>
+              <h4 class="exp-name">Local AI Architectures</h4>
+              <p class="exp-desc">
+                Exploring lightweight local AI models and on-device inference to analyze data without depending entirely on centralized external cloud APIs.
+              </p>
+            </div>
+
+            <div class="exploring-card">
+              <div class="exp-icon"><i class="fa-solid fa-user-shield"></i></div>
+              <h4 class="exp-name">Privacy-Focused Software</h4>
+              <p class="exp-desc">
+                Studying architectural patterns for data anonymization, client-side preprocessing, and protecting user confidentiality before third-party service transmission.
+              </p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ====================================================================
+         SECTION C: PROJECTS AND ACHIEVEMENTS
+         ==================================================================== -->
+    <section class="section-block projects-section" id="projects">
+      <div class="container">
+        
+        <div class="section-heading text-center">
+          <span class="section-tag"><i class="fa-solid fa-rocket"></i> Section C</span>
+          <h2 class="section-title">Small beginnings. <span class="gradient-text">Big possibilities.</span></h2>
+          <p class="section-subtitle">
+            A transparent overview of academic applications, conceptual prototypes, and creative frontend engineering.
+          </p>
+        </div>
+
+        <div class="projects-grid">
+          
+          <!-- PROJECT 1: Smart Healthcare Companion -->
+          <article class="project-card glass-card">
+            <div class="project-header">
+              <div class="project-category-badge">Academic Application</div>
+              <span class="project-index">01</span>
+            </div>
+
+            <h3 class="project-title">Smart Healthcare Companion</h3>
+
+            <div class="project-tech-stack">
+              <span class="tech-tag">Java</span>
+              <span class="tech-tag">Java Swing</span>
+              <span class="tech-tag">AWT</span>
+              <span class="tech-tag">JDBC</span>
+              <span class="tech-tag">MySQL</span>
+            </div>
+
+            <p class="project-overview">
+              A desktop-based healthcare management application built in Java designed to streamline patient records, appointment scheduling, and doctor consultations.
+            </p>
+
+            <div class="project-details-block">
+              <h4 class="details-heading"><i class="fa-solid fa-circle-info"></i> Project Details &amp; Purpose</h4>
+              <ul class="details-list">
+                <li>
+                  <strong>Purpose:</strong> Solve the clutter of manual hospital paperwork by providing an intuitive graphical user interface for front-desk staff and patients.
+                </li>
+                <li>
+                  <strong>Architecture:</strong> Developed with Java Swing and AWT for desktop window management and interactive input dialogs.
+                </li>
+                <li>
+                  <strong>Database Tier:</strong> Integrated with a MySQL relational database using JDBC for secure storage of patient demographic records and consultation histories.
+                </li>
+                <li>
+                  <strong>Academic Scope:</strong> Focuses purely on core OOP concepts, relational normalization, and client-side validation without misrepresenting AI or cloud capabilities.
+                </li>
+              </ul>
+            </div>
+
+            <div class="project-status-bar">
+              <span class="status-indicator completed"></span>
+              <span class="status-text">Academic Desktop Project (Completed)</span>
+            </div>
+          </article>
+
+          <!-- PROJECT 2: PRISM — Local AI Privacy Copilot -->
+          <article class="project-card glass-card">
+            <div class="project-header">
+              <div class="project-category-badge">Exploratory Concept &amp; Prototype</div>
+              <span class="project-index">02</span>
+            </div>
+
+            <h3 class="project-title">PRISM — Local AI Privacy Copilot</h3>
+
+            <div class="project-tech-stack">
+              <span class="tech-tag">Privacy Engineering</span>
+              <span class="tech-tag">Data Sanitization</span>
+              <span class="tech-tag">Python Concept</span>
+              <span class="tech-tag">API Security</span>
+            </div>
+
+            <p class="project-overview">
+              An exploratory project investigating privacy-preserving intermediaries that protect sensitive user data before interacting with external artificial intelligence services.
+            </p>
+
+            <div class="project-details-block">
+              <h4 class="details-heading"><i class="fa-solid fa-shield-halved"></i> Conceptual Approach</h4>
+              <ul class="details-list">
+                <li>
+                  <strong>The Problem:</strong> When developers and students send prompts to commercial LLM APIs, confidential details, API keys, and personal identifiers can inadvertently leak.
+                </li>
+                <li>
+                  <strong>The Concept:</strong> PRISM explores a local client-side layer that inspects outgoing prompts, detects sensitive patterns (e.g. emails, tokens, personal identifiers), and scrubs or pseudonymizes them locally.
+                </li>
+                <li>
+                  <strong>Current Status:</strong> Early experimental research and prototype stage. Presented honestly as an active investigation into local AI safety rather than a fully finished commercial copilot.
+                </li>
+              </ul>
+            </div>
+
+            <div class="project-status-bar">
+              <span class="status-indicator exploring"></span>
+              <span class="status-text">Research &amp; Prototype Exploration (In Progress)</span>
+            </div>
+          </article>
+
+          <!-- PROJECT 3: My Digital Universe -->
+          <article class="project-card glass-card">
+            <div class="project-header">
+              <div class="project-category-badge">AWS Student Builder Submission</div>
+              <span class="project-index">03</span>
+            </div>
+
+            <h3 class="project-title">My Digital Universe (Portfolio)</h3>
+
+            <div class="project-tech-stack">
+              <span class="tech-tag">HTML5</span>
+              <span class="tech-tag">CSS3</span>
+              <span class="tech-tag">Vanilla JavaScript</span>
+              <span class="tech-tag">Canvas 2D</span>
+              <span class="tech-tag">AWS Amplify</span>
+            </div>
+
+            <p class="project-overview">
+              A bespoke, lightweight interactive portfolio engineered to represent my engineering journey, technical interests, and creative curiosity for the AWS Student Builder Challenge.
+            </p>
+
+            <div class="project-details-block">
+              <h4 class="details-heading"><i class="fa-solid fa-atom"></i> Creative Engineering</h4>
+              <ul class="details-list">
+                <li>
+                  <strong>Interactive Cosmic Feature:</strong> Custom solar system featuring central star `AX` with three clickable orbiting planets and a personal interest constellation.
+                </li>
+                <li>
+                  <strong>Zero Bulky Frameworks:</strong> Built with pure HTML5, CSS3, and modular vanilla JavaScript for lightning-fast load times and zero dependency overhead.
+                </li>
+                <li>
+                  <strong>AWS Architecture:</strong> Prepared specifically for static hosting via AWS Amplify, with automated CI/CD from GitHub, Amazon S3 storage, and Amazon CloudFront CDN.
+                </li>
+                <li>
+                  <strong>Accessible &amp; Responsive:</strong> Includes reduced-motion preferences, keyboard navigation, and full responsiveness across phone, tablet, and desktop screens.
+                </li>
+              </ul>
+            </div>
+
+            <div class="project-status-bar">
+              <span class="status-indicator completed"></span>
+              <span class="status-text">Production Ready (AWS Amplify Hosting)</span>
+            </div>
+          </article>
+
+        </div>
+
+        <!-- Space for Future Projects -->
+        <div class="future-projects-card glass-card">
+          <div class="future-icon"><i class="fa-solid fa-compass-drafting"></i></div>
+          <div class="future-content">
+            <h4 class="future-title">More Possibilities on the Horizon</h4>
+            <p class="future-text">
+              As I advance through my Computer Science degree at SCTCE, this space will house future collaborative projects, cloud architectures built on AWS, and open-source contributions. Every challenge is a stepping stone.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ====================================================================
+         CONTACT SECTION
+         ==================================================================== -->
+    <section class="section-block contact-section" id="contact">
+      <div class="container">
+        
+        <div class="section-heading text-center">
+          <span class="section-tag"><i class="fa-solid fa-paper-plane"></i> Connect</span>
+          <h2 class="section-title">Start a <span class="gradient-text">Conversation.</span></h2>
+          <p class="section-subtitle">
+            Whether you have questions about my projects, feedback on this universe, or opportunities to collaborate, feel free to reach out.
+          </p>
+        </div>
+
+        <div class="contact-card-wrapper glass-card">
+          <div class="contact-header-info">
+            <h3 class="contact-intro-title">Get In Touch</h3>
+            <p class="contact-intro-desc">
+              All social profiles and contact channels are configured through <code class="code-pill">config.js</code>. No broken or mock links are published.
+            </p>
+          </div>
+
+          <!-- Verified Channels List -->
+          <div class="contact-channels-grid">
+            
+            <!-- Email Channel -->
+            <div class="channel-box" id="email-channel-card">
+              <div class="channel-icon"><i class="fa-solid fa-envelope"></i></div>
+              <div class="channel-details">
+                <span class="channel-type">Email Dispatch</span>
+                <span class="channel-status" id="email-status-text">Checking configuration...</span>
+              </div>
+              <a href="#" class="btn-channel" id="email-action-btn" target="_blank" rel="noopener noreferrer">
+                <span>Send Email</span>
+                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+              </a>
+            </div>
+
+            <!-- GitHub Channel -->
+            <div class="channel-box" id="github-channel-card">
+              <div class="channel-icon"><i class="fa-brands fa-github"></i></div>
+              <div class="channel-details">
+                <span class="channel-type">GitHub Profile</span>
+                <span class="channel-status" id="github-status-text">Checking configuration...</span>
+              </div>
+              <a href="#" class="btn-channel" id="github-action-btn" target="_blank" rel="noopener noreferrer">
+                <span>View Profile</span>
+                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+              </a>
+            </div>
+
+            <!-- LinkedIn Channel -->
+            <div class="channel-box" id="linkedin-channel-card">
+              <div class="channel-icon"><i class="fa-brands fa-linkedin-in"></i></div>
+              <div class="channel-details">
+                <span class="channel-type">LinkedIn Connection</span>
+                <span class="channel-status" id="linkedin-status-text">Checking configuration...</span>
+              </div>
+              <a href="#" class="btn-channel" id="linkedin-action-btn" target="_blank" rel="noopener noreferrer">
+                <span>Connect</span>
+                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+              </a>
+            </div>
+
+          </div>
+
+          <!-- Configuration Note for the User -->
+          <div class="config-instruction-notice">
+            <i class="fa-solid fa-circle-info"></i>
+            <div>
+              <strong>Profile Configuration Notice:</strong>
+              <span>To set your verified email, GitHub, and LinkedIn profile URLs, simply edit <code class="code-pill">config.js</code> in the project root. The buttons above automatically update or display a configuration notice.</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ====================================================================
+       FOOTER
+       ==================================================================== -->
+  <footer class="site-footer">
+    <div class="container footer-container">
+      
+      <div class="footer-left">
+        <div class="footer-brand">
+          <span class="brand-orbit-icon"><i class="fa-solid fa-atom"></i></span>
+          <span class="brand-name">Akhila <span class="brand-accent">Xavier</span></span>
+        </div>
+        <p class="footer-tagline">"Exploring technology. Creating possibilities."</p>
+        <p class="footer-affiliation">
+          B.Tech Computer Science &amp; Engineering &bull; Sree Chitra Thirunal College of Engineering, Thiruvananthapuram
+        </p>
+      </div>
+
+      <div class="footer-right">
+        <!-- Repository Link Anchor -->
+        <a href="#" class="footer-repo-link" id="footer-repo-link" target="_blank" rel="noopener noreferrer">
+          <i class="fa-brands fa-github"></i>
+          <span id="repo-link-text">Project Repository</span>
+        </a>
+
+        <p class="copyright-note">
+          &copy; <span id="current-year">2026</span> Akhila Xavier. Designed &amp; built for the AWS Student Builder Challenge.
+        </p>
+
+        <a href="#home" class="btn-back-to-top" aria-label="Back to top">
+          <span>Back to Top</span>
+          <i class="fa-solid fa-arrow-up"></i>
+        </a>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- Configuration File -->
+  <script src="config.js"></script>
+  <!-- Application Engine Script -->
+  <script src="script.js"></script>
+</body>
+</html>
